@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use Database\Factories\Helpers\FactoryHelper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,8 +18,10 @@ class SubscriberFactory extends Factory
      */
     public function definition(): array
     {
+        $user_id = FactoryHelper::getRandomModelId(User::class);
+
         return [
-            'user_id' => rand(1, 10)
+            'user_id' => $user_id
         ];
     }
 }

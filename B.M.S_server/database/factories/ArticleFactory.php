@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\User;
+use Database\Factories\Helpers\FactoryHelper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,11 +18,13 @@ class ArticleFactory extends Factory
      */
     public function definition(): array
     {
+        $user_id = FactoryHelper::getRandomModelId(User::class);
+
         return [
             'title' => $this->faker->title(),
             'body' => $this->faker->words(100),
             'image' => $this->faker->imageUrl(),
-            'user_id' => rand(1, 10)
+            'user_id' => $user_id
         ];
     }
 }

@@ -2,6 +2,9 @@
 
 namespace Database\Factories;
 
+use App\Models\Article;
+use App\Models\User;
+use Database\Factories\Helpers\FactoryHelper;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -16,10 +19,13 @@ class CommentFactory extends Factory
      */
     public function definition(): array
     {
+        $article_id = FactoryHelper::getRandomModelId(Article::class);
+        $user_id = FactoryHelper::getRandomModelId(User::class);
+
         return [
             'body' => $this->faker->words(10),
-            'user_id' => rand(1, 10),
-            'article_id' => rand(1, 5)
+            'user_id' => $user_id,
+            'article_id' => $article_id
         ];
     }
 }
