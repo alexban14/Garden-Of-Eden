@@ -16,9 +16,10 @@ class ArticleController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $articles = Article::query()->get();
+        $pageSize = $request->page_size ?? 20;
+        $articles = Article::query()->paginate($pageSize);
 
         return ArticleResource::collection($articles);
     }
@@ -51,8 +52,7 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        Log::info("REQUEST: " . $request);
-        // $updated = $article->update($request->only(['title, body, image']));
+        // $updated = $article->update($request->only(['title', 'body', 'image']));
         $updated = $article->update([
             'title' => $request->title ?? $article->title,
             'body' => $request->body ?? $article->body,

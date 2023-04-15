@@ -11,6 +11,12 @@ class User extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'email',
+        'password',
+        'email_verified_at'
+    ];
     public function articles(): HasMany
     {
         return $this->hasMany(Article::class, 'user_id');

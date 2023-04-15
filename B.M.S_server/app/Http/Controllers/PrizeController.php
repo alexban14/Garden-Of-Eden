@@ -17,9 +17,10 @@ class PrizeController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $prizes = Prize::query()->get();
+        $pageSize = $request->page_size ?? 20;
+        $prizes = Prize::query()->paginate(20);
         return PrizeResource::collection($prizes);
     }
 

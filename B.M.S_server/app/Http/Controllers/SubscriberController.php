@@ -14,9 +14,10 @@ class SubscriberController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
-        $subscribers = Subscriber::query()->get();
+        $pageSize = $request->page_size ?? 20;
+        $subscribers = Subscriber::query()->paginate($pageSize);
 
         return SubscriberResource::collection($subscribers);
     }
