@@ -2,9 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Subscriber;
+use App\Http\Resources\SubscriberResource;
+use App\Models\Subscriber;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Http\Requests\UpdateSubscriberRequest;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
 class SubscriberController extends Controller
 {
@@ -13,15 +16,21 @@ class SubscriberController extends Controller
      */
     public function index()
     {
-        //
+        $subscribers = Subscriber::query()->get();
+
+        return SubscriberResource::collection($subscribers);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StoreSubscriberRequest $request)
+    public function store(Request $request)
     {
-        //
+        $subscriber_create = Subscriber::query()->create([
+            'user_id' => $request
+        ]);
+
+        return new SubscriberResource($subscriber_create);
     }
 
     /**
@@ -29,15 +38,15 @@ class SubscriberController extends Controller
      */
     public function show(Subscriber $subscriber)
     {
-        //
+        return new SubscriberResource($subscriber);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateSubscriberRequest $request, Subscriber $subscriber)
+    public function update(Request $request, Subscriber $subscriber)
     {
-        //
+        return null;
     }
 
     /**
@@ -45,6 +54,8 @@ class SubscriberController extends Controller
      */
     public function destroy(Subscriber $subscriber)
     {
-        //
+        $delete = $subscriber->forceDelete();
+
+        return new SubscriberResource($subscriber);
     }
 }

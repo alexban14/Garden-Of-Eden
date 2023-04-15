@@ -16,8 +16,12 @@ return new class extends Migration
         Schema::create('comments', function (Blueprint $table) {
             $table->id();
             $table->json('body');
-            $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
-            $table->foreignIdFor(Article::class)->constrained()->cascadeOnDelete();
+            // $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();
+            // $table->foreignIdFor(Article::class)->constrained()->cascadeOnDelete();
+            $table->foreignId('article_id');
+            $table->foreign('article_id')->on('articles')->references('id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

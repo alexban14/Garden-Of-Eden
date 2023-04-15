@@ -12,6 +12,12 @@ class Article extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'title',
+        'body',
+        'image',
+        'user_id'
+    ];
     protected $casts = [
         'body' => 'array'
     ];

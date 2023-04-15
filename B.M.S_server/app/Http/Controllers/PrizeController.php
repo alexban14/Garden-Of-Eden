@@ -2,10 +2,16 @@
 
 namespace App\Http\Controllers;
 
-use App\Prize;
+use App\Models\Prize;
 use App\Http\Requests\StorePrizeRequest;
 use App\Http\Requests\UpdatePrizeRequest;
+use App\Http\Resources\PrizeResource;
+use Illuminate\Http\Request;
+use Illuminate\Routing\Controller;
 
+/**
+ * Summary of PrizeController
+ */
 class PrizeController extends Controller
 {
     /**
@@ -13,15 +19,22 @@ class PrizeController extends Controller
      */
     public function index()
     {
-        //
+        $prizes = Prize::query()->get();
+        return PrizeResource::collection($prizes);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(StorePrizeRequest $request)
+    public function store(Request $request)
     {
-        //
+        $created_prize = Prize::query()->create([
+            'name' => $request->name,
+            'description' => $request->description,
+            'user_is' => $request->user_id
+        ]);
+
+        return new PrizeResource($created_prize);
     }
 
     /**
@@ -29,7 +42,7 @@ class PrizeController extends Controller
      */
     public function show(Prize $prize)
     {
-        //
+        return new PrizeResource($prize);
     }
 
     /**
@@ -37,7 +50,8 @@ class PrizeController extends Controller
      */
     public function update(UpdatePrizeRequest $request, Prize $prize)
     {
-        //
+        $updated = $prize->update($request->only('name', 'description'));
+        return new PrizeResource($prize);
     }
 
     /**
@@ -45,6 +59,7 @@ class PrizeController extends Controller
      */
     public function destroy(Prize $prize)
     {
-        //
+        $deleted = $prize->forceDelete();
+        return new PrizeResource($prize);
     }
 }
