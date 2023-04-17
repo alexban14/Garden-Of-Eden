@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\GeneralJsonException;
 use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Http\Resources\ArticleResource;
@@ -46,20 +47,9 @@ class ArticleController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Article $article)
+    public function update(Request $request, Article $article ,ArticleRepository $repository)
     {
-        $updated = $article->update($request->only(['title', 'body', 'title']));
-        // $updated = $article->update([
-        //     'title' => $request->title ?? $article->title,
-        //     'body' => $request->body ?? $article->body,
-        //     'image' => $request->image ?? $article->image,
-        // ]);
-
-        if (!$updated) {
-            return new JsonResponse([
-                'error' => ['Failed to update the resource']
-            ], 400);
-        }
+        $updated = $repository->update($request->only(['title', 'body', 'image']), $article);
 
         return new ArticleResource($article);
     }
@@ -67,15 +57,9 @@ class ArticleController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Article $article)
+    public function destroy(Article $article, ArticleRepository $repository)
     {
-        $deleted = $article->forceDelete();
-
-        if (!$deleted) {
-            return new JsonResponse([
-                'error' => ['Failed to delete the resource']
-            ], 400);
-        }
+        $deleted = $repository->forceDelete($article);
 
         return new ArticleResource($article);
     }

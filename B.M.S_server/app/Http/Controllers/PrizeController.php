@@ -46,18 +46,18 @@ class PrizeController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdatePrizeRequest $request, Prize $prize)
+    public function update(UpdatePrizeRequest $request, Prize $prize, PrizeRepository $repository)
     {
-        $updated = $prize->update($request->only('name', 'description'));
+        $updated = $repository->update($request->only(['name', 'description']), $prize);
         return new PrizeResource($prize);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Prize $prize)
+    public function destroy(Prize $prize, PrizeRepository $repository)
     {
-        $deleted = $prize->forceDelete();
+        $deleted = $repository->forceDelete($prize);
         return new PrizeResource($prize);
     }
 }

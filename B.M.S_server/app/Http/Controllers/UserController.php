@@ -31,16 +31,16 @@ class UserController extends Controller
         return new UserResource($user);
     }
 
-    public function update(Request $request, User $user)
+    public function update(Request $request, User $user, UserRepository $repository)
     {
-        $updated = $user->update($request->only(['name', 'email', 'email_verified_at']));
+        $updated = $repository->update($request->only(['name', 'email', 'email_verified_at']), $user);
 
         return new UserResource($user);
     }
 
-    public function destroy(User $user)
+    public function destroy(User $user, UserRepository $repository)
     {
-        $deleted = $user->forceDelete();
+        $deleted = $repository->forceDelete($user);
         return new UserResource($user);
     }
 }

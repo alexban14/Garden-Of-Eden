@@ -44,18 +44,18 @@ class CommentController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Comment $comment)
+    public function update(Request $request, Comment $comment, CommentRepository $repository)
     {
-        $updated = $comment->update($request->only(['body']));
+        $updated = $repository->update($request->only(['body']), $comment);
         return new CommentResource($comment);
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(Comment $comment)
+    public function destroy(Comment $comment, CommentRepository $repository)
     {
-        $deleted = $comment->forceDelete();
+        $deleted = $repository->forceDelete($comment);
         return new CommentResource($comment);
     }
 }
