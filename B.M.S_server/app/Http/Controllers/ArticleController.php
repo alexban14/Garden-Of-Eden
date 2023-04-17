@@ -6,6 +6,7 @@ use App\Http\Requests\StoreArticleRequest;
 use App\Http\Requests\UpdateArticleRequest;
 use App\Http\Resources\ArticleResource;
 use App\Models\Article;
+use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Illuminate\Support\Facades\Log;
@@ -27,14 +28,9 @@ class ArticleController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, ArticleRepository $repository)
     {
-        $createdArticle = Article::query()->create([
-            'title' => $request->title,
-            'body' => $request->body,
-            'image' => $request->image,
-            'user_id' => $request->user_id
-        ]);
+        $createdArticle = $repository->create($request->only(['title', 'body', 'image', 'user_id']));
 
         return new ArticleResource($createdArticle);
     }
@@ -52,12 +48,12 @@ class ArticleController extends Controller
      */
     public function update(Request $request, Article $article)
     {
-        // $updated = $article->update($request->only(['title', 'body', 'image']));
-        $updated = $article->update([
-            'title' => $request->title ?? $article->title,
-            'body' => $request->body ?? $article->body,
-            'image' => $request->image ?? $article->image,
-        ]);
+        $updated = $article->update($request->only(['title', 'body', 'title']));
+        // $updated = $article->update([
+        //     'title' => $request->title ?? $article->title,
+        //     'body' => $request->body ?? $article->body,
+        //     'image' => $request->image ?? $article->image,
+        // ]);
 
         if (!$updated) {
             return new JsonResponse([

@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Repositories\CommentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -25,14 +26,9 @@ class CommentController extends Controller
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, CommentRepository $repository)
     {
-        // $createComment = Comment::query()->create($request->only(['body', 'user_id', 'article_id']));
-        $createComment = Comment::query()->create([
-            'body' => $request->body,
-            'user_id' => $request->user_id,
-            'article_id' => $request->article_id
-        ]);
+        $createComment = $repository->create($request->only(['body', 'user_id', 'article_id']));
 
         return new CommentResource($createComment);
     }

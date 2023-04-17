@@ -6,6 +6,7 @@ use App\Models\Prize;
 use App\Http\Requests\StorePrizeRequest;
 use App\Http\Requests\UpdatePrizeRequest;
 use App\Http\Resources\PrizeResource;
+use App\Repositories\PrizeRepository;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 
@@ -20,20 +21,16 @@ class PrizeController extends Controller
     public function index(Request $request)
     {
         $pageSize = $request->page_size ?? 20;
-        $prizes = Prize::query()->paginate(20);
+        $prizes = Prize::query()->paginate($pageSize);
         return PrizeResource::collection($prizes);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function store(Request $request, PrizeRepository $repository)
     {
-        $created_prize = Prize::query()->create([
-            'name' => $request->name,
-            'description' => $request->description,
-            'user_is' => $request->user_id
-        ]);
+        $created_prize = $repository->create($request->only(['name', 'description', 'body']));
 
         return new PrizeResource($created_prize);
     }
