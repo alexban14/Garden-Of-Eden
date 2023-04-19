@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Events\Models\UserCreated;
 use App\Exceptions\GeneralJsonException;
 use App\Models\User;
 use Illuminate\Support\Facades\DB;
@@ -19,7 +20,7 @@ class UserRepository // extends BaseRepository
             ]);
 
             throw_if(!$createdUser, GeneralJsonException::class, 'Failed to create a user');
-
+            event(new UserCreated($createdUser));
             return $createdUser;
         });
     }
