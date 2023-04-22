@@ -7,11 +7,33 @@ use App\Models\User;
 use App\Repositories\UserRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
+use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Routing\Controller;
 
+/**
+ * @group User Management
+ *
+ * APIs to manage the user resource
+ */
 class UserController extends Controller
 {
-    public function index(Request $request)
+    /**
+     * Display a list of users
+     *
+     * Gets a list of users
+     *
+     * @queryParam page_size int Size per page. Defaults to 20. Example 20
+     * @queryParam page int Page to view.
+     *
+     * @param Request $request
+     * @return \Illuminate\Http\Resources\Json\AnonymousResourceCollection
+     *
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     * @return ResourceCollection
+     */
+    public function index(Request $request): AnonymousResourceCollection
     {
         $pageSize = $request->page_size ?? 20;
         $users = User::query()->paginate($pageSize);
@@ -19,26 +41,68 @@ class UserController extends Controller
         return UserResource::collection($users);
     }
 
-    public function store(Request $request, UserRepository $repository)
+    /**
+     * Store a newly created resource in storage
+     * @bodyParam name string required Name of the user. Example: John Doe
+     * @bodyParam email string required Email of the user. Example: john@doe.com
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @param Request $request
+     * @param UserRepository $repository
+     * @return UserResource
+     */
+    public function store(Request $request, UserRepository $repository): UserResource
     {
         $createdUser = $repository->create($request->only(['name', 'password','email']));
 
         return new UserResource($createdUser);
     }
 
-    public function show(User $user)
+    /**
+     * Display the specified resource.
+     *
+     * @urlParam id int required User ID
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @param User $user
+     * @return UserResource
+     */
+    public function show(User $user): UserResource
     {
         return new UserResource($user);
     }
 
-    public function update(Request $request, User $user, UserRepository $repository)
+    /**
+     * Update the specified resource from storage.
+     * @bodyParam name string Name of the user. Example: John Doe
+     * @bodyParam email string Email of the user. Example: john@doe.com
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @param Request $request
+     * @param User $user
+     * @param UserRepository $repository
+     * @return UserResource
+     */
+    public function update(Request $request, User $user, UserRepository $repository): UserResource
     {
         $updated = $repository->update($request->only(['name', 'email', 'email_verified_at']), $user);
 
         return new UserResource($user);
     }
 
-    public function destroy(User $user, UserRepository $repository)
+    /**
+     * Remove the specified resource from storage.
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @param User $user
+     * @param UserRepository $repository
+     * @return UserResource
+     */
+    public function destroy(User $user, UserRepository $repository): UserResource
     {
         $deleted = $repository->forceDelete($user);
         return new UserResource($user);
