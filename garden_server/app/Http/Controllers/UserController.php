@@ -42,7 +42,7 @@ class UserController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage
+     * Store a newly created user in storage
      * @bodyParam name string required Name of the user. Example: John Doe
      * @bodyParam email string required Email of the user. Example: john@doe.com
      * @apiResourceCollection App\Http\Resources\UserResource
@@ -60,7 +60,7 @@ class UserController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified user.
      *
      * @urlParam id int required User ID
      * @apiResourceCollection App\Http\Resources\UserResource
@@ -75,7 +75,7 @@ class UserController extends Controller
     }
 
     /**
-     * Update the specified resource from storage.
+     * Update the specified user from storage.
      * @bodyParam name string Name of the user. Example: John Doe
      * @bodyParam email string Email of the user. Example: john@doe.com
      * @apiResourceCollection App\Http\Resources\UserResource
@@ -94,7 +94,7 @@ class UserController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the user resource from storage.
      * @apiResourceCollection App\Http\Resources\UserResource
      * @apiResourceModel App\Models\User
      *

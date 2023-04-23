@@ -1,21 +1,21 @@
-name: 'User Management'
+name: 'Article Management'
 description: |-
 
-  APIs to manage the user resource
+  APIs to manage the article resource
 endpoints:
   -
     httpMethods:
       - GET
-    uri: api/v1/users
+    uri: api/v1/articles
     metadata:
-      groupName: 'User Management'
+      groupName: 'Article Management'
       groupDescription: |-
 
-        APIs to manage the user resource
+        APIs to manage the article resource
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display a list of users'
-      description: 'Gets a list of users'
+      title: 'Display a listing of articles'
+      description: 'Gets a list of Articles.'
       authenticated: false
       custom: []
     headers:
@@ -28,28 +28,33 @@ endpoints:
         name: page_size
         description: 'Size per page. Defaults to 20. Example 20'
         required: false
-        example: 15
+        example: 1
         type: integer
         custom: []
       page:
         name: page
         description: 'Page to view.'
         required: false
-        example: 8
+        example: 12
         type: integer
         custom: []
     cleanQueryParameters:
-      page_size: 15
-      page: 8
+      page_size: 1
+      page: 12
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[{"id":22,"name":"Nash Dietrich V","email":"hadley32@example.org","email_verified_at":"2023-04-22T15:59:15.729274Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"},{"id":23,"name":"Ross Kirlin","email":"jmills@example.org","email_verified_at":"2023-04-22T15:59:15.731210Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"}]}'
-        headers: []
-        description: ''
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/articles?page=1","last":"http:\/\/localhost\/api\/v1\/articles?page=6","prev":"http:\/\/localhost\/api\/v1\/articles?page=11","next":null},"meta":{"current_page":12,"from":null,"last_page":6,"links":[{"url":"http:\/\/localhost\/api\/v1\/articles?page=11","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=1","label":"1","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=3","label":"3","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=4","label":"4","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=5","label":"5","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=6","label":"6","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/articles","per_page":1,"to":null,"total":6}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '59'
+          access-control-allow-origin: '*'
+        description: null
         custom: []
     responseFields: []
     auth: []
@@ -60,15 +65,15 @@ endpoints:
   -
     httpMethods:
       - GET
-    uri: 'api/v1/users/{id}'
+    uri: 'api/v1/articles/{id}'
     metadata:
-      groupName: 'User Management'
+      groupName: 'Article Management'
       groupDescription: |-
 
-        APIs to manage the user resource
+        APIs to manage the article resource
       subgroup: ''
       subgroupDescription: ''
-      title: 'Display the specified resource.'
+      title: 'Display the specified article.'
       description: ''
       authenticated: false
       custom: []
@@ -78,13 +83,13 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'User ID'
+        description: 'Article ID'
         required: true
-        example: 12
+        example: 20
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 12
+      id: 20
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -93,7 +98,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":24,"name":"Prof. Katrine Simonis","email":"walton22@example.com","email_verified_at":"2023-04-22T15:59:15.746539Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"},{"id":25,"name":"Kirk Ledner","email":"uhammes@example.org","email_verified_at":"2023-04-22T15:59:15.747131Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"}]}'
+        content: '{"data":[{"id":7,"title":"Prof.","body":["voluptatem","sit","sit","sit","et","totam","neque","a","sunt","sunt","ea","maxime","esse","perferendis","culpa","vitae","quia","harum","sit","commodi","distinctio","eum","sint","consequuntur","sint","itaque","aut","eos","fugit","ex","molestiae","soluta","modi","eum","sapiente","exercitationem","dolores","natus","a","consequatur","sunt","consequuntur","nisi","inventore","totam","consequatur","sed","architecto","sunt","ratione","tenetur","corporis","neque","commodi","perferendis","sint","voluptatem","alias","et","neque","reprehenderit","dolore","et","qui","inventore","ex","id","est","odit","veniam","veritatis","necessitatibus","quidem","sunt","porro","voluptates","optio","et","repellendus","sapiente","porro","odit","aspernatur","ut","impedit","et","rerum","placeat","nostrum","cum","ea","necessitatibus","aspernatur","aut","eveniet","voluptas","voluptatibus","consectetur","deleniti","distinctio"],"image":"https:\/\/via.placeholder.com\/640x480.png\/00ccee?text=nulla","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"},{"id":8,"title":"Dr.","body":["at","sit","assumenda","magnam","commodi","consequatur","rem","ea","deserunt","optio","ex","est","ut","facere","et","ut","id","perspiciatis","voluptatibus","ab","ea","ut","in","et","consequatur","necessitatibus","dolores","magni","et","reprehenderit","maiores","et","accusamus","repellat","nobis","quia","deserunt","tempore","dolor","explicabo","rem","veniam","itaque","neque","sit","ullam","repudiandae","soluta","voluptate","id","earum","maiores","sunt","nisi","non","sint","quibusdam","maxime","laboriosam","qui","sed","nulla","voluptatem","illum","nihil","qui","atque","alias","et","deleniti","quae","amet","saepe","modi","illum","voluptatem","omnis","et","fugit","dolores","qui","doloremque","reprehenderit","deserunt","odio","non","minus","voluptatibus","quis","quibusdam","doloribus","voluptates","ut","eum","error","rerum","dicta","at","itaque","ducimus"],"image":"https:\/\/via.placeholder.com\/640x480.png\/0000ee?text=iusto","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"}]}'
         headers: []
         description: ''
         custom: []
@@ -106,15 +111,15 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/users
+    uri: api/v1/articles
     metadata:
-      groupName: 'User Management'
+      groupName: 'Article Management'
       groupDescription: |-
 
-        APIs to manage the user resource
+        APIs to manage the article resource
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage'
+      title: 'Store a newly created article in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -126,31 +131,41 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Name of the user.'
+      title:
+        name: title
+        description: 'Title of the article.'
         required: true
-        example: 'John Doe'
+        example: 'Improve Happiness'
         type: string
         custom: []
-      email:
-        name: email
-        description: 'Email of the user.'
+      body:
+        name: body
+        description: 'Body of the article.'
         required: true
-        example: john@doe.com
+        example: 'This is an article about improving life happiness'
         type: string
+        custom: []
+      image:
+        name: image
+        description: 'optional Image for the article.'
+        required: false
+        example: 'http://image.com'
+        type: url
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 9
+        type: integer
         custom: []
     cleanBodyParameters:
-      name: 'John Doe'
-      email: john@doe.com
+      title: 'Improve Happiness'
+      body: 'This is an article about improving life happiness'
+      image: 'http://image.com'
+      user_id: 9
     fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":26,"name":"Mr. Juwan Huel IV","email":"wisoky.aimee@example.com","email_verified_at":"2023-04-22T15:59:15.755229Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"},{"id":27,"name":"Nathen Carroll IV","email":"maryjane.powlowski@example.com","email_verified_at":"2023-04-22T15:59:15.755777Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"}]}'
-        headers: []
-        description: ''
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -160,15 +175,15 @@ endpoints:
   -
     httpMethods:
       - PATCH
-    uri: 'api/v1/users/{id}'
+    uri: 'api/v1/articles/{id}'
     metadata:
-      groupName: 'User Management'
+      groupName: 'Article Management'
       groupDescription: |-
 
-        APIs to manage the user resource
+        APIs to manage the article resource
       subgroup: ''
       subgroupDescription: ''
-      title: 'Update the specified resource from storage.'
+      title: 'Update the specified article in storage.'
       description: ''
       authenticated: false
       custom: []
@@ -178,7 +193,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the user.'
+        description: 'The ID of the article.'
         required: true
         example: 1
         type: integer
@@ -188,31 +203,41 @@ endpoints:
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters:
-      name:
-        name: name
-        description: 'Name of the user.'
+      title:
+        name: title
+        description: 'Title of the article.'
         required: false
-        example: 'John Doe'
+        example: 'Improve Happiness'
         type: string
         custom: []
-      email:
-        name: email
-        description: 'Email of the user.'
+      body:
+        name: body
+        description: 'Body of the article.'
         required: false
-        example: john@doe.com
+        example: 'This is an article about improving life happiness'
         type: string
+        custom: []
+      image:
+        name: image
+        description: 'Image for the article.'
+        required: false
+        example: 'http://image.com'
+        type: url
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: false
+        example: 15
+        type: integer
         custom: []
     cleanBodyParameters:
-      name: 'John Doe'
-      email: john@doe.com
+      title: 'Improve Happiness'
+      body: 'This is an article about improving life happiness'
+      image: 'http://image.com'
+      user_id: 15
     fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":28,"name":"Gerda Wyman","email":"marquardt.jordon@example.org","email_verified_at":"2023-04-22T15:59:15.763743Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"},{"id":29,"name":"Ms. Janiya Streich I","email":"pasquale.conn@example.com","email_verified_at":"2023-04-22T15:59:15.764587Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"}]}'
-        headers: []
-        description: ''
-        custom: []
+    responses: []
     responseFields: []
     auth: []
     controller: null
@@ -222,12 +247,12 @@ endpoints:
   -
     httpMethods:
       - DELETE
-    uri: 'api/v1/users/{id}'
+    uri: 'api/v1/articles/{id}'
     metadata:
-      groupName: 'User Management'
+      groupName: 'Article Management'
       groupDescription: |-
 
-        APIs to manage the user resource
+        APIs to manage the article resource
       subgroup: ''
       subgroupDescription: ''
       title: 'Remove the specified resource from storage.'
@@ -240,7 +265,7 @@ endpoints:
     urlParameters:
       id:
         name: id
-        description: 'The ID of the user.'
+        description: 'The ID of the article.'
         required: true
         example: 1
         type: integer
@@ -255,7 +280,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":30,"name":"Prof. Carey Turcotte III","email":"mae.bradtke@example.com","email_verified_at":"2023-04-22T15:59:15.769835Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"},{"id":31,"name":"Cathy Hilpert","email":"idella46@example.org","email_verified_at":"2023-04-22T15:59:15.770751Z","created_at":"2023-04-22T15:59:15.000000Z","updated_at":"2023-04-22T15:59:15.000000Z"}]}'
+        content: '{"data":[{"id":9,"title":"Mrs.","body":["magnam","veniam","eos","debitis","doloribus","ut","voluptatem","repellendus","enim","quia","provident","corrupti","molestiae","ut","maiores","voluptates","voluptatem","vel","est","ea","qui","autem","odio","illo","quisquam","laborum","culpa","dignissimos","cumque","et","autem","rerum","qui","dolorem","sunt","aut","ut","voluptatibus","velit","quis","optio","facere","quibusdam","consequatur","sint","rem","qui","voluptate","rem","non","dolore","ipsum","voluptatem","quod","explicabo","voluptatum","blanditiis","labore","dolorem","sunt","maiores","ex","fuga","fugiat","porro","ex","qui","mollitia","aut","sit","libero","minus","et","qui","consequatur","aut","officiis","cupiditate","iusto","non","qui","distinctio","harum","officiis","dignissimos","nihil","dolorem","vitae","maiores","excepturi","quisquam","quia","repudiandae","rerum","et","dolores","quis","itaque","aspernatur","quo"],"image":"https:\/\/via.placeholder.com\/640x480.png\/0055ee?text=hic","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"},{"id":10,"title":"Dr.","body":["quisquam","ut","quod","et","maxime","provident","consequuntur","provident","dolor","doloremque","nisi","ab","ut","ut","quia","ipsam","ipsa","ut","amet","quidem","nihil","modi","eos","deleniti","perspiciatis","ut","sunt","mollitia","vero","eos","odio","in","et","nostrum","soluta","id","ipsa","consequatur","est","minus","placeat","animi","qui","ut","eveniet","ut","similique","facilis","labore","quia","ipsam","sed","sunt","non","est","nihil","minus","quos","doloremque","quia","hic","maiores","ab","rem","dolorum","iste","eos","est","hic","quidem","asperiores","ut","nostrum","provident","nihil","facilis","sit","quod","aliquid","alias","beatae","alias","voluptas","non","occaecati","quis","rerum","commodi","harum","minima","aliquam","quia","hic","quam","praesentium","voluptatem","eos","culpa","illo","tempora"],"image":"https:\/\/via.placeholder.com\/640x480.png\/00dd88?text=et","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"}]}'
         headers: []
         description: ''
         custom: []

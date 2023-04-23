@@ -11,14 +11,24 @@ use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Routing\Controller;
-use Illuminate\Support\Facades\Log;
-use mysql_xdevapi\Collection;
-use Symfony\Component\HttpFoundation\JsonResponse;
 
+/**
+ * @group Article Management
+ *
+ * APIs to manage the article resource
+ */
 class ArticleController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of articles
+     *
+     * Gets a list of Articles.
+     *
+     * @queryParam page_size int Size per page. Defaults to 20. Example 20
+     * @queryParam page int Page to view.
+     * @param Request $request
+     * @return AnonymousResourceCollection
+     *
      */
     public function index(Request $request): AnonymousResourceCollection
     {
@@ -29,7 +39,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created article in storage.
+     *
+     * @bodyParam title string required Title of the article. Example: Improve Happiness
+     * @bodyParam body string required Body of the article. Example: This is an article about improving life happiness
+     * @bodyParam title string required Title of the article. Example: Improve Happiness
+     * @bodyParam image url optional Image for the article. Example: http://image.com
+     * @param StoreArticleRequest $request
+     * @param ArticleRepository $repository
+     * @return ArticleResource
      */
     public function store(StoreArticleRequest $request, ArticleRepository $repository): ArticleResource
     {
@@ -39,7 +57,14 @@ class ArticleController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified article.
+     *
+     * @urlParam id int required Article ID
+     * @apiResourceCollection App\Http\Resources\ArticleResource
+     * @apiResourceModel App\Models\Article
+     *
+     * @param Article $article
+     * @return ArticleResource
      */
     public function show(Article $article): ArticleResource
     {
@@ -47,7 +72,15 @@ class ArticleController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified article in storage.
+     *
+     * @bodyParam title string Title of the article. Example: Improve Happiness
+     * @bodyParam body string Body of the article. Example: This is an article about improving life happiness
+     * @bodyParam image url Image for the article. Example: http://image.com
+     * @param UpdateArticleRequest $request
+     * @param Article $article
+     * @param ArticleRepository $repository
+     * @return ArticleResource
      */
     public function update(UpdateArticleRequest $request, Article $article ,ArticleRepository $repository): ArticleResource
     {
@@ -58,6 +91,12 @@ class ArticleController extends Controller
 
     /**
      * Remove the specified resource from storage.
+     * @apiResourceCollection App\Http\Resources\ArticleResource
+     * @apiResourceModel App\Models\Article
+     *
+     * @param Article $article
+     * @param ArticleRepository $repository
+     * @return ArticleResource
      */
     public function destroy(Article $article, ArticleRepository $repository): ArticleResource
     {

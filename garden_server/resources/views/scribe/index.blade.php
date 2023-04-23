@@ -66,6 +66,28 @@
                     <a href="#authenticating-requests">Authenticating requests</a>
                 </li>
                             </ul>
+                    <ul id="tocify-header-article-management" class="tocify-header">
+                <li class="tocify-item level-1" data-unique="article-management">
+                    <a href="#article-management">Article Management</a>
+                </li>
+                                    <ul id="tocify-subheader-article-management" class="tocify-subheader">
+                                                    <li class="tocify-item level-2" data-unique="article-management-GETapi-v1-articles">
+                                <a href="#article-management-GETapi-v1-articles">Display a listing of articles</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="article-management-GETapi-v1-articles--id-">
+                                <a href="#article-management-GETapi-v1-articles--id-">Display the specified article.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="article-management-POSTapi-v1-articles">
+                                <a href="#article-management-POSTapi-v1-articles">Store a newly created article in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="article-management-PATCHapi-v1-articles--id-">
+                                <a href="#article-management-PATCHapi-v1-articles--id-">Update the specified article in storage.</a>
+                            </li>
+                                                                                <li class="tocify-item level-2" data-unique="article-management-DELETEapi-v1-articles--id-">
+                                <a href="#article-management-DELETEapi-v1-articles--id-">Remove the specified resource from storage.</a>
+                            </li>
+                                                                        </ul>
+                            </ul>
                     <ul id="tocify-header-endpoints" class="tocify-header">
                 <li class="tocify-item level-1" data-unique="endpoints">
                     <a href="#endpoints">Endpoints</a>
@@ -73,21 +95,6 @@
                                     <ul id="tocify-subheader-endpoints" class="tocify-subheader">
                                                     <li class="tocify-item level-2" data-unique="endpoints-GETapi-user">
                                 <a href="#endpoints-GETapi-user">GET api/user</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-articles">
-                                <a href="#endpoints-GETapi-v1-articles">Display a listing of the resource.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-articles--id-">
-                                <a href="#endpoints-GETapi-v1-articles--id-">Display the specified resource.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-POSTapi-v1-articles">
-                                <a href="#endpoints-POSTapi-v1-articles">Store a newly created resource in storage.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-PATCHapi-v1-articles--id-">
-                                <a href="#endpoints-PATCHapi-v1-articles--id-">Update the specified resource in storage.</a>
-                            </li>
-                                                                                <li class="tocify-item level-2" data-unique="endpoints-DELETEapi-v1-articles--id-">
-                                <a href="#endpoints-DELETEapi-v1-articles--id-">Remove the specified resource from storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="endpoints-GETapi-v1-comments">
                                 <a href="#endpoints-GETapi-v1-comments">Display a listing of the resource.</a>
@@ -145,16 +152,16 @@
                                 <a href="#user-management-GETapi-v1-users">Display a list of users</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-GETapi-v1-users--id-">
-                                <a href="#user-management-GETapi-v1-users--id-">Display the specified resource.</a>
+                                <a href="#user-management-GETapi-v1-users--id-">Display the specified user.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-POSTapi-v1-users">
-                                <a href="#user-management-POSTapi-v1-users">Store a newly created resource in storage</a>
+                                <a href="#user-management-POSTapi-v1-users">Store a newly created user in storage</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-PATCHapi-v1-users--id-">
-                                <a href="#user-management-PATCHapi-v1-users--id-">Update the specified resource from storage.</a>
+                                <a href="#user-management-PATCHapi-v1-users--id-">Update the specified user from storage.</a>
                             </li>
                                                                                 <li class="tocify-item level-2" data-unique="user-management-DELETEapi-v1-users--id-">
-                                <a href="#user-management-DELETEapi-v1-users--id-">Remove the specified resource from storage.</a>
+                                <a href="#user-management-DELETEapi-v1-users--id-">Remove the user resource from storage.</a>
                             </li>
                                                                         </ul>
                             </ul>
@@ -167,7 +174,7 @@
     </ul>
 
     <ul class="toc-footer" id="last-updated">
-        <li>Last updated: April 22, 2023</li>
+        <li>Last updated: April 23, 2023</li>
     </ul>
 </div>
 
@@ -185,7 +192,1228 @@ You can switch the language used with the tabs at the top right (or from the nav
         <h1 id="authenticating-requests">Authenticating requests</h1>
 <p>This API is not authenticated.</p>
 
-        <h1 id="endpoints">Endpoints</h1>
+        <h1 id="article-management">Article Management</h1>
+
+    <p>APIs to manage the article resource</p>
+
+                                <h2 id="article-management-GETapi-v1-articles">Display a listing of articles</h2>
+
+<p>
+</p>
+
+<p>Gets a list of Articles.</p>
+
+<span id="example-requests-GETapi-v1-articles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/articles?page_size=1&amp;page=12" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/articles"
+);
+
+const params = {
+    "page_size": "1",
+    "page": "12",
+};
+Object.keys(params)
+    .forEach(key =&gt; url.searchParams.append(key, params[key]));
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-articles">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <details class="annotation">
+            <summary style="cursor: pointer;">
+                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
+            </summary>
+            <pre><code class="language-http">cache-control: no-cache, private
+content-type: application/json
+x-ratelimit-limit: 60
+x-ratelimit-remaining: 59
+access-control-allow-origin: *
+ </code></pre></details>         <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [],
+    &quot;links&quot;: {
+        &quot;first&quot;: &quot;http://localhost/api/v1/articles?page=1&quot;,
+        &quot;last&quot;: &quot;http://localhost/api/v1/articles?page=6&quot;,
+        &quot;prev&quot;: &quot;http://localhost/api/v1/articles?page=11&quot;,
+        &quot;next&quot;: null
+    },
+    &quot;meta&quot;: {
+        &quot;current_page&quot;: 12,
+        &quot;from&quot;: null,
+        &quot;last_page&quot;: 6,
+        &quot;links&quot;: [
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=11&quot;,
+                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=1&quot;,
+                &quot;label&quot;: &quot;1&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=2&quot;,
+                &quot;label&quot;: &quot;2&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=3&quot;,
+                &quot;label&quot;: &quot;3&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=4&quot;,
+                &quot;label&quot;: &quot;4&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=5&quot;,
+                &quot;label&quot;: &quot;5&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=6&quot;,
+                &quot;label&quot;: &quot;6&quot;,
+                &quot;active&quot;: false
+            },
+            {
+                &quot;url&quot;: null,
+                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
+                &quot;active&quot;: false
+            }
+        ],
+        &quot;path&quot;: &quot;http://localhost/api/v1/articles&quot;,
+        &quot;per_page&quot;: 1,
+        &quot;to&quot;: null,
+        &quot;total&quot;: 6
+    }
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-articles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-articles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-articles" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-articles"></code></pre>
+</span>
+<form id="form-GETapi-v1-articles" data-method="GET"
+      data-path="api/v1/articles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-articles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-articles"
+                    onclick="tryItOut('GETapi-v1-articles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-articles"
+                    onclick="cancelTryOut('GETapi-v1-articles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-articles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/articles</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Query Parameters</b></h4>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page_size</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="page_size"                data-endpoint="GETapi-v1-articles"
+               value="1"
+               data-component="query">
+    <br>
+<p>Size per page. Defaults to 20. Example 20 Example: <code>1</code></p>
+            </div>
+                                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="page"                data-endpoint="GETapi-v1-articles"
+               value="12"
+               data-component="query">
+    <br>
+<p>Page to view. Example: <code>12</code></p>
+            </div>
+                </form>
+
+                    <h2 id="article-management-GETapi-v1-articles--id-">Display the specified article.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-GETapi-v1-articles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request GET \
+    --get "http://localhost/api/v1/articles/20" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/articles/20"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "GET",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-GETapi-v1-articles--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 7,
+            &quot;title&quot;: &quot;Prof.&quot;,
+            &quot;body&quot;: [
+                &quot;voluptatem&quot;,
+                &quot;sit&quot;,
+                &quot;sit&quot;,
+                &quot;sit&quot;,
+                &quot;et&quot;,
+                &quot;totam&quot;,
+                &quot;neque&quot;,
+                &quot;a&quot;,
+                &quot;sunt&quot;,
+                &quot;sunt&quot;,
+                &quot;ea&quot;,
+                &quot;maxime&quot;,
+                &quot;esse&quot;,
+                &quot;perferendis&quot;,
+                &quot;culpa&quot;,
+                &quot;vitae&quot;,
+                &quot;quia&quot;,
+                &quot;harum&quot;,
+                &quot;sit&quot;,
+                &quot;commodi&quot;,
+                &quot;distinctio&quot;,
+                &quot;eum&quot;,
+                &quot;sint&quot;,
+                &quot;consequuntur&quot;,
+                &quot;sint&quot;,
+                &quot;itaque&quot;,
+                &quot;aut&quot;,
+                &quot;eos&quot;,
+                &quot;fugit&quot;,
+                &quot;ex&quot;,
+                &quot;molestiae&quot;,
+                &quot;soluta&quot;,
+                &quot;modi&quot;,
+                &quot;eum&quot;,
+                &quot;sapiente&quot;,
+                &quot;exercitationem&quot;,
+                &quot;dolores&quot;,
+                &quot;natus&quot;,
+                &quot;a&quot;,
+                &quot;consequatur&quot;,
+                &quot;sunt&quot;,
+                &quot;consequuntur&quot;,
+                &quot;nisi&quot;,
+                &quot;inventore&quot;,
+                &quot;totam&quot;,
+                &quot;consequatur&quot;,
+                &quot;sed&quot;,
+                &quot;architecto&quot;,
+                &quot;sunt&quot;,
+                &quot;ratione&quot;,
+                &quot;tenetur&quot;,
+                &quot;corporis&quot;,
+                &quot;neque&quot;,
+                &quot;commodi&quot;,
+                &quot;perferendis&quot;,
+                &quot;sint&quot;,
+                &quot;voluptatem&quot;,
+                &quot;alias&quot;,
+                &quot;et&quot;,
+                &quot;neque&quot;,
+                &quot;reprehenderit&quot;,
+                &quot;dolore&quot;,
+                &quot;et&quot;,
+                &quot;qui&quot;,
+                &quot;inventore&quot;,
+                &quot;ex&quot;,
+                &quot;id&quot;,
+                &quot;est&quot;,
+                &quot;odit&quot;,
+                &quot;veniam&quot;,
+                &quot;veritatis&quot;,
+                &quot;necessitatibus&quot;,
+                &quot;quidem&quot;,
+                &quot;sunt&quot;,
+                &quot;porro&quot;,
+                &quot;voluptates&quot;,
+                &quot;optio&quot;,
+                &quot;et&quot;,
+                &quot;repellendus&quot;,
+                &quot;sapiente&quot;,
+                &quot;porro&quot;,
+                &quot;odit&quot;,
+                &quot;aspernatur&quot;,
+                &quot;ut&quot;,
+                &quot;impedit&quot;,
+                &quot;et&quot;,
+                &quot;rerum&quot;,
+                &quot;placeat&quot;,
+                &quot;nostrum&quot;,
+                &quot;cum&quot;,
+                &quot;ea&quot;,
+                &quot;necessitatibus&quot;,
+                &quot;aspernatur&quot;,
+                &quot;aut&quot;,
+                &quot;eveniet&quot;,
+                &quot;voluptas&quot;,
+                &quot;voluptatibus&quot;,
+                &quot;consectetur&quot;,
+                &quot;deleniti&quot;,
+                &quot;distinctio&quot;
+            ],
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ccee?text=nulla&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 8,
+            &quot;title&quot;: &quot;Dr.&quot;,
+            &quot;body&quot;: [
+                &quot;at&quot;,
+                &quot;sit&quot;,
+                &quot;assumenda&quot;,
+                &quot;magnam&quot;,
+                &quot;commodi&quot;,
+                &quot;consequatur&quot;,
+                &quot;rem&quot;,
+                &quot;ea&quot;,
+                &quot;deserunt&quot;,
+                &quot;optio&quot;,
+                &quot;ex&quot;,
+                &quot;est&quot;,
+                &quot;ut&quot;,
+                &quot;facere&quot;,
+                &quot;et&quot;,
+                &quot;ut&quot;,
+                &quot;id&quot;,
+                &quot;perspiciatis&quot;,
+                &quot;voluptatibus&quot;,
+                &quot;ab&quot;,
+                &quot;ea&quot;,
+                &quot;ut&quot;,
+                &quot;in&quot;,
+                &quot;et&quot;,
+                &quot;consequatur&quot;,
+                &quot;necessitatibus&quot;,
+                &quot;dolores&quot;,
+                &quot;magni&quot;,
+                &quot;et&quot;,
+                &quot;reprehenderit&quot;,
+                &quot;maiores&quot;,
+                &quot;et&quot;,
+                &quot;accusamus&quot;,
+                &quot;repellat&quot;,
+                &quot;nobis&quot;,
+                &quot;quia&quot;,
+                &quot;deserunt&quot;,
+                &quot;tempore&quot;,
+                &quot;dolor&quot;,
+                &quot;explicabo&quot;,
+                &quot;rem&quot;,
+                &quot;veniam&quot;,
+                &quot;itaque&quot;,
+                &quot;neque&quot;,
+                &quot;sit&quot;,
+                &quot;ullam&quot;,
+                &quot;repudiandae&quot;,
+                &quot;soluta&quot;,
+                &quot;voluptate&quot;,
+                &quot;id&quot;,
+                &quot;earum&quot;,
+                &quot;maiores&quot;,
+                &quot;sunt&quot;,
+                &quot;nisi&quot;,
+                &quot;non&quot;,
+                &quot;sint&quot;,
+                &quot;quibusdam&quot;,
+                &quot;maxime&quot;,
+                &quot;laboriosam&quot;,
+                &quot;qui&quot;,
+                &quot;sed&quot;,
+                &quot;nulla&quot;,
+                &quot;voluptatem&quot;,
+                &quot;illum&quot;,
+                &quot;nihil&quot;,
+                &quot;qui&quot;,
+                &quot;atque&quot;,
+                &quot;alias&quot;,
+                &quot;et&quot;,
+                &quot;deleniti&quot;,
+                &quot;quae&quot;,
+                &quot;amet&quot;,
+                &quot;saepe&quot;,
+                &quot;modi&quot;,
+                &quot;illum&quot;,
+                &quot;voluptatem&quot;,
+                &quot;omnis&quot;,
+                &quot;et&quot;,
+                &quot;fugit&quot;,
+                &quot;dolores&quot;,
+                &quot;qui&quot;,
+                &quot;doloremque&quot;,
+                &quot;reprehenderit&quot;,
+                &quot;deserunt&quot;,
+                &quot;odio&quot;,
+                &quot;non&quot;,
+                &quot;minus&quot;,
+                &quot;voluptatibus&quot;,
+                &quot;quis&quot;,
+                &quot;quibusdam&quot;,
+                &quot;doloribus&quot;,
+                &quot;voluptates&quot;,
+                &quot;ut&quot;,
+                &quot;eum&quot;,
+                &quot;error&quot;,
+                &quot;rerum&quot;,
+                &quot;dicta&quot;,
+                &quot;at&quot;,
+                &quot;itaque&quot;,
+                &quot;ducimus&quot;
+            ],
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0000ee?text=iusto&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-GETapi-v1-articles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-GETapi-v1-articles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-GETapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-GETapi-v1-articles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-GETapi-v1-articles--id-"></code></pre>
+</span>
+<form id="form-GETapi-v1-articles--id-" data-method="GET"
+      data-path="api/v1/articles/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-articles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-GETapi-v1-articles--id-"
+                    onclick="tryItOut('GETapi-v1-articles--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-GETapi-v1-articles--id-"
+                    onclick="cancelTryOut('GETapi-v1-articles--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-GETapi-v1-articles--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-green">GET</small>
+            <b><code>api/v1/articles/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="GETapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="GETapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="GETapi-v1-articles--id-"
+               value="20"
+               data-component="url">
+    <br>
+<p>Article ID Example: <code>20</code></p>
+            </div>
+                    </form>
+
+                    <h2 id="article-management-POSTapi-v1-articles">Store a newly created article in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-POSTapi-v1-articles">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request POST \
+    "http://localhost/api/v1/articles" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"Improve Happiness\",
+    \"body\": \"This is an article about improving life happiness\",
+    \"image\": \"http:\\/\\/image.com\",
+    \"user_id\": 9
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/articles"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "Improve Happiness",
+    "body": "This is an article about improving life happiness",
+    "image": "http:\/\/image.com",
+    "user_id": 9
+};
+
+fetch(url, {
+    method: "POST",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-POSTapi-v1-articles">
+</span>
+<span id="execution-results-POSTapi-v1-articles" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-POSTapi-v1-articles"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-POSTapi-v1-articles" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-POSTapi-v1-articles" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-POSTapi-v1-articles"></code></pre>
+</span>
+<form id="form-POSTapi-v1-articles" data-method="POST"
+      data-path="api/v1/articles"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-articles', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-POSTapi-v1-articles"
+                    onclick="tryItOut('POSTapi-v1-articles');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-POSTapi-v1-articles"
+                    onclick="cancelTryOut('POSTapi-v1-articles');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-POSTapi-v1-articles" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-black">POST</small>
+            <b><code>api/v1/articles</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="POSTapi-v1-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="POSTapi-v1-articles"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="title"                data-endpoint="POSTapi-v1-articles"
+               value="Improve Happiness"
+               data-component="body">
+    <br>
+<p>Title of the article. Example: <code>Improve Happiness</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="body"                data-endpoint="POSTapi-v1-articles"
+               value="This is an article about improving life happiness"
+               data-component="body">
+    <br>
+<p>Body of the article. Example: <code>This is an article about improving life happiness</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>url</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="image"                data-endpoint="POSTapi-v1-articles"
+               value="http://image.com"
+               data-component="body">
+    <br>
+<p>optional Image for the article. Example: <code>http://image.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="user_id"                data-endpoint="POSTapi-v1-articles"
+               value="9"
+               data-component="body">
+    <br>
+<p>Example: <code>9</code></p>
+        </div>
+        </form>
+
+                    <h2 id="article-management-PATCHapi-v1-articles--id-">Update the specified article in storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-PATCHapi-v1-articles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request PATCH \
+    "http://localhost/api/v1/articles/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json" \
+    --data "{
+    \"title\": \"Improve Happiness\",
+    \"body\": \"This is an article about improving life happiness\",
+    \"image\": \"http:\\/\\/image.com\",
+    \"user_id\": 15
+}"
+</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/articles/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+let body = {
+    "title": "Improve Happiness",
+    "body": "This is an article about improving life happiness",
+    "image": "http:\/\/image.com",
+    "user_id": 15
+};
+
+fetch(url, {
+    method: "PATCH",
+    headers,
+    body: JSON.stringify(body),
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-PATCHapi-v1-articles--id-">
+</span>
+<span id="execution-results-PATCHapi-v1-articles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-PATCHapi-v1-articles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-PATCHapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-PATCHapi-v1-articles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-PATCHapi-v1-articles--id-"></code></pre>
+</span>
+<form id="form-PATCHapi-v1-articles--id-" data-method="PATCH"
+      data-path="api/v1/articles/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-articles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-PATCHapi-v1-articles--id-"
+                    onclick="tryItOut('PATCHapi-v1-articles--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-PATCHapi-v1-articles--id-"
+                    onclick="cancelTryOut('PATCHapi-v1-articles--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-PATCHapi-v1-articles--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-purple">PATCH</small>
+            <b><code>api/v1/articles/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the article. Example: <code>1</code></p>
+            </div>
+                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
+        <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="title"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="Improve Happiness"
+               data-component="body">
+    <br>
+<p>Title of the article. Example: <code>Improve Happiness</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
+<small>string</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="body"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="This is an article about improving life happiness"
+               data-component="body">
+    <br>
+<p>Body of the article. Example: <code>This is an article about improving life happiness</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
+<small>url</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="text" style="display: none"
+               name="image"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="http://image.com"
+               data-component="body">
+    <br>
+<p>Image for the article. Example: <code>http://image.com</code></p>
+        </div>
+                <div style=" padding-left: 28px;  clear: unset;">
+            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+<i>optional</i> &nbsp;
+                <input type="number" style="display: none"
+               name="user_id"                data-endpoint="PATCHapi-v1-articles--id-"
+               value="15"
+               data-component="body">
+    <br>
+<p>Example: <code>15</code></p>
+        </div>
+        </form>
+
+                    <h2 id="article-management-DELETEapi-v1-articles--id-">Remove the specified resource from storage.</h2>
+
+<p>
+</p>
+
+
+
+<span id="example-requests-DELETEapi-v1-articles--id-">
+<blockquote>Example request:</blockquote>
+
+
+<div class="bash-example">
+    <pre><code class="language-bash">curl --request DELETE \
+    "http://localhost/api/v1/articles/1" \
+    --header "Content-Type: application/json" \
+    --header "Accept: application/json"</code></pre></div>
+
+
+<div class="javascript-example">
+    <pre><code class="language-javascript">const url = new URL(
+    "http://localhost/api/v1/articles/1"
+);
+
+const headers = {
+    "Content-Type": "application/json",
+    "Accept": "application/json",
+};
+
+fetch(url, {
+    method: "DELETE",
+    headers,
+}).then(response =&gt; response.json());</code></pre></div>
+
+</span>
+
+<span id="example-responses-DELETEapi-v1-articles--id-">
+            <blockquote>
+            <p>Example response (200):</p>
+        </blockquote>
+                <pre>
+
+<code class="language-json" style="max-height: 300px;">{
+    &quot;data&quot;: [
+        {
+            &quot;id&quot;: 9,
+            &quot;title&quot;: &quot;Mrs.&quot;,
+            &quot;body&quot;: [
+                &quot;magnam&quot;,
+                &quot;veniam&quot;,
+                &quot;eos&quot;,
+                &quot;debitis&quot;,
+                &quot;doloribus&quot;,
+                &quot;ut&quot;,
+                &quot;voluptatem&quot;,
+                &quot;repellendus&quot;,
+                &quot;enim&quot;,
+                &quot;quia&quot;,
+                &quot;provident&quot;,
+                &quot;corrupti&quot;,
+                &quot;molestiae&quot;,
+                &quot;ut&quot;,
+                &quot;maiores&quot;,
+                &quot;voluptates&quot;,
+                &quot;voluptatem&quot;,
+                &quot;vel&quot;,
+                &quot;est&quot;,
+                &quot;ea&quot;,
+                &quot;qui&quot;,
+                &quot;autem&quot;,
+                &quot;odio&quot;,
+                &quot;illo&quot;,
+                &quot;quisquam&quot;,
+                &quot;laborum&quot;,
+                &quot;culpa&quot;,
+                &quot;dignissimos&quot;,
+                &quot;cumque&quot;,
+                &quot;et&quot;,
+                &quot;autem&quot;,
+                &quot;rerum&quot;,
+                &quot;qui&quot;,
+                &quot;dolorem&quot;,
+                &quot;sunt&quot;,
+                &quot;aut&quot;,
+                &quot;ut&quot;,
+                &quot;voluptatibus&quot;,
+                &quot;velit&quot;,
+                &quot;quis&quot;,
+                &quot;optio&quot;,
+                &quot;facere&quot;,
+                &quot;quibusdam&quot;,
+                &quot;consequatur&quot;,
+                &quot;sint&quot;,
+                &quot;rem&quot;,
+                &quot;qui&quot;,
+                &quot;voluptate&quot;,
+                &quot;rem&quot;,
+                &quot;non&quot;,
+                &quot;dolore&quot;,
+                &quot;ipsum&quot;,
+                &quot;voluptatem&quot;,
+                &quot;quod&quot;,
+                &quot;explicabo&quot;,
+                &quot;voluptatum&quot;,
+                &quot;blanditiis&quot;,
+                &quot;labore&quot;,
+                &quot;dolorem&quot;,
+                &quot;sunt&quot;,
+                &quot;maiores&quot;,
+                &quot;ex&quot;,
+                &quot;fuga&quot;,
+                &quot;fugiat&quot;,
+                &quot;porro&quot;,
+                &quot;ex&quot;,
+                &quot;qui&quot;,
+                &quot;mollitia&quot;,
+                &quot;aut&quot;,
+                &quot;sit&quot;,
+                &quot;libero&quot;,
+                &quot;minus&quot;,
+                &quot;et&quot;,
+                &quot;qui&quot;,
+                &quot;consequatur&quot;,
+                &quot;aut&quot;,
+                &quot;officiis&quot;,
+                &quot;cupiditate&quot;,
+                &quot;iusto&quot;,
+                &quot;non&quot;,
+                &quot;qui&quot;,
+                &quot;distinctio&quot;,
+                &quot;harum&quot;,
+                &quot;officiis&quot;,
+                &quot;dignissimos&quot;,
+                &quot;nihil&quot;,
+                &quot;dolorem&quot;,
+                &quot;vitae&quot;,
+                &quot;maiores&quot;,
+                &quot;excepturi&quot;,
+                &quot;quisquam&quot;,
+                &quot;quia&quot;,
+                &quot;repudiandae&quot;,
+                &quot;rerum&quot;,
+                &quot;et&quot;,
+                &quot;dolores&quot;,
+                &quot;quis&quot;,
+                &quot;itaque&quot;,
+                &quot;aspernatur&quot;,
+                &quot;quo&quot;
+            ],
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/0055ee?text=hic&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;
+        },
+        {
+            &quot;id&quot;: 10,
+            &quot;title&quot;: &quot;Dr.&quot;,
+            &quot;body&quot;: [
+                &quot;quisquam&quot;,
+                &quot;ut&quot;,
+                &quot;quod&quot;,
+                &quot;et&quot;,
+                &quot;maxime&quot;,
+                &quot;provident&quot;,
+                &quot;consequuntur&quot;,
+                &quot;provident&quot;,
+                &quot;dolor&quot;,
+                &quot;doloremque&quot;,
+                &quot;nisi&quot;,
+                &quot;ab&quot;,
+                &quot;ut&quot;,
+                &quot;ut&quot;,
+                &quot;quia&quot;,
+                &quot;ipsam&quot;,
+                &quot;ipsa&quot;,
+                &quot;ut&quot;,
+                &quot;amet&quot;,
+                &quot;quidem&quot;,
+                &quot;nihil&quot;,
+                &quot;modi&quot;,
+                &quot;eos&quot;,
+                &quot;deleniti&quot;,
+                &quot;perspiciatis&quot;,
+                &quot;ut&quot;,
+                &quot;sunt&quot;,
+                &quot;mollitia&quot;,
+                &quot;vero&quot;,
+                &quot;eos&quot;,
+                &quot;odio&quot;,
+                &quot;in&quot;,
+                &quot;et&quot;,
+                &quot;nostrum&quot;,
+                &quot;soluta&quot;,
+                &quot;id&quot;,
+                &quot;ipsa&quot;,
+                &quot;consequatur&quot;,
+                &quot;est&quot;,
+                &quot;minus&quot;,
+                &quot;placeat&quot;,
+                &quot;animi&quot;,
+                &quot;qui&quot;,
+                &quot;ut&quot;,
+                &quot;eveniet&quot;,
+                &quot;ut&quot;,
+                &quot;similique&quot;,
+                &quot;facilis&quot;,
+                &quot;labore&quot;,
+                &quot;quia&quot;,
+                &quot;ipsam&quot;,
+                &quot;sed&quot;,
+                &quot;sunt&quot;,
+                &quot;non&quot;,
+                &quot;est&quot;,
+                &quot;nihil&quot;,
+                &quot;minus&quot;,
+                &quot;quos&quot;,
+                &quot;doloremque&quot;,
+                &quot;quia&quot;,
+                &quot;hic&quot;,
+                &quot;maiores&quot;,
+                &quot;ab&quot;,
+                &quot;rem&quot;,
+                &quot;dolorum&quot;,
+                &quot;iste&quot;,
+                &quot;eos&quot;,
+                &quot;est&quot;,
+                &quot;hic&quot;,
+                &quot;quidem&quot;,
+                &quot;asperiores&quot;,
+                &quot;ut&quot;,
+                &quot;nostrum&quot;,
+                &quot;provident&quot;,
+                &quot;nihil&quot;,
+                &quot;facilis&quot;,
+                &quot;sit&quot;,
+                &quot;quod&quot;,
+                &quot;aliquid&quot;,
+                &quot;alias&quot;,
+                &quot;beatae&quot;,
+                &quot;alias&quot;,
+                &quot;voluptas&quot;,
+                &quot;non&quot;,
+                &quot;occaecati&quot;,
+                &quot;quis&quot;,
+                &quot;rerum&quot;,
+                &quot;commodi&quot;,
+                &quot;harum&quot;,
+                &quot;minima&quot;,
+                &quot;aliquam&quot;,
+                &quot;quia&quot;,
+                &quot;hic&quot;,
+                &quot;quam&quot;,
+                &quot;praesentium&quot;,
+                &quot;voluptatem&quot;,
+                &quot;eos&quot;,
+                &quot;culpa&quot;,
+                &quot;illo&quot;,
+                &quot;tempora&quot;
+            ],
+            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00dd88?text=et&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:03.000000Z&quot;
+        }
+    ]
+}</code>
+ </pre>
+    </span>
+<span id="execution-results-DELETEapi-v1-articles--id-" hidden>
+    <blockquote>Received response<span
+                id="execution-response-status-DELETEapi-v1-articles--id-"></span>:
+    </blockquote>
+    <pre class="json"><code id="execution-response-content-DELETEapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
+</span>
+<span id="execution-error-DELETEapi-v1-articles--id-" hidden>
+    <blockquote>Request failed with error:</blockquote>
+    <pre><code id="execution-error-message-DELETEapi-v1-articles--id-"></code></pre>
+</span>
+<form id="form-DELETEapi-v1-articles--id-" data-method="DELETE"
+      data-path="api/v1/articles/{id}"
+      data-authed="0"
+      data-hasfiles="0"
+      data-isarraybody="0"
+      autocomplete="off"
+      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-articles--id-', this);">
+    <h3>
+        Request&nbsp;&nbsp;&nbsp;
+                    <button type="button"
+                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-tryout-DELETEapi-v1-articles--id-"
+                    onclick="tryItOut('DELETEapi-v1-articles--id-');">Try it out ⚡
+            </button>
+            <button type="button"
+                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-canceltryout-DELETEapi-v1-articles--id-"
+                    onclick="cancelTryOut('DELETEapi-v1-articles--id-');" hidden>Cancel 🛑
+            </button>&nbsp;&nbsp;
+            <button type="submit"
+                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
+                    id="btn-executetryout-DELETEapi-v1-articles--id-" hidden>Send Request 💥
+            </button>
+            </h3>
+            <p>
+            <small class="badge badge-red">DELETE</small>
+            <b><code>api/v1/articles/{id}</code></b>
+        </p>
+                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Content-Type"                data-endpoint="DELETEapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                                <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
+&nbsp;
+ &nbsp;
+                <input type="text" style="display: none"
+               name="Accept"                data-endpoint="DELETEapi-v1-articles--id-"
+               value="application/json"
+               data-component="header">
+    <br>
+<p>Example: <code>application/json</code></p>
+            </div>
+                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
+                    <div style="padding-left: 28px; clear: unset;">
+                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
+<small>integer</small>&nbsp;
+ &nbsp;
+                <input type="number" style="display: none"
+               name="id"                data-endpoint="DELETEapi-v1-articles--id-"
+               value="1"
+               data-component="url">
+    <br>
+<p>The ID of the article. Example: <code>1</code></p>
+            </div>
+                    </form>
+
+                <h1 id="endpoints">Endpoints</h1>
 
     
 
@@ -305,1392 +1533,6 @@ access-control-allow-origin: *
             </div>
                         </form>
 
-                    <h2 id="endpoints-GETapi-v1-articles">Display a listing of the resource.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-articles">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/articles" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/articles"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-articles">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 59
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: [
-        {
-            &quot;id&quot;: 1,
-            &quot;title&quot;: &quot;Prof.&quot;,
-            &quot;body&quot;: [
-                &quot;nihil&quot;,
-                &quot;fuga&quot;,
-                &quot;exercitationem&quot;,
-                &quot;et&quot;,
-                &quot;occaecati&quot;,
-                &quot;et&quot;,
-                &quot;quibusdam&quot;,
-                &quot;enim&quot;,
-                &quot;voluptatem&quot;,
-                &quot;qui&quot;,
-                &quot;aut&quot;,
-                &quot;maiores&quot;,
-                &quot;ex&quot;,
-                &quot;nemo&quot;,
-                &quot;dicta&quot;,
-                &quot;sunt&quot;,
-                &quot;esse&quot;,
-                &quot;itaque&quot;,
-                &quot;qui&quot;,
-                &quot;sed&quot;,
-                &quot;quo&quot;,
-                &quot;debitis&quot;,
-                &quot;ullam&quot;,
-                &quot;maxime&quot;,
-                &quot;voluptatem&quot;,
-                &quot;modi&quot;,
-                &quot;enim&quot;,
-                &quot;nisi&quot;,
-                &quot;vero&quot;,
-                &quot;earum&quot;,
-                &quot;facilis&quot;,
-                &quot;sunt&quot;,
-                &quot;id&quot;,
-                &quot;odit&quot;,
-                &quot;laborum&quot;,
-                &quot;tenetur&quot;,
-                &quot;impedit&quot;,
-                &quot;aut&quot;,
-                &quot;perferendis&quot;,
-                &quot;deserunt&quot;,
-                &quot;sed&quot;,
-                &quot;maiores&quot;,
-                &quot;enim&quot;,
-                &quot;est&quot;,
-                &quot;cumque&quot;,
-                &quot;tempore&quot;,
-                &quot;sed&quot;,
-                &quot;fugit&quot;,
-                &quot;deleniti&quot;,
-                &quot;nemo&quot;,
-                &quot;voluptas&quot;,
-                &quot;voluptas&quot;,
-                &quot;porro&quot;,
-                &quot;corporis&quot;,
-                &quot;non&quot;,
-                &quot;amet&quot;,
-                &quot;molestiae&quot;,
-                &quot;sed&quot;,
-                &quot;ullam&quot;,
-                &quot;porro&quot;,
-                &quot;quaerat&quot;,
-                &quot;qui&quot;,
-                &quot;quam&quot;,
-                &quot;ut&quot;,
-                &quot;et&quot;,
-                &quot;qui&quot;,
-                &quot;iste&quot;,
-                &quot;adipisci&quot;,
-                &quot;adipisci&quot;,
-                &quot;in&quot;,
-                &quot;odio&quot;,
-                &quot;nam&quot;,
-                &quot;ea&quot;,
-                &quot;ut&quot;,
-                &quot;et&quot;,
-                &quot;incidunt&quot;,
-                &quot;expedita&quot;,
-                &quot;ad&quot;,
-                &quot;quae&quot;,
-                &quot;eius&quot;,
-                &quot;incidunt&quot;,
-                &quot;maxime&quot;,
-                &quot;non&quot;,
-                &quot;vel&quot;,
-                &quot;iusto&quot;,
-                &quot;a&quot;,
-                &quot;dolor&quot;,
-                &quot;in&quot;,
-                &quot;fugit&quot;,
-                &quot;aliquam&quot;,
-                &quot;qui&quot;,
-                &quot;maiores&quot;,
-                &quot;quia&quot;,
-                &quot;natus&quot;,
-                &quot;quis&quot;,
-                &quot;qui&quot;,
-                &quot;qui&quot;,
-                &quot;ut&quot;,
-                &quot;pariatur&quot;,
-                &quot;ut&quot;
-            ],
-            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002255?text=repellat&quot;,
-            &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 2,
-            &quot;title&quot;: &quot;Mr.&quot;,
-            &quot;body&quot;: [
-                &quot;quam&quot;,
-                &quot;perferendis&quot;,
-                &quot;nostrum&quot;,
-                &quot;in&quot;,
-                &quot;est&quot;,
-                &quot;aliquam&quot;,
-                &quot;in&quot;,
-                &quot;placeat&quot;,
-                &quot;tempora&quot;,
-                &quot;quia&quot;,
-                &quot;doloremque&quot;,
-                &quot;qui&quot;,
-                &quot;rerum&quot;,
-                &quot;quis&quot;,
-                &quot;et&quot;,
-                &quot;error&quot;,
-                &quot;sunt&quot;,
-                &quot;in&quot;,
-                &quot;est&quot;,
-                &quot;numquam&quot;,
-                &quot;inventore&quot;,
-                &quot;consequuntur&quot;,
-                &quot;consectetur&quot;,
-                &quot;aut&quot;,
-                &quot;sequi&quot;,
-                &quot;illum&quot;,
-                &quot;qui&quot;,
-                &quot;culpa&quot;,
-                &quot;eius&quot;,
-                &quot;quam&quot;,
-                &quot;qui&quot;,
-                &quot;laborum&quot;,
-                &quot;aut&quot;,
-                &quot;error&quot;,
-                &quot;rerum&quot;,
-                &quot;nisi&quot;,
-                &quot;dolores&quot;,
-                &quot;amet&quot;,
-                &quot;qui&quot;,
-                &quot;non&quot;,
-                &quot;autem&quot;,
-                &quot;qui&quot;,
-                &quot;temporibus&quot;,
-                &quot;illo&quot;,
-                &quot;tempore&quot;,
-                &quot;quod&quot;,
-                &quot;et&quot;,
-                &quot;incidunt&quot;,
-                &quot;aperiam&quot;,
-                &quot;sit&quot;,
-                &quot;sunt&quot;,
-                &quot;incidunt&quot;,
-                &quot;maiores&quot;,
-                &quot;recusandae&quot;,
-                &quot;accusantium&quot;,
-                &quot;sit&quot;,
-                &quot;minima&quot;,
-                &quot;magnam&quot;,
-                &quot;repellendus&quot;,
-                &quot;quis&quot;,
-                &quot;aut&quot;,
-                &quot;reprehenderit&quot;,
-                &quot;totam&quot;,
-                &quot;voluptatem&quot;,
-                &quot;vitae&quot;,
-                &quot;tempora&quot;,
-                &quot;ut&quot;,
-                &quot;non&quot;,
-                &quot;et&quot;,
-                &quot;itaque&quot;,
-                &quot;voluptatibus&quot;,
-                &quot;quis&quot;,
-                &quot;quia&quot;,
-                &quot;est&quot;,
-                &quot;ea&quot;,
-                &quot;ipsum&quot;,
-                &quot;aliquid&quot;,
-                &quot;consequatur&quot;,
-                &quot;aperiam&quot;,
-                &quot;voluptatem&quot;,
-                &quot;iure&quot;,
-                &quot;voluptatem&quot;,
-                &quot;distinctio&quot;,
-                &quot;esse&quot;,
-                &quot;animi&quot;,
-                &quot;exercitationem&quot;,
-                &quot;fugit&quot;,
-                &quot;earum&quot;,
-                &quot;consequatur&quot;,
-                &quot;non&quot;,
-                &quot;perferendis&quot;,
-                &quot;deleniti&quot;,
-                &quot;et&quot;,
-                &quot;quia&quot;,
-                &quot;ut&quot;,
-                &quot;inventore&quot;,
-                &quot;incidunt&quot;,
-                &quot;rem&quot;,
-                &quot;consequatur&quot;,
-                &quot;consequatur&quot;
-            ],
-            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aacc?text=qui&quot;,
-            &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 3,
-            &quot;title&quot;: &quot;Dr.&quot;,
-            &quot;body&quot;: [
-                &quot;animi&quot;,
-                &quot;voluptate&quot;,
-                &quot;aut&quot;,
-                &quot;accusantium&quot;,
-                &quot;sunt&quot;,
-                &quot;velit&quot;,
-                &quot;voluptas&quot;,
-                &quot;rerum&quot;,
-                &quot;cum&quot;,
-                &quot;esse&quot;,
-                &quot;quae&quot;,
-                &quot;exercitationem&quot;,
-                &quot;cupiditate&quot;,
-                &quot;nesciunt&quot;,
-                &quot;provident&quot;,
-                &quot;aut&quot;,
-                &quot;dolorem&quot;,
-                &quot;cumque&quot;,
-                &quot;inventore&quot;,
-                &quot;temporibus&quot;,
-                &quot;et&quot;,
-                &quot;voluptas&quot;,
-                &quot;deleniti&quot;,
-                &quot;qui&quot;,
-                &quot;iure&quot;,
-                &quot;eveniet&quot;,
-                &quot;animi&quot;,
-                &quot;ut&quot;,
-                &quot;non&quot;,
-                &quot;rerum&quot;,
-                &quot;vel&quot;,
-                &quot;dolores&quot;,
-                &quot;vero&quot;,
-                &quot;et&quot;,
-                &quot;ad&quot;,
-                &quot;delectus&quot;,
-                &quot;adipisci&quot;,
-                &quot;tempora&quot;,
-                &quot;dolorem&quot;,
-                &quot;corrupti&quot;,
-                &quot;pariatur&quot;,
-                &quot;omnis&quot;,
-                &quot;ipsa&quot;,
-                &quot;eum&quot;,
-                &quot;cum&quot;,
-                &quot;sit&quot;,
-                &quot;omnis&quot;,
-                &quot;totam&quot;,
-                &quot;porro&quot;,
-                &quot;ullam&quot;,
-                &quot;ducimus&quot;,
-                &quot;impedit&quot;,
-                &quot;nostrum&quot;,
-                &quot;facere&quot;,
-                &quot;hic&quot;,
-                &quot;sint&quot;,
-                &quot;error&quot;,
-                &quot;asperiores&quot;,
-                &quot;explicabo&quot;,
-                &quot;veniam&quot;,
-                &quot;temporibus&quot;,
-                &quot;a&quot;,
-                &quot;labore&quot;,
-                &quot;dolor&quot;,
-                &quot;excepturi&quot;,
-                &quot;esse&quot;,
-                &quot;doloribus&quot;,
-                &quot;et&quot;,
-                &quot;adipisci&quot;,
-                &quot;porro&quot;,
-                &quot;blanditiis&quot;,
-                &quot;rerum&quot;,
-                &quot;doloremque&quot;,
-                &quot;fugit&quot;,
-                &quot;excepturi&quot;,
-                &quot;vel&quot;,
-                &quot;dolorem&quot;,
-                &quot;et&quot;,
-                &quot;expedita&quot;,
-                &quot;qui&quot;,
-                &quot;aut&quot;,
-                &quot;natus&quot;,
-                &quot;dolores&quot;,
-                &quot;occaecati&quot;,
-                &quot;ut&quot;,
-                &quot;et&quot;,
-                &quot;sit&quot;,
-                &quot;quo&quot;,
-                &quot;perferendis&quot;,
-                &quot;veniam&quot;,
-                &quot;enim&quot;,
-                &quot;laudantium&quot;,
-                &quot;sed&quot;,
-                &quot;eaque&quot;,
-                &quot;ea&quot;,
-                &quot;aliquid&quot;,
-                &quot;aspernatur&quot;,
-                &quot;ipsum&quot;,
-                &quot;vero&quot;,
-                &quot;totam&quot;
-            ],
-            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00ee11?text=blanditiis&quot;,
-            &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 4,
-            &quot;title&quot;: &quot;Prof.&quot;,
-            &quot;body&quot;: [
-                &quot;qui&quot;,
-                &quot;pariatur&quot;,
-                &quot;autem&quot;,
-                &quot;quia&quot;,
-                &quot;deserunt&quot;,
-                &quot;porro&quot;,
-                &quot;at&quot;,
-                &quot;cumque&quot;,
-                &quot;et&quot;,
-                &quot;sint&quot;,
-                &quot;veniam&quot;,
-                &quot;rerum&quot;,
-                &quot;at&quot;,
-                &quot;laboriosam&quot;,
-                &quot;et&quot;,
-                &quot;impedit&quot;,
-                &quot;placeat&quot;,
-                &quot;inventore&quot;,
-                &quot;tempora&quot;,
-                &quot;quia&quot;,
-                &quot;iusto&quot;,
-                &quot;reprehenderit&quot;,
-                &quot;illum&quot;,
-                &quot;provident&quot;,
-                &quot;quia&quot;,
-                &quot;esse&quot;,
-                &quot;dolore&quot;,
-                &quot;autem&quot;,
-                &quot;aliquam&quot;,
-                &quot;ut&quot;,
-                &quot;pariatur&quot;,
-                &quot;eligendi&quot;,
-                &quot;nihil&quot;,
-                &quot;voluptate&quot;,
-                &quot;nisi&quot;,
-                &quot;est&quot;,
-                &quot;quia&quot;,
-                &quot;sapiente&quot;,
-                &quot;fuga&quot;,
-                &quot;aut&quot;,
-                &quot;vitae&quot;,
-                &quot;perferendis&quot;,
-                &quot;aut&quot;,
-                &quot;sit&quot;,
-                &quot;est&quot;,
-                &quot;cumque&quot;,
-                &quot;voluptatibus&quot;,
-                &quot;illo&quot;,
-                &quot;ut&quot;,
-                &quot;ut&quot;,
-                &quot;consequuntur&quot;,
-                &quot;sequi&quot;,
-                &quot;blanditiis&quot;,
-                &quot;voluptas&quot;,
-                &quot;ea&quot;,
-                &quot;vel&quot;,
-                &quot;eveniet&quot;,
-                &quot;placeat&quot;,
-                &quot;porro&quot;,
-                &quot;omnis&quot;,
-                &quot;eum&quot;,
-                &quot;saepe&quot;,
-                &quot;cumque&quot;,
-                &quot;debitis&quot;,
-                &quot;qui&quot;,
-                &quot;iusto&quot;,
-                &quot;corporis&quot;,
-                &quot;architecto&quot;,
-                &quot;enim&quot;,
-                &quot;sed&quot;,
-                &quot;earum&quot;,
-                &quot;sit&quot;,
-                &quot;autem&quot;,
-                &quot;quis&quot;,
-                &quot;asperiores&quot;,
-                &quot;alias&quot;,
-                &quot;quam&quot;,
-                &quot;consequatur&quot;,
-                &quot;odit&quot;,
-                &quot;deleniti&quot;,
-                &quot;voluptas&quot;,
-                &quot;repellat&quot;,
-                &quot;dolores&quot;,
-                &quot;voluptatum&quot;,
-                &quot;eveniet&quot;,
-                &quot;debitis&quot;,
-                &quot;error&quot;,
-                &quot;et&quot;,
-                &quot;quae&quot;,
-                &quot;odio&quot;,
-                &quot;in&quot;,
-                &quot;minus&quot;,
-                &quot;atque&quot;,
-                &quot;corrupti&quot;,
-                &quot;ut&quot;,
-                &quot;atque&quot;,
-                &quot;atque&quot;,
-                &quot;perferendis&quot;,
-                &quot;error&quot;,
-                &quot;et&quot;
-            ],
-            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/007766?text=minima&quot;,
-            &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 5,
-            &quot;title&quot;: &quot;Prof.&quot;,
-            &quot;body&quot;: [
-                &quot;quas&quot;,
-                &quot;eos&quot;,
-                &quot;rerum&quot;,
-                &quot;alias&quot;,
-                &quot;aut&quot;,
-                &quot;eligendi&quot;,
-                &quot;doloribus&quot;,
-                &quot;harum&quot;,
-                &quot;alias&quot;,
-                &quot;vero&quot;,
-                &quot;earum&quot;,
-                &quot;voluptatem&quot;,
-                &quot;suscipit&quot;,
-                &quot;voluptatem&quot;,
-                &quot;ut&quot;,
-                &quot;ut&quot;,
-                &quot;asperiores&quot;,
-                &quot;totam&quot;,
-                &quot;ut&quot;,
-                &quot;et&quot;,
-                &quot;illum&quot;,
-                &quot;provident&quot;,
-                &quot;aliquam&quot;,
-                &quot;rerum&quot;,
-                &quot;consequatur&quot;,
-                &quot;eligendi&quot;,
-                &quot;ea&quot;,
-                &quot;voluptatum&quot;,
-                &quot;adipisci&quot;,
-                &quot;exercitationem&quot;,
-                &quot;voluptatum&quot;,
-                &quot;et&quot;,
-                &quot;dolores&quot;,
-                &quot;minima&quot;,
-                &quot;tenetur&quot;,
-                &quot;ad&quot;,
-                &quot;ullam&quot;,
-                &quot;sequi&quot;,
-                &quot;accusantium&quot;,
-                &quot;ut&quot;,
-                &quot;reiciendis&quot;,
-                &quot;aperiam&quot;,
-                &quot;corrupti&quot;,
-                &quot;aut&quot;,
-                &quot;voluptas&quot;,
-                &quot;nesciunt&quot;,
-                &quot;maxime&quot;,
-                &quot;a&quot;,
-                &quot;minus&quot;,
-                &quot;vitae&quot;,
-                &quot;modi&quot;,
-                &quot;ullam&quot;,
-                &quot;qui&quot;,
-                &quot;numquam&quot;,
-                &quot;nobis&quot;,
-                &quot;quisquam&quot;,
-                &quot;quis&quot;,
-                &quot;quia&quot;,
-                &quot;sunt&quot;,
-                &quot;commodi&quot;,
-                &quot;aperiam&quot;,
-                &quot;perferendis&quot;,
-                &quot;dolor&quot;,
-                &quot;quibusdam&quot;,
-                &quot;minima&quot;,
-                &quot;explicabo&quot;,
-                &quot;quaerat&quot;,
-                &quot;et&quot;,
-                &quot;ipsam&quot;,
-                &quot;quia&quot;,
-                &quot;cupiditate&quot;,
-                &quot;doloremque&quot;,
-                &quot;deleniti&quot;,
-                &quot;fugit&quot;,
-                &quot;voluptas&quot;,
-                &quot;non&quot;,
-                &quot;qui&quot;,
-                &quot;sint&quot;,
-                &quot;repudiandae&quot;,
-                &quot;sint&quot;,
-                &quot;voluptatem&quot;,
-                &quot;vel&quot;,
-                &quot;mollitia&quot;,
-                &quot;dignissimos&quot;,
-                &quot;fugiat&quot;,
-                &quot;corporis&quot;,
-                &quot;vero&quot;,
-                &quot;explicabo&quot;,
-                &quot;suscipit&quot;,
-                &quot;fugiat&quot;,
-                &quot;sapiente&quot;,
-                &quot;nihil&quot;,
-                &quot;eligendi&quot;,
-                &quot;harum&quot;,
-                &quot;quasi&quot;,
-                &quot;ipsa&quot;,
-                &quot;itaque&quot;,
-                &quot;inventore&quot;,
-                &quot;ut&quot;,
-                &quot;et&quot;
-            ],
-            &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/00aacc?text=labore&quot;,
-            &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-        },
-        {
-            &quot;id&quot;: 6,
-            &quot;title&quot;: &quot;Self care &amp; health&quot;,
-            &quot;body&quot;: &quot;Article on self care and personal health&quot;,
-            &quot;image&quot;: &quot;slefCareImage&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T09:02:24.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T09:13:16.000000Z&quot;
-        }
-    ],
-    &quot;links&quot;: {
-        &quot;first&quot;: &quot;http://localhost/api/v1/articles?page=1&quot;,
-        &quot;last&quot;: &quot;http://localhost/api/v1/articles?page=1&quot;,
-        &quot;prev&quot;: null,
-        &quot;next&quot;: null
-    },
-    &quot;meta&quot;: {
-        &quot;current_page&quot;: 1,
-        &quot;from&quot;: 1,
-        &quot;last_page&quot;: 1,
-        &quot;links&quot;: [
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;&amp;laquo; Previous&quot;,
-                &quot;active&quot;: false
-            },
-            {
-                &quot;url&quot;: &quot;http://localhost/api/v1/articles?page=1&quot;,
-                &quot;label&quot;: &quot;1&quot;,
-                &quot;active&quot;: true
-            },
-            {
-                &quot;url&quot;: null,
-                &quot;label&quot;: &quot;Next &amp;raquo;&quot;,
-                &quot;active&quot;: false
-            }
-        ],
-        &quot;path&quot;: &quot;http://localhost/api/v1/articles&quot;,
-        &quot;per_page&quot;: 20,
-        &quot;to&quot;: 6,
-        &quot;total&quot;: 6
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-articles" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-articles"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-articles" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-articles" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-articles"></code></pre>
-</span>
-<form id="form-GETapi-v1-articles" data-method="GET"
-      data-path="api/v1/articles"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-articles', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-articles"
-                    onclick="tryItOut('GETapi-v1-articles');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-articles"
-                    onclick="cancelTryOut('GETapi-v1-articles');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-articles" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/articles</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-articles"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-articles"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        </form>
-
-                    <h2 id="endpoints-GETapi-v1-articles--id-">Display the specified resource.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-GETapi-v1-articles--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/articles/1" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/articles/1"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "GET",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-GETapi-v1-articles--id-">
-            <blockquote>
-            <p>Example response (200):</p>
-        </blockquote>
-                <details class="annotation">
-            <summary style="cursor: pointer;">
-                <small onclick="textContent = parentElement.parentElement.open ? 'Show headers' : 'Hide headers'">Show headers</small>
-            </summary>
-            <pre><code class="language-http">cache-control: no-cache, private
-content-type: application/json
-x-ratelimit-limit: 60
-x-ratelimit-remaining: 58
-access-control-allow-origin: *
- </code></pre></details>         <pre>
-
-<code class="language-json" style="max-height: 300px;">{
-    &quot;data&quot;: {
-        &quot;id&quot;: 1,
-        &quot;title&quot;: &quot;Prof.&quot;,
-        &quot;body&quot;: [
-            &quot;nihil&quot;,
-            &quot;fuga&quot;,
-            &quot;exercitationem&quot;,
-            &quot;et&quot;,
-            &quot;occaecati&quot;,
-            &quot;et&quot;,
-            &quot;quibusdam&quot;,
-            &quot;enim&quot;,
-            &quot;voluptatem&quot;,
-            &quot;qui&quot;,
-            &quot;aut&quot;,
-            &quot;maiores&quot;,
-            &quot;ex&quot;,
-            &quot;nemo&quot;,
-            &quot;dicta&quot;,
-            &quot;sunt&quot;,
-            &quot;esse&quot;,
-            &quot;itaque&quot;,
-            &quot;qui&quot;,
-            &quot;sed&quot;,
-            &quot;quo&quot;,
-            &quot;debitis&quot;,
-            &quot;ullam&quot;,
-            &quot;maxime&quot;,
-            &quot;voluptatem&quot;,
-            &quot;modi&quot;,
-            &quot;enim&quot;,
-            &quot;nisi&quot;,
-            &quot;vero&quot;,
-            &quot;earum&quot;,
-            &quot;facilis&quot;,
-            &quot;sunt&quot;,
-            &quot;id&quot;,
-            &quot;odit&quot;,
-            &quot;laborum&quot;,
-            &quot;tenetur&quot;,
-            &quot;impedit&quot;,
-            &quot;aut&quot;,
-            &quot;perferendis&quot;,
-            &quot;deserunt&quot;,
-            &quot;sed&quot;,
-            &quot;maiores&quot;,
-            &quot;enim&quot;,
-            &quot;est&quot;,
-            &quot;cumque&quot;,
-            &quot;tempore&quot;,
-            &quot;sed&quot;,
-            &quot;fugit&quot;,
-            &quot;deleniti&quot;,
-            &quot;nemo&quot;,
-            &quot;voluptas&quot;,
-            &quot;voluptas&quot;,
-            &quot;porro&quot;,
-            &quot;corporis&quot;,
-            &quot;non&quot;,
-            &quot;amet&quot;,
-            &quot;molestiae&quot;,
-            &quot;sed&quot;,
-            &quot;ullam&quot;,
-            &quot;porro&quot;,
-            &quot;quaerat&quot;,
-            &quot;qui&quot;,
-            &quot;quam&quot;,
-            &quot;ut&quot;,
-            &quot;et&quot;,
-            &quot;qui&quot;,
-            &quot;iste&quot;,
-            &quot;adipisci&quot;,
-            &quot;adipisci&quot;,
-            &quot;in&quot;,
-            &quot;odio&quot;,
-            &quot;nam&quot;,
-            &quot;ea&quot;,
-            &quot;ut&quot;,
-            &quot;et&quot;,
-            &quot;incidunt&quot;,
-            &quot;expedita&quot;,
-            &quot;ad&quot;,
-            &quot;quae&quot;,
-            &quot;eius&quot;,
-            &quot;incidunt&quot;,
-            &quot;maxime&quot;,
-            &quot;non&quot;,
-            &quot;vel&quot;,
-            &quot;iusto&quot;,
-            &quot;a&quot;,
-            &quot;dolor&quot;,
-            &quot;in&quot;,
-            &quot;fugit&quot;,
-            &quot;aliquam&quot;,
-            &quot;qui&quot;,
-            &quot;maiores&quot;,
-            &quot;quia&quot;,
-            &quot;natus&quot;,
-            &quot;quis&quot;,
-            &quot;qui&quot;,
-            &quot;qui&quot;,
-            &quot;ut&quot;,
-            &quot;pariatur&quot;,
-            &quot;ut&quot;
-        ],
-        &quot;image&quot;: &quot;https://via.placeholder.com/640x480.png/002255?text=repellat&quot;,
-        &quot;created_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;,
-        &quot;updated_at&quot;: &quot;2023-04-20T16:48:29.000000Z&quot;
-    }
-}</code>
- </pre>
-    </span>
-<span id="execution-results-GETapi-v1-articles--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-GETapi-v1-articles--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-GETapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-GETapi-v1-articles--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-GETapi-v1-articles--id-"></code></pre>
-</span>
-<form id="form-GETapi-v1-articles--id-" data-method="GET"
-      data-path="api/v1/articles/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('GETapi-v1-articles--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-GETapi-v1-articles--id-"
-                    onclick="tryItOut('GETapi-v1-articles--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-GETapi-v1-articles--id-"
-                    onclick="cancelTryOut('GETapi-v1-articles--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-GETapi-v1-articles--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-green">GET</small>
-            <b><code>api/v1/articles/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="GETapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="GETapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="id"                data-endpoint="GETapi-v1-articles--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the article. Example: <code>1</code></p>
-            </div>
-                    </form>
-
-                    <h2 id="endpoints-POSTapi-v1-articles">Store a newly created resource in storage.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-POSTapi-v1-articles">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request POST \
-    "http://localhost/api/v1/articles" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"ex\",
-    \"body\": \"rerum\",
-    \"image\": \"molestias\",
-    \"user_id\": 1
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/articles"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "ex",
-    "body": "rerum",
-    "image": "molestias",
-    "user_id": 1
-};
-
-fetch(url, {
-    method: "POST",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-POSTapi-v1-articles">
-</span>
-<span id="execution-results-POSTapi-v1-articles" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-POSTapi-v1-articles"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-POSTapi-v1-articles" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-POSTapi-v1-articles" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-POSTapi-v1-articles"></code></pre>
-</span>
-<form id="form-POSTapi-v1-articles" data-method="POST"
-      data-path="api/v1/articles"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('POSTapi-v1-articles', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-POSTapi-v1-articles"
-                    onclick="tryItOut('POSTapi-v1-articles');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-POSTapi-v1-articles"
-                    onclick="cancelTryOut('POSTapi-v1-articles');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-POSTapi-v1-articles" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-black">POST</small>
-            <b><code>api/v1/articles</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="POSTapi-v1-articles"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="POSTapi-v1-articles"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="title"                data-endpoint="POSTapi-v1-articles"
-               value="ex"
-               data-component="body">
-    <br>
-<p>Example: <code>ex</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="body"                data-endpoint="POSTapi-v1-articles"
-               value="rerum"
-               data-component="body">
-    <br>
-<p>Example: <code>rerum</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="image"                data-endpoint="POSTapi-v1-articles"
-               value="molestias"
-               data-component="body">
-    <br>
-<p>Example: <code>molestias</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="user_id"                data-endpoint="POSTapi-v1-articles"
-               value="1"
-               data-component="body">
-    <br>
-<p>Example: <code>1</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-PATCHapi-v1-articles--id-">Update the specified resource in storage.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-PATCHapi-v1-articles--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request PATCH \
-    "http://localhost/api/v1/articles/1" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json" \
-    --data "{
-    \"title\": \"qui\",
-    \"body\": \"debitis\",
-    \"image\": \"dolore\",
-    \"user_id\": 18
-}"
-</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/articles/1"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-let body = {
-    "title": "qui",
-    "body": "debitis",
-    "image": "dolore",
-    "user_id": 18
-};
-
-fetch(url, {
-    method: "PATCH",
-    headers,
-    body: JSON.stringify(body),
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-PATCHapi-v1-articles--id-">
-</span>
-<span id="execution-results-PATCHapi-v1-articles--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-PATCHapi-v1-articles--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-PATCHapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-PATCHapi-v1-articles--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-PATCHapi-v1-articles--id-"></code></pre>
-</span>
-<form id="form-PATCHapi-v1-articles--id-" data-method="PATCH"
-      data-path="api/v1/articles/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('PATCHapi-v1-articles--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-PATCHapi-v1-articles--id-"
-                    onclick="tryItOut('PATCHapi-v1-articles--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-PATCHapi-v1-articles--id-"
-                    onclick="cancelTryOut('PATCHapi-v1-articles--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-PATCHapi-v1-articles--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-purple">PATCH</small>
-            <b><code>api/v1/articles/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="id"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the article. Example: <code>1</code></p>
-            </div>
-                            <h4 class="fancy-heading-panel"><b>Body Parameters</b></h4>
-        <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>title</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="title"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="qui"
-               data-component="body">
-    <br>
-<p>Example: <code>qui</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="body"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="debitis"
-               data-component="body">
-    <br>
-<p>Example: <code>debitis</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>image</code></b>&nbsp;&nbsp;
-<small>string</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="text" style="display: none"
-               name="image"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="dolore"
-               data-component="body">
-    <br>
-<p>Example: <code>dolore</code></p>
-        </div>
-                <div style=" padding-left: 28px;  clear: unset;">
-            <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
-<i>optional</i> &nbsp;
-                <input type="number" style="display: none"
-               name="user_id"                data-endpoint="PATCHapi-v1-articles--id-"
-               value="18"
-               data-component="body">
-    <br>
-<p>Example: <code>18</code></p>
-        </div>
-        </form>
-
-                    <h2 id="endpoints-DELETEapi-v1-articles--id-">Remove the specified resource from storage.</h2>
-
-<p>
-</p>
-
-
-
-<span id="example-requests-DELETEapi-v1-articles--id-">
-<blockquote>Example request:</blockquote>
-
-
-<div class="bash-example">
-    <pre><code class="language-bash">curl --request DELETE \
-    "http://localhost/api/v1/articles/1" \
-    --header "Content-Type: application/json" \
-    --header "Accept: application/json"</code></pre></div>
-
-
-<div class="javascript-example">
-    <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/articles/1"
-);
-
-const headers = {
-    "Content-Type": "application/json",
-    "Accept": "application/json",
-};
-
-fetch(url, {
-    method: "DELETE",
-    headers,
-}).then(response =&gt; response.json());</code></pre></div>
-
-</span>
-
-<span id="example-responses-DELETEapi-v1-articles--id-">
-</span>
-<span id="execution-results-DELETEapi-v1-articles--id-" hidden>
-    <blockquote>Received response<span
-                id="execution-response-status-DELETEapi-v1-articles--id-"></span>:
-    </blockquote>
-    <pre class="json"><code id="execution-response-content-DELETEapi-v1-articles--id-" style="max-height: 400px;"></code></pre>
-</span>
-<span id="execution-error-DELETEapi-v1-articles--id-" hidden>
-    <blockquote>Request failed with error:</blockquote>
-    <pre><code id="execution-error-message-DELETEapi-v1-articles--id-"></code></pre>
-</span>
-<form id="form-DELETEapi-v1-articles--id-" data-method="DELETE"
-      data-path="api/v1/articles/{id}"
-      data-authed="0"
-      data-hasfiles="0"
-      data-isarraybody="0"
-      autocomplete="off"
-      onsubmit="event.preventDefault(); executeTryOut('DELETEapi-v1-articles--id-', this);">
-    <h3>
-        Request&nbsp;&nbsp;&nbsp;
-                    <button type="button"
-                    style="background-color: #8fbcd4; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-tryout-DELETEapi-v1-articles--id-"
-                    onclick="tryItOut('DELETEapi-v1-articles--id-');">Try it out ⚡
-            </button>
-            <button type="button"
-                    style="background-color: #c97a7e; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-canceltryout-DELETEapi-v1-articles--id-"
-                    onclick="cancelTryOut('DELETEapi-v1-articles--id-');" hidden>Cancel 🛑
-            </button>&nbsp;&nbsp;
-            <button type="submit"
-                    style="background-color: #6ac174; padding: 5px 10px; border-radius: 5px; border-width: thin;"
-                    id="btn-executetryout-DELETEapi-v1-articles--id-" hidden>Send Request 💥
-            </button>
-            </h3>
-            <p>
-            <small class="badge badge-red">DELETE</small>
-            <b><code>api/v1/articles/{id}</code></b>
-        </p>
-                <h4 class="fancy-heading-panel"><b>Headers</b></h4>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Content-Type</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Content-Type"                data-endpoint="DELETEapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                                <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>Accept</code></b>&nbsp;&nbsp;
-&nbsp;
- &nbsp;
-                <input type="text" style="display: none"
-               name="Accept"                data-endpoint="DELETEapi-v1-articles--id-"
-               value="application/json"
-               data-component="header">
-    <br>
-<p>Example: <code>application/json</code></p>
-            </div>
-                        <h4 class="fancy-heading-panel"><b>URL Parameters</b></h4>
-                    <div style="padding-left: 28px; clear: unset;">
-                <b style="line-height: 2;"><code>id</code></b>&nbsp;&nbsp;
-<small>integer</small>&nbsp;
- &nbsp;
-                <input type="number" style="display: none"
-               name="id"                data-endpoint="DELETEapi-v1-articles--id-"
-               value="1"
-               data-component="url">
-    <br>
-<p>The ID of the article. Example: <code>1</code></p>
-            </div>
-                    </form>
-
                     <h2 id="endpoints-GETapi-v1-comments">Display a listing of the resource.</h2>
 
 <p>
@@ -1737,7 +1579,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 57
+x-ratelimit-remaining: 58
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -1991,7 +1833,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 56
+x-ratelimit-remaining: 57
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -2110,9 +1952,9 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"body\": \"in\",
+    \"body\": \"molestias\",
     \"user_id\": 19,
-    \"article_id\": 16
+    \"article_id\": 1
 }"
 </code></pre></div>
 
@@ -2128,9 +1970,9 @@ const headers = {
 };
 
 let body = {
-    "body": "in",
+    "body": "molestias",
     "user_id": 19,
-    "article_id": 16
+    "article_id": 1
 };
 
 fetch(url, {
@@ -2211,10 +2053,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="body"                data-endpoint="POSTapi-v1-comments"
-               value="in"
+               value="molestias"
                data-component="body">
     <br>
-<p>Example: <code>in</code></p>
+<p>Example: <code>molestias</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -2233,10 +2075,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="article_id"                data-endpoint="POSTapi-v1-comments"
-               value="16"
+               value="1"
                data-component="body">
     <br>
-<p>Example: <code>16</code></p>
+<p>Example: <code>1</code></p>
         </div>
         </form>
 
@@ -2257,7 +2099,7 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"body\": \"voluptatem\"
+    \"body\": \"nesciunt\"
 }"
 </code></pre></div>
 
@@ -2273,7 +2115,7 @@ const headers = {
 };
 
 let body = {
-    "body": "voluptatem"
+    "body": "nesciunt"
 };
 
 fetch(url, {
@@ -2366,10 +2208,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="body"                data-endpoint="PATCHapi-v1-comments--id-"
-               value="voluptatem"
+               value="nesciunt"
                data-component="body">
     <br>
-<p>Example: <code>voluptatem</code></p>
+<p>Example: <code>nesciunt</code></p>
         </div>
         </form>
 
@@ -2531,7 +2373,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 55
+x-ratelimit-remaining: 56
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -2782,7 +2624,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 54
+x-ratelimit-remaining: 55
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -2902,10 +2744,10 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"optio\",
-    \"description\": \"Adipisci corrupti fugit voluptate ea.\",
-    \"expiration_date\": \"2077-05-31\",
-    \"user_id\": 19
+    \"name\": \"delectus\",
+    \"description\": \"Voluptatem deserunt odit minus voluptas nostrum qui.\",
+    \"expiration_date\": \"2060-11-29\",
+    \"user_id\": 3
 }"
 </code></pre></div>
 
@@ -2921,10 +2763,10 @@ const headers = {
 };
 
 let body = {
-    "name": "optio",
-    "description": "Adipisci corrupti fugit voluptate ea.",
-    "expiration_date": "2077-05-31",
-    "user_id": 19
+    "name": "delectus",
+    "description": "Voluptatem deserunt odit minus voluptas nostrum qui.",
+    "expiration_date": "2060-11-29",
+    "user_id": 3
 };
 
 fetch(url, {
@@ -3005,10 +2847,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="POSTapi-v1-prizes"
-               value="optio"
+               value="delectus"
                data-component="body">
     <br>
-<p>Example: <code>optio</code></p>
+<p>Example: <code>delectus</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>description</code></b>&nbsp;&nbsp;
@@ -3016,10 +2858,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="description"                data-endpoint="POSTapi-v1-prizes"
-               value="Adipisci corrupti fugit voluptate ea."
+               value="Voluptatem deserunt odit minus voluptas nostrum qui."
                data-component="body">
     <br>
-<p>Example: <code>Adipisci corrupti fugit voluptate ea.</code></p>
+<p>Example: <code>Voluptatem deserunt odit minus voluptas nostrum qui.</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_date</code></b>&nbsp;&nbsp;
@@ -3027,10 +2869,10 @@ fetch(url, {
  &nbsp;
                 <input type="text" style="display: none"
                name="expiration_date"                data-endpoint="POSTapi-v1-prizes"
-               value="2077-05-31"
+               value="2060-11-29"
                data-component="body">
     <br>
-<p>Must be a valid date. Must be a date after <code>tomorrow</code>. Example: <code>2077-05-31</code></p>
+<p>Must be a valid date. Must be a date after <code>tomorrow</code>. Example: <code>2060-11-29</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>user_id</code></b>&nbsp;&nbsp;
@@ -3038,10 +2880,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_id"                data-endpoint="POSTapi-v1-prizes"
-               value="19"
+               value="3"
                data-component="body">
     <br>
-<p>Example: <code>19</code></p>
+<p>Example: <code>3</code></p>
         </div>
         </form>
 
@@ -3062,9 +2904,9 @@ fetch(url, {
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"name\": \"ducimus\",
-    \"body\": \"repellat\",
-    \"expiration_date\": \"2023-04-22T15:59:15\"
+    \"name\": \"et\",
+    \"body\": \"consequuntur\",
+    \"expiration_date\": \"2023-04-23T06:08:03\"
 }"
 </code></pre></div>
 
@@ -3080,9 +2922,9 @@ const headers = {
 };
 
 let body = {
-    "name": "ducimus",
-    "body": "repellat",
-    "expiration_date": "2023-04-22T15:59:15"
+    "name": "et",
+    "body": "consequuntur",
+    "expiration_date": "2023-04-23T06:08:03"
 };
 
 fetch(url, {
@@ -3175,10 +3017,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="name"                data-endpoint="PATCHapi-v1-prizes--id-"
-               value="ducimus"
+               value="et"
                data-component="body">
     <br>
-<p>Example: <code>ducimus</code></p>
+<p>Example: <code>et</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>body</code></b>&nbsp;&nbsp;
@@ -3186,10 +3028,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="body"                data-endpoint="PATCHapi-v1-prizes--id-"
-               value="repellat"
+               value="consequuntur"
                data-component="body">
     <br>
-<p>Example: <code>repellat</code></p>
+<p>Example: <code>consequuntur</code></p>
         </div>
                 <div style=" padding-left: 28px;  clear: unset;">
             <b style="line-height: 2;"><code>expiration_date</code></b>&nbsp;&nbsp;
@@ -3197,10 +3039,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="text" style="display: none"
                name="expiration_date"                data-endpoint="PATCHapi-v1-prizes--id-"
-               value="2023-04-22T15:59:15"
+               value="2023-04-23T06:08:03"
                data-component="body">
     <br>
-<p>Must be a valid date. Example: <code>2023-04-22T15:59:15</code></p>
+<p>Must be a valid date. Example: <code>2023-04-23T06:08:03</code></p>
         </div>
         </form>
 
@@ -3362,7 +3204,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 53
+x-ratelimit-remaining: 54
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -3543,7 +3385,7 @@ fetch(url, {
             <pre><code class="language-http">cache-control: no-cache, private
 content-type: application/json
 x-ratelimit-limit: 60
-x-ratelimit-remaining: 52
+x-ratelimit-remaining: 53
 access-control-allow-origin: *
  </code></pre></details>         <pre>
 
@@ -3649,7 +3491,7 @@ access-control-allow-origin: *
     --header "Content-Type: application/json" \
     --header "Accept: application/json" \
     --data "{
-    \"user_id\": 5
+    \"user_id\": 15
 }"
 </code></pre></div>
 
@@ -3665,7 +3507,7 @@ const headers = {
 };
 
 let body = {
-    "user_id": 5
+    "user_id": 15
 };
 
 fetch(url, {
@@ -3746,10 +3588,10 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="user_id"                data-endpoint="POSTapi-v1-subscribers"
-               value="5"
+               value="15"
                data-component="body">
     <br>
-<p>Example: <code>5</code></p>
+<p>Example: <code>15</code></p>
         </div>
         </form>
 
@@ -3994,7 +3836,7 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users?page_size=15&amp;page=8" \
+    --get "http://localhost/api/v1/users?page_size=2&amp;page=10" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
@@ -4005,8 +3847,8 @@ fetch(url, {
 );
 
 const params = {
-    "page_size": "15",
-    "page": "8",
+    "page_size": "2",
+    "page": "10",
 };
 Object.keys(params)
     .forEach(key =&gt; url.searchParams.append(key, params[key]));
@@ -4032,20 +3874,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 22,
-            &quot;name&quot;: &quot;Nash Dietrich V&quot;,
-            &quot;email&quot;: &quot;hadley32@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.729274Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 42,
+            &quot;name&quot;: &quot;Dr. Katelin Stanton&quot;,
+            &quot;email&quot;: &quot;oconnell.kamron@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.023193Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         },
         {
-            &quot;id&quot;: 23,
-            &quot;name&quot;: &quot;Ross Kirlin&quot;,
-            &quot;email&quot;: &quot;jmills@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.731210Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 43,
+            &quot;name&quot;: &quot;Mr. Adriel Mann MD&quot;,
+            &quot;email&quot;: &quot;cronin.ellen@example.com&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.024714Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         }
     ]
 }</code>
@@ -4119,10 +3961,10 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="page_size"                data-endpoint="GETapi-v1-users"
-               value="15"
+               value="2"
                data-component="query">
     <br>
-<p>Size per page. Defaults to 20. Example 20 Example: <code>15</code></p>
+<p>Size per page. Defaults to 20. Example 20 Example: <code>2</code></p>
             </div>
                                     <div style="padding-left: 28px; clear: unset;">
                 <b style="line-height: 2;"><code>page</code></b>&nbsp;&nbsp;
@@ -4130,14 +3972,14 @@ fetch(url, {
 <i>optional</i> &nbsp;
                 <input type="number" style="display: none"
                name="page"                data-endpoint="GETapi-v1-users"
-               value="8"
+               value="10"
                data-component="query">
     <br>
-<p>Page to view. Example: <code>8</code></p>
+<p>Page to view. Example: <code>10</code></p>
             </div>
                 </form>
 
-                    <h2 id="user-management-GETapi-v1-users--id-">Display the specified resource.</h2>
+                    <h2 id="user-management-GETapi-v1-users--id-">Display the specified user.</h2>
 
 <p>
 </p>
@@ -4150,14 +3992,14 @@ fetch(url, {
 
 <div class="bash-example">
     <pre><code class="language-bash">curl --request GET \
-    --get "http://localhost/api/v1/users/12" \
+    --get "http://localhost/api/v1/users/11" \
     --header "Content-Type: application/json" \
     --header "Accept: application/json"</code></pre></div>
 
 
 <div class="javascript-example">
     <pre><code class="language-javascript">const url = new URL(
-    "http://localhost/api/v1/users/12"
+    "http://localhost/api/v1/users/11"
 );
 
 const headers = {
@@ -4181,20 +4023,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 24,
-            &quot;name&quot;: &quot;Prof. Katrine Simonis&quot;,
-            &quot;email&quot;: &quot;walton22@example.com&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.746539Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 44,
+            &quot;name&quot;: &quot;Prof. Nolan Kirlin DVM&quot;,
+            &quot;email&quot;: &quot;moises99@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.031881Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         },
         {
-            &quot;id&quot;: 25,
-            &quot;name&quot;: &quot;Kirk Ledner&quot;,
-            &quot;email&quot;: &quot;uhammes@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.747131Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 45,
+            &quot;name&quot;: &quot;Dr. Terrence Beatty DDS&quot;,
+            &quot;email&quot;: &quot;makayla59@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.032947Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         }
     ]
 }</code>
@@ -4268,14 +4110,14 @@ fetch(url, {
  &nbsp;
                 <input type="number" style="display: none"
                name="id"                data-endpoint="GETapi-v1-users--id-"
-               value="12"
+               value="11"
                data-component="url">
     <br>
-<p>User ID Example: <code>12</code></p>
+<p>User ID Example: <code>11</code></p>
             </div>
                     </form>
 
-                    <h2 id="user-management-POSTapi-v1-users">Store a newly created resource in storage</h2>
+                    <h2 id="user-management-POSTapi-v1-users">Store a newly created user in storage</h2>
 
 <p>
 </p>
@@ -4330,20 +4172,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 26,
-            &quot;name&quot;: &quot;Mr. Juwan Huel IV&quot;,
-            &quot;email&quot;: &quot;wisoky.aimee@example.com&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.755229Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 46,
+            &quot;name&quot;: &quot;Yasmine Oberbrunner&quot;,
+            &quot;email&quot;: &quot;klockman@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.039938Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         },
         {
-            &quot;id&quot;: 27,
-            &quot;name&quot;: &quot;Nathen Carroll IV&quot;,
-            &quot;email&quot;: &quot;maryjane.powlowski@example.com&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.755777Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 47,
+            &quot;name&quot;: &quot;Mr. Emile Paucek&quot;,
+            &quot;email&quot;: &quot;annalise04@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.040963Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         }
     ]
 }</code>
@@ -4435,7 +4277,7 @@ fetch(url, {
         </div>
         </form>
 
-                    <h2 id="user-management-PATCHapi-v1-users--id-">Update the specified resource from storage.</h2>
+                    <h2 id="user-management-PATCHapi-v1-users--id-">Update the specified user from storage.</h2>
 
 <p>
 </p>
@@ -4490,20 +4332,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 28,
-            &quot;name&quot;: &quot;Gerda Wyman&quot;,
-            &quot;email&quot;: &quot;marquardt.jordon@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.763743Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 48,
+            &quot;name&quot;: &quot;Ms. Bria Howe Sr.&quot;,
+            &quot;email&quot;: &quot;vharris@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.047940Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         },
         {
-            &quot;id&quot;: 29,
-            &quot;name&quot;: &quot;Ms. Janiya Streich I&quot;,
-            &quot;email&quot;: &quot;pasquale.conn@example.com&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.764587Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 49,
+            &quot;name&quot;: &quot;Easton Corwin&quot;,
+            &quot;email&quot;: &quot;deven52@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.049066Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         }
     ]
 }</code>
@@ -4607,7 +4449,7 @@ fetch(url, {
         </div>
         </form>
 
-                    <h2 id="user-management-DELETEapi-v1-users--id-">Remove the specified resource from storage.</h2>
+                    <h2 id="user-management-DELETEapi-v1-users--id-">Remove the user resource from storage.</h2>
 
 <p>
 </p>
@@ -4651,20 +4493,20 @@ fetch(url, {
 <code class="language-json" style="max-height: 300px;">{
     &quot;data&quot;: [
         {
-            &quot;id&quot;: 30,
-            &quot;name&quot;: &quot;Prof. Carey Turcotte III&quot;,
-            &quot;email&quot;: &quot;mae.bradtke@example.com&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.769835Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 50,
+            &quot;name&quot;: &quot;Rebeka Walter Jr.&quot;,
+            &quot;email&quot;: &quot;stephany.block@example.net&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.057031Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         },
         {
-            &quot;id&quot;: 31,
-            &quot;name&quot;: &quot;Cathy Hilpert&quot;,
-            &quot;email&quot;: &quot;idella46@example.org&quot;,
-            &quot;email_verified_at&quot;: &quot;2023-04-22T15:59:15.770751Z&quot;,
-            &quot;created_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;,
-            &quot;updated_at&quot;: &quot;2023-04-22T15:59:15.000000Z&quot;
+            &quot;id&quot;: 51,
+            &quot;name&quot;: &quot;Cayla Koepp&quot;,
+            &quot;email&quot;: &quot;saufderhar@example.org&quot;,
+            &quot;email_verified_at&quot;: &quot;2023-04-23T06:08:04.057978Z&quot;,
+            &quot;created_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;,
+            &quot;updated_at&quot;: &quot;2023-04-23T06:08:04.000000Z&quot;
         }
     ]
 }</code>
