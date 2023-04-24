@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Resources\PrizeResource;
 use App\Http\Resources\SubscriberResource;
 use App\Models\Subscriber;
 use App\Http\Requests\StoreSubscriberRequest;
@@ -10,10 +11,23 @@ use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Routing\Controller;
 
+/**
+ * @group Subscriber management
+ *
+ * APIs to manage the subscriber resource
+ */
 class SubscriberController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of subscribers.
+     *
+     * Get a list of Subscribers
+     *
+     * @queryParam page_size int Size per page. Defaults to 20. Example 20
+     * @queryParam page int Page to view.
+     *
+     * @param Request $request
+     * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
     {
@@ -24,7 +38,12 @@ class SubscriberController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
+     * Store a newly created Subscriber in storage.
+     *
+     * @bodyParam user_id int required User that subscribes to new articles. Example: 9
+     *
+     * @param StoreSubscriberRequest $request
+     * @return SubscriberResource
      */
     public function store(StoreSubscriberRequest $request): SubscriberResource
     {
@@ -37,7 +56,14 @@ class SubscriberController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * Display the specified subscribed user.
+     *
+     * @urlParam id int required User ID
+     * @apiResourceCollection App\Http\Resources\PrizeResource
+     * @apiResourceModel App\Models\Prize
+     *
+     * @param Subscriber $subscriber
+     * @return SubscriberResource
      */
     public function show(Subscriber $subscriber): SubscriberResource
     {
@@ -45,15 +71,21 @@ class SubscriberController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
+     * Update the specified subscriber in storage.
      */
-    public function update(Request $request, Subscriber $subscriber)
-    {
-        return null;
-    }
+//    public function update(Request $request, Subscriber $subscriber)
+//    {
+//        return null;
+//    }
 
     /**
-     * Remove the specified resource from storage.
+     * Remove the specified subscriber from storage.
+     *
+     * @apiResourceCollection App\Http\Resources\PrizeResource
+     * @apiResourceModel App\Models\Prize
+     *
+     * @param Subscriber $subscriber
+     * @return SubscriberResource
      */
     public function destroy(Subscriber $subscriber): SubscriberResource
     {

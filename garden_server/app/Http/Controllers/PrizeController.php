@@ -12,12 +12,21 @@ use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Routing\Controller;
 
 /**
- * Summary of PrizeController
+ * @group Prize management
+ *
+ * APIs to manage the Prize resource
  */
 class PrizeController extends Controller
 {
     /**
-     * Display a listing of the resource.
+     * Display a listing of prizes.
+     *
+     * Gets a list of Prizes
+     *
+     * @queryParam page_size int Size per page. Defaults to 20. Example 20
+     * @queryParam page int Page to view.
+     * @param Request $request
+     * @return AnonymousResourceCollection
      */
     public function index(Request $request): AnonymousResourceCollection
     {
@@ -27,8 +36,14 @@ class PrizeController extends Controller
     }
 
     /**
-     * Store a newly created resource in storage.
-     * @throws \Throwable
+     * Store a newly created prize in storage.
+     *
+     * @bodyParam name string required Name of the prize. Example: Make up kit
+     * @bodyParam description string required Description of the prize. Example: A very expensive Make up kit that you can win
+     * @bodyParam expiration_date date required Expiration date of the prize. Example: 2023-05-23
+     * @param StorePrizeRequest $request
+     * @param PrizeRepository $repository
+     * @return PrizeResource
      */
     public function store(StorePrizeRequest $request, PrizeRepository $repository): PrizeResource
     {
@@ -38,7 +53,8 @@ class PrizeController extends Controller
     }
 
     /**
-     * Display the specified resource.
+     * @param Prize $prize
+     * @return PrizeResource
      */
     public function show(Prize $prize): PrizeResource
     {
@@ -46,8 +62,14 @@ class PrizeController extends Controller
     }
 
     /**
-     * Update the specified resource in storage.
-     * @throws \Throwable
+     * Update the specified prize in storage.
+     *
+     * @urlParam id int required Prize ID
+     * @apiResourceCollection App\Http\Resources\PrizeResource
+     * @apiResourceModel App\Models\Prize
+     *
+     * @param Prize $prize
+     * @return PrizeResource
      */
     public function update(UpdatePrizeRequest $request, Prize $prize, PrizeRepository $repository): PrizeResource
     {
@@ -56,8 +78,15 @@ class PrizeController extends Controller
     }
 
     /**
-     * Remove the specified resource from storage.
-     * @throws \Throwable
+     * Remove the specified prize from storage.
+     *
+     * @apiResourceCollection App\Http\Resources\PrizeResource
+     * @apiResourceModel App\Models\Prize
+     *
+     * @param Prize $prize
+     * @param PrizeRepository $repository
+     *
+     * @return PrizeResource
      */
     public function destroy(Prize $prize, PrizeRepository $repository): PrizeResource
     {

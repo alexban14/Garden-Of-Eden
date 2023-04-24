@@ -28,26 +28,26 @@ endpoints:
         name: page_size
         description: 'Size per page. Defaults to 20. Example 20'
         required: false
-        example: 1
+        example: 4
         type: integer
         custom: []
       page:
         name: page
         description: 'Page to view.'
         required: false
-        example: 12
+        example: 18
         type: integer
         custom: []
     cleanQueryParameters:
-      page_size: 1
-      page: 12
+      page_size: 4
+      page: 18
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/articles?page=1","last":"http:\/\/localhost\/api\/v1\/articles?page=6","prev":"http:\/\/localhost\/api\/v1\/articles?page=11","next":null},"meta":{"current_page":12,"from":null,"last_page":6,"links":[{"url":"http:\/\/localhost\/api\/v1\/articles?page=11","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=1","label":"1","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=2","label":"2","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=3","label":"3","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=4","label":"4","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=5","label":"5","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=6","label":"6","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/articles","per_page":1,"to":null,"total":6}}'
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/articles?page=1","last":"http:\/\/localhost\/api\/v1\/articles?page=2","prev":"http:\/\/localhost\/api\/v1\/articles?page=17","next":null},"meta":{"current_page":18,"from":null,"last_page":2,"links":[{"url":"http:\/\/localhost\/api\/v1\/articles?page=17","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=1","label":"1","active":false},{"url":"http:\/\/localhost\/api\/v1\/articles?page=2","label":"2","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/articles","per_page":4,"to":null,"total":6}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
@@ -85,11 +85,11 @@ endpoints:
         name: id
         description: 'Article ID'
         required: true
-        example: 20
+        example: 13
         type: integer
         custom: []
     cleanUrlParameters:
-      id: 20
+      id: 13
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -98,7 +98,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":7,"title":"Prof.","body":["voluptatem","sit","sit","sit","et","totam","neque","a","sunt","sunt","ea","maxime","esse","perferendis","culpa","vitae","quia","harum","sit","commodi","distinctio","eum","sint","consequuntur","sint","itaque","aut","eos","fugit","ex","molestiae","soluta","modi","eum","sapiente","exercitationem","dolores","natus","a","consequatur","sunt","consequuntur","nisi","inventore","totam","consequatur","sed","architecto","sunt","ratione","tenetur","corporis","neque","commodi","perferendis","sint","voluptatem","alias","et","neque","reprehenderit","dolore","et","qui","inventore","ex","id","est","odit","veniam","veritatis","necessitatibus","quidem","sunt","porro","voluptates","optio","et","repellendus","sapiente","porro","odit","aspernatur","ut","impedit","et","rerum","placeat","nostrum","cum","ea","necessitatibus","aspernatur","aut","eveniet","voluptas","voluptatibus","consectetur","deleniti","distinctio"],"image":"https:\/\/via.placeholder.com\/640x480.png\/00ccee?text=nulla","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"},{"id":8,"title":"Dr.","body":["at","sit","assumenda","magnam","commodi","consequatur","rem","ea","deserunt","optio","ex","est","ut","facere","et","ut","id","perspiciatis","voluptatibus","ab","ea","ut","in","et","consequatur","necessitatibus","dolores","magni","et","reprehenderit","maiores","et","accusamus","repellat","nobis","quia","deserunt","tempore","dolor","explicabo","rem","veniam","itaque","neque","sit","ullam","repudiandae","soluta","voluptate","id","earum","maiores","sunt","nisi","non","sint","quibusdam","maxime","laboriosam","qui","sed","nulla","voluptatem","illum","nihil","qui","atque","alias","et","deleniti","quae","amet","saepe","modi","illum","voluptatem","omnis","et","fugit","dolores","qui","doloremque","reprehenderit","deserunt","odio","non","minus","voluptatibus","quis","quibusdam","doloribus","voluptates","ut","eum","error","rerum","dicta","at","itaque","ducimus"],"image":"https:\/\/via.placeholder.com\/640x480.png\/0000ee?text=iusto","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"}]}'
+        content: '{"data":[{"id":15,"title":"Mr.","body":["nesciunt","fugit","quis","ut","soluta","et","aut","voluptatibus","corrupti","accusantium","et","vel","vero","voluptatem","dolore","odit","odit","minus","est","consequatur","quo","velit","suscipit","officiis","sit","voluptas","eligendi","fuga","fugiat","eos","voluptatibus","voluptas","voluptas","reiciendis","magnam","amet","eveniet","et","aut","commodi","et","ea","et","et","temporibus","qui","aliquam","illo","dolores","praesentium","nobis","vel","quod","explicabo","animi","iste","vel","aut","quia","asperiores","minima","deleniti","eligendi","rerum","recusandae","consequuntur","repellat","ut","in","consectetur","commodi","maxime","aut","magnam","beatae","dolor","architecto","odit","repellat","id","cumque","laborum","consequatur","ea","officia","deleniti","laboriosam","exercitationem","ut","debitis","id","non","et","quis","odit","eaque","eveniet","ea","vero","cupiditate"],"image":"https:\/\/via.placeholder.com\/640x480.png\/0099ff?text=nihil","created_at":"2023-04-24T20:03:08.000000Z","updated_at":"2023-04-24T20:03:08.000000Z"},{"id":null,"title":"Dr.","body":["consequatur","impedit","sit","et","fuga","laudantium","nihil","ut","iure","aliquam","numquam","voluptas","fuga","dignissimos","odio","quasi","nihil","voluptas","quia","consequatur","eveniet","ullam","cumque","veniam","at","et","consequatur","et","eaque","ut","ut","sit","ab","optio","quaerat","magnam","nobis","est","dolorem","qui","qui","qui","eum","ex","dolorem","possimus","porro","omnis","quis","soluta","id","id","voluptates","animi","velit","similique","sed","in","sunt","consequatur","dolores","nesciunt","voluptatibus","est","et","libero","doloremque","quaerat","ullam","quasi","veritatis","quisquam","dicta","sit","autem","culpa","saepe","et","itaque","aut","est","perspiciatis","placeat","velit","laudantium","consequatur","quidem","perferendis","perspiciatis","exercitationem","expedita","corporis","nemo","impedit","ipsam","enim","officiis","quos","voluptatem","eos"],"image":"https:\/\/via.placeholder.com\/640x480.png\/002288?text=inventore","created_at":null,"updated_at":null}]}'
         headers: []
         description: ''
         custom: []
@@ -156,14 +156,14 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: 9
+        example: 5
         type: integer
         custom: []
     cleanBodyParameters:
       title: 'Improve Happiness'
       body: 'This is an article about improving life happiness'
       image: 'http://image.com'
-      user_id: 9
+      user_id: 5
     fileParameters: []
     responses: []
     responseFields: []
@@ -228,14 +228,14 @@ endpoints:
         name: user_id
         description: ''
         required: false
-        example: 15
+        example: 7
         type: integer
         custom: []
     cleanBodyParameters:
       title: 'Improve Happiness'
       body: 'This is an article about improving life happiness'
       image: 'http://image.com'
-      user_id: 15
+      user_id: 7
     fileParameters: []
     responses: []
     responseFields: []
@@ -280,7 +280,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"id":9,"title":"Mrs.","body":["magnam","veniam","eos","debitis","doloribus","ut","voluptatem","repellendus","enim","quia","provident","corrupti","molestiae","ut","maiores","voluptates","voluptatem","vel","est","ea","qui","autem","odio","illo","quisquam","laborum","culpa","dignissimos","cumque","et","autem","rerum","qui","dolorem","sunt","aut","ut","voluptatibus","velit","quis","optio","facere","quibusdam","consequatur","sint","rem","qui","voluptate","rem","non","dolore","ipsum","voluptatem","quod","explicabo","voluptatum","blanditiis","labore","dolorem","sunt","maiores","ex","fuga","fugiat","porro","ex","qui","mollitia","aut","sit","libero","minus","et","qui","consequatur","aut","officiis","cupiditate","iusto","non","qui","distinctio","harum","officiis","dignissimos","nihil","dolorem","vitae","maiores","excepturi","quisquam","quia","repudiandae","rerum","et","dolores","quis","itaque","aspernatur","quo"],"image":"https:\/\/via.placeholder.com\/640x480.png\/0055ee?text=hic","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"},{"id":10,"title":"Dr.","body":["quisquam","ut","quod","et","maxime","provident","consequuntur","provident","dolor","doloremque","nisi","ab","ut","ut","quia","ipsam","ipsa","ut","amet","quidem","nihil","modi","eos","deleniti","perspiciatis","ut","sunt","mollitia","vero","eos","odio","in","et","nostrum","soluta","id","ipsa","consequatur","est","minus","placeat","animi","qui","ut","eveniet","ut","similique","facilis","labore","quia","ipsam","sed","sunt","non","est","nihil","minus","quos","doloremque","quia","hic","maiores","ab","rem","dolorum","iste","eos","est","hic","quidem","asperiores","ut","nostrum","provident","nihil","facilis","sit","quod","aliquid","alias","beatae","alias","voluptas","non","occaecati","quis","rerum","commodi","harum","minima","aliquam","quia","hic","quam","praesentium","voluptatem","eos","culpa","illo","tempora"],"image":"https:\/\/via.placeholder.com\/640x480.png\/00dd88?text=et","created_at":"2023-04-23T06:08:03.000000Z","updated_at":"2023-04-23T06:08:03.000000Z"}]}'
+        content: '{"data":[{"id":17,"title":"Mr.","body":["quia","unde","aliquid","mollitia","et","architecto","ut","culpa","sapiente","unde","animi","id","ex","dolor","sit","molestias","et","maxime","numquam","vel","enim","sed","dolores","qui","fugiat","rerum","eaque","at","veniam","dolor","alias","veniam","aut","rem","veritatis","sint","atque","quod","sunt","sunt","repellat","cum","voluptates","occaecati","doloremque","ducimus","at","officia","placeat","dolores","fugit","nesciunt","eum","rerum","ab","laboriosam","aut","dolorem","neque","magnam","sit","sunt","cupiditate","quos","iste","tenetur","minima","dolorem","nulla","omnis","et","corrupti","ducimus","nesciunt","in","aliquid","quam","alias","et","aliquid","quia","unde","ab","totam","eos","ut","eum","aut","suscipit","quos","quibusdam","ipsa","pariatur","perferendis","neque","earum","consequatur","maiores","doloribus","et"],"image":"https:\/\/via.placeholder.com\/640x480.png\/00ff44?text=adipisci","created_at":"2023-04-24T20:03:08.000000Z","updated_at":"2023-04-24T20:03:08.000000Z"},{"id":null,"title":"Mrs.","body":["ratione","magnam","aspernatur","labore","sequi","ullam","et","odio","similique","nemo","libero","consequatur","ea","aut","et","itaque","voluptas","itaque","nostrum","voluptatem","minima","laborum","voluptates","facilis","et","aspernatur","aut","quo","laboriosam","temporibus","quis","cum","harum","beatae","consequuntur","dolor","consequatur","eligendi","laborum","consequatur","odit","tenetur","qui","qui","delectus","error","molestiae","recusandae","nulla","impedit","eius","doloremque","laudantium","amet","voluptatem","natus","quasi","harum","qui","aut","beatae","consequuntur","facere","et","non","nam","quia","eligendi","sapiente","at","enim","at","recusandae","recusandae","quo","earum","non","inventore","voluptas","labore","praesentium","perspiciatis","suscipit","nesciunt","quia","veritatis","consequatur","quidem","ut","quas","nesciunt","mollitia","adipisci","molestiae","vitae","unde","aspernatur","quaerat","reiciendis","dolores"],"image":"https:\/\/via.placeholder.com\/640x480.png\/000011?text=qui","created_at":null,"updated_at":null}]}'
         headers: []
         description: ''
         custom: []

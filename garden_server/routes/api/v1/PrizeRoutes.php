@@ -16,9 +16,9 @@ Route::middleware([
             ->whereNumber('prize')
         ;
         Route::post('/prizes', [PrizeController::class, 'store'])->name('.store');
-        Route::patch('/prizes/{prize}', [PrizeController::class, 'update'])
-            ->name('.update')
-            ->whereNumber('prize')
+//        Route::patch('/prizes/{prize}', [PrizeController::class, 'update'])
+//            ->name('.update')
+//            ->whereNumber('prize')
         ;
         Route::delete('/prizes/{prize}', [PrizeController::class, 'destroy'])
             ->name('.destroy')

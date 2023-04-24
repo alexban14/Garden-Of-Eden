@@ -5,14 +5,342 @@ description: ''
 endpoints:
   -
     httpMethods:
-      - GET
-    uri: api/user
+      - POST
+    uri: api/login
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: ''
+      title: 'Attempt to authenticate a new session.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      email:
+        name: email
+        description: ''
+        required: true
+        example: hvonrueden@example.net
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: 'sztG(*k_4-O@.5V9*'
+        type: string
+        custom: []
+    cleanBodyParameters:
+      email: hvonrueden@example.net
+      password: 'sztG(*k_4-O@.5V9*'
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/logout
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Destroy an authenticated session.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/forgot-password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send a reset link to the given user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/reset-password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Reset the user's password."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      token:
+        name: token
+        description: ''
+        required: true
+        example: modi
+        type: string
+        custom: []
+      password:
+        name: password
+        description: ''
+        required: true
+        example: ut
+        type: string
+        custom: []
+    cleanBodyParameters:
+      token: modi
+      password: ut
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/register
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Create a new registered user.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/email/verify/{id}/{hash}'
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Mark the authenticated user's email address as verified."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the verify.'
+        required: true
+        example: velit
+        type: string
+        custom: []
+      hash:
+        name: hash
+        description: ''
+        required: true
+        example: ab
+        type: string
+        custom: []
+    cleanUrlParameters:
+      id: velit
+      hash: ab
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 401
+        content: '{"message":"Unauthenticated."}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          access-control-allow-origin: '*'
+          set-cookie: 'garden_of_eden_session=eyJpdiI6IjRmM2lGVThSWUZNVmx4WUduV1hLTlE9PSIsInZhbHVlIjoiRHVoU21ZMFRmSDJZb0NscmE0Q2xpRmxzajc3U0ZwQmxFbTlhU3FzQVB4TW1Da1VLM2M1T05wd0RzMDhsc2Q0T3ZDSGlXUDJvZnI4cGFtRXdVbDNUMktmblVDMnY2RVJHWXN3WkVmQ1VmRXNiRU1QbWMwN2tqN1RJN2tzSkdlYlgiLCJtYWMiOiI2NTRjY2VjODI2OTExYmMyMWM3NGYzOTYyNGI4ZmQ3ZDkyNmEzNGQ3MjM5OTQ2ZTE3YzA5YzMyNjQwMDBlNjdlIiwidGFnIjoiIn0%3D; expires=Mon, 24 Apr 2023 22:03:08 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/email/verification-notification
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Send a new email verification notification.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/user/profile-information
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Update the user's profile information."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - PUT
+    uri: api/user/password
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: "Update the user's password."
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: api/user/confirmed-password-status
+    metadata:
+      groupName: Endpoints
+      groupDescription: ''
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Get the password confirmation status.'
       description: ''
       authenticated: false
       custom: []
@@ -34,96 +362,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/comments
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":1,"body":["voluptatibus","et","corrupti","nam","quos","et","adipisci","et","delectus","numquam"],"user_id":3,"article_id":2,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":2,"body":["sunt","sed","fugit","cumque","fugit","soluta","in","cumque","nobis","officia"],"user_id":4,"article_id":1,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":3,"body":["adipisci","et","reiciendis","sint","accusantium","nihil","magnam","sequi","eos","harum"],"user_id":2,"article_id":2,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":4,"body":["laborum","veniam","alias","nobis","tempora","quis","accusantium","sed","vitae","labore"],"user_id":3,"article_id":3,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":5,"body":["voluptate","est","consequuntur","ut","ipsa","qui","eos","qui","at","beatae"],"user_id":9,"article_id":1,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":6,"body":"pretty poor article","user_id":3,"article_id":1,"created_at":"2023-04-22T09:27:34.000000Z","updated_at":"2023-04-22T09:29:55.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/comments?page=1","last":"http:\/\/localhost\/api\/v1\/comments?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/comments?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/comments","per_page":20,"to":6,"total":6}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '58'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/comments/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the comment.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":1,"body":["voluptatibus","et","corrupti","nam","quos","et","adipisci","et","delectus","numquam"],"user_id":3,"article_id":2,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
-          access-control-allow-origin: '*'
+          set-cookie: 'garden_of_eden_session=eyJpdiI6ImV1cHAzQk5KSytHbEpGeVJJUkVxVFE9PSIsInZhbHVlIjoiTVk5QWZKcnVwUVNQbEdwanZGRnZrZkZ3RWx1d1l5ZTVqOFc1aWJ1Njc1WTNmOUU1U0lnR1JueU9tRytJcitNSXJQWjNUdjhoeHQ3S3kzNGVFc0VDcS9KTDlxdGZFRkwzZlBQZEltUW03NnZpTkVsVE1UaXI1aFd3OGl3Z1NRa2kiLCJtYWMiOiJlMWJjNGIzOWI0ZDM3MDY1NDU2YmI5NDM2NDhhOWFhYzFhNjk4ODJlMmY3NWQ5NjRlYzRjODk3M2Q2NjVmZTBmIiwidGFnIjoiIn0%3D; expires=Mon, 24 Apr 2023 22:03:08 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
@@ -135,13 +374,13 @@ endpoints:
   -
     httpMethods:
       - POST
-    uri: api/v1/comments
+    uri: api/user/confirm-password
     metadata:
       groupName: Endpoints
       groupDescription: ''
       subgroup: ''
       subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
+      title: "Confirm the user's password."
       description: ''
       authenticated: false
       custom: []
@@ -150,570 +389,6 @@ endpoints:
       Accept: application/json
     urlParameters: []
     cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      body:
-        name: body
-        description: ''
-        required: true
-        example: molestias
-        type: string
-        custom: []
-      user_id:
-        name: user_id
-        description: ''
-        required: true
-        example: 19
-        type: integer
-        custom: []
-      article_id:
-        name: article_id
-        description: ''
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      body: molestias
-      user_id: 19
-      article_id: 1
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/comments/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the comment.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      body:
-        name: body
-        description: ''
-        required: true
-        example: nesciunt
-        type: string
-        custom: []
-    cleanBodyParameters:
-      body: nesciunt
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/comments/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the comment.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/prizes
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":1,"name":"Prof.","description":["non","sunt","deserunt","et","expedita","expedita","incidunt","at","suscipit","a"],"expiration_date":"2023-04-20","user_id":6,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":2,"name":"Prof.","description":["voluptates","et","dolorem","hic","sunt","et","saepe","fugit","expedita","ipsum"],"expiration_date":"2023-04-09","user_id":10,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":3,"name":"Ms.","description":["omnis","velit","accusantium","praesentium","perferendis","velit","vitae","tempore","omnis","dolores"],"expiration_date":"2023-01-29","user_id":10,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":4,"name":"Prof.","description":["beatae","ipsum","laborum","eos","ut","nesciunt","aliquam","alias","ut","autem"],"expiration_date":"2023-01-30","user_id":10,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":5,"name":"Dr.","description":["dolore","nobis","temporibus","dolor","ipsa","consequatur","temporibus","excepturi","hic","voluptates"],"expiration_date":"2023-01-14","user_id":3,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/prizes?page=1","last":"http:\/\/localhost\/api\/v1\/prizes?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/prizes","per_page":20,"to":5,"total":5}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/prizes/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the prize.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":1,"name":"Prof.","description":["non","sunt","deserunt","et","expedita","expedita","incidunt","at","suscipit","a"],"expiration_date":"2023-04-20","user_id":6,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '55'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/prizes
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: true
-        example: delectus
-        type: string
-        custom: []
-      description:
-        name: description
-        description: ''
-        required: true
-        example: 'Voluptatem deserunt odit minus voluptas nostrum qui.'
-        type: string
-        custom: []
-      expiration_date:
-        name: expiration_date
-        description: 'Must be a valid date. Must be a date after <code>tomorrow</code>.'
-        required: true
-        example: '2060-11-29'
-        type: string
-        custom: []
-      user_id:
-        name: user_id
-        description: ''
-        required: true
-        example: 3
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      name: delectus
-      description: 'Voluptatem deserunt odit minus voluptas nostrum qui.'
-      expiration_date: '2060-11-29'
-      user_id: 3
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/prizes/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the prize.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      name:
-        name: name
-        description: ''
-        required: false
-        example: et
-        type: string
-        custom: []
-      body:
-        name: body
-        description: ''
-        required: false
-        example: consequuntur
-        type: string
-        custom: []
-      expiration_date:
-        name: expiration_date
-        description: 'Must be a valid date.'
-        required: false
-        example: '2023-04-23T06:08:03'
-        type: string
-        custom: []
-    cleanBodyParameters:
-      name: et
-      body: consequuntur
-      expiration_date: '2023-04-23T06:08:03'
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/prizes/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the prize.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: api/v1/subscribers
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display a listing of the resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":[{"id":1,"user_id":7,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":2,"user_id":8,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":3,"user_id":10,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":4,"user_id":6,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"},{"id":5,"user_id":8,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}],"links":{"first":"http:\/\/localhost\/api\/v1\/subscribers?page=1","last":"http:\/\/localhost\/api\/v1\/subscribers?page=1","prev":null,"next":null},"meta":{"current_page":1,"from":1,"last_page":1,"links":[{"url":null,"label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/subscribers?page=1","label":"1","active":true},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/subscribers","per_page":20,"to":5,"total":5}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '54'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - GET
-    uri: 'api/v1/subscribers/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Display the specified resource.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the subscriber.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses:
-      -
-        status: 200
-        content: '{"data":{"id":1,"user_id":7,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}}'
-        headers:
-          cache-control: 'no-cache, private'
-          content-type: application/json
-          x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '53'
-          access-control-allow-origin: '*'
-        description: null
-        custom: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - POST
-    uri: api/v1/subscribers
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Store a newly created resource in storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters: []
-    cleanUrlParameters: []
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters:
-      user_id:
-        name: user_id
-        description: ''
-        required: true
-        example: 15
-        type: integer
-        custom: []
-    cleanBodyParameters:
-      user_id: 15
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - PATCH
-    uri: 'api/v1/subscribers/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Update the specified resource in storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the subscriber.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
-    queryParameters: []
-    cleanQueryParameters: []
-    bodyParameters: []
-    cleanBodyParameters: []
-    fileParameters: []
-    responses: []
-    responseFields: []
-    auth: []
-    controller: null
-    method: null
-    route: null
-    custom: []
-  -
-    httpMethods:
-      - DELETE
-    uri: 'api/v1/subscribers/{id}'
-    metadata:
-      groupName: Endpoints
-      groupDescription: ''
-      subgroup: ''
-      subgroupDescription: ''
-      title: 'Remove the specified resource from storage.'
-      description: ''
-      authenticated: false
-      custom: []
-    headers:
-      Content-Type: application/json
-      Accept: application/json
-    urlParameters:
-      id:
-        name: id
-        description: 'The ID of the subscriber.'
-        required: true
-        example: 1
-        type: integer
-        custom: []
-    cleanUrlParameters:
-      id: 1
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []

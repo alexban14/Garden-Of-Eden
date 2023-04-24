@@ -1,0 +1,225 @@
+name: 'Prize management'
+description: |-
+
+  APIs to manage the Prize resource
+endpoints:
+  -
+    httpMethods:
+      - GET
+    uri: api/v1/prizes
+    metadata:
+      groupName: 'Prize management'
+      groupDescription: |-
+
+        APIs to manage the Prize resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Display a listing of prizes.'
+      description: 'Gets a list of Prizes'
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters:
+      page_size:
+        name: page_size
+        description: 'Size per page. Defaults to 20. Example 20'
+        required: false
+        example: 3
+        type: integer
+        custom: []
+      page:
+        name: page
+        description: 'Page to view.'
+        required: false
+        example: 3
+        type: integer
+        custom: []
+    cleanQueryParameters:
+      page_size: 3
+      page: 3
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/prizes?page=1","last":"http:\/\/localhost\/api\/v1\/prizes?page=2","prev":"http:\/\/localhost\/api\/v1\/prizes?page=2","next":null},"meta":{"current_page":3,"from":null,"last_page":2,"links":[{"url":"http:\/\/localhost\/api\/v1\/prizes?page=2","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=1","label":"1","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=2","label":"2","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/prizes","per_page":3,"to":null,"total":5}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '57'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - GET
+    uri: 'api/v1/prizes/{id}'
+    metadata:
+      groupName: 'Prize management'
+      groupDescription: |-
+
+        APIs to manage the Prize resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: ''
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the prize.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":{"id":1,"name":"Prof.","description":["non","sunt","deserunt","et","expedita","expedita","incidunt","at","suscipit","a"],"expiration_date":"2023-04-20","user_id":6,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}}'
+        headers:
+          cache-control: 'no-cache, private'
+          content-type: application/json
+          x-ratelimit-limit: '60'
+          x-ratelimit-remaining: '56'
+          access-control-allow-origin: '*'
+        description: null
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - POST
+    uri: api/v1/prizes
+    metadata:
+      groupName: 'Prize management'
+      groupDescription: |-
+
+        APIs to manage the Prize resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Store a newly created prize in storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters: []
+    cleanUrlParameters: []
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters:
+      name:
+        name: name
+        description: 'Name of the prize.'
+        required: true
+        example: 'Make up kit'
+        type: string
+        custom: []
+      description:
+        name: description
+        description: 'Description of the prize.'
+        required: true
+        example: 'A very expensive Make up kit that you can win'
+        type: string
+        custom: []
+      expiration_date:
+        name: expiration_date
+        description: 'Expiration date of the prize.'
+        required: true
+        example: '2023-05-23'
+        type: date
+        custom: []
+      user_id:
+        name: user_id
+        description: ''
+        required: true
+        example: 12
+        type: integer
+        custom: []
+    cleanBodyParameters:
+      name: 'Make up kit'
+      description: 'A very expensive Make up kit that you can win'
+      expiration_date: '2023-05-23'
+      user_id: 12
+    fileParameters: []
+    responses: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []
+  -
+    httpMethods:
+      - DELETE
+    uri: 'api/v1/prizes/{id}'
+    metadata:
+      groupName: 'Prize management'
+      groupDescription: |-
+
+        APIs to manage the Prize resource
+      subgroup: ''
+      subgroupDescription: ''
+      title: 'Remove the specified prize from storage.'
+      description: ''
+      authenticated: false
+      custom: []
+    headers:
+      Content-Type: application/json
+      Accept: application/json
+    urlParameters:
+      id:
+        name: id
+        description: 'The ID of the prize.'
+        required: true
+        example: 1
+        type: integer
+        custom: []
+    cleanUrlParameters:
+      id: 1
+    queryParameters: []
+    cleanQueryParameters: []
+    bodyParameters: []
+    cleanBodyParameters: []
+    fileParameters: []
+    responses:
+      -
+        status: 200
+        content: '{"data":[{"name":"Prof.","description":["vel","saepe","ex","blanditiis","et","quo","qui","voluptates","molestiae","illo"],"expiration_date":{"date":"2023-03-02 08:00:52.000000","timezone_type":3,"timezone":"UTC"},"user_id":13},{"name":"Mr.","description":["illo","aperiam","cupiditate","laudantium","optio","labore","in","nemo","magnam","et"],"expiration_date":{"date":"2023-01-20 22:21:19.000000","timezone_type":3,"timezone":"UTC"},"user_id":6}]}'
+        headers: []
+        description: ''
+        custom: []
+    responseFields: []
+    auth: []
+    controller: null
+    method: null
+    route: null
+    custom: []

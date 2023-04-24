@@ -43,7 +43,6 @@ class ArticleController extends Controller
      *
      * @bodyParam title string required Title of the article. Example: Improve Happiness
      * @bodyParam body string required Body of the article. Example: This is an article about improving life happiness
-     * @bodyParam title string required Title of the article. Example: Improve Happiness
      * @bodyParam image url optional Image for the article. Example: http://image.com
      * @param StoreArticleRequest $request
      * @param ArticleRepository $repository
