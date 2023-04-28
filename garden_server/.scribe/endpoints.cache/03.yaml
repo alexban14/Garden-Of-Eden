@@ -30,31 +30,31 @@ endpoints:
         name: page_size
         description: 'Size per page. Defaults to 20. Example 20'
         required: false
-        example: 3
+        example: 20
         type: integer
         custom: []
       page:
         name: page
         description: 'Page to view.'
         required: false
-        example: 3
+        example: 2
         type: integer
         custom: []
     cleanQueryParameters:
-      page_size: 3
-      page: 3
+      page_size: 20
+      page: 2
     bodyParameters: []
     cleanBodyParameters: []
     fileParameters: []
     responses:
       -
         status: 200
-        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/prizes?page=1","last":"http:\/\/localhost\/api\/v1\/prizes?page=2","prev":"http:\/\/localhost\/api\/v1\/prizes?page=2","next":null},"meta":{"current_page":3,"from":null,"last_page":2,"links":[{"url":"http:\/\/localhost\/api\/v1\/prizes?page=2","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=1","label":"1","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=2","label":"2","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/prizes","per_page":3,"to":null,"total":5}}'
+        content: '{"data":[],"links":{"first":"http:\/\/localhost\/api\/v1\/prizes?page=1","last":"http:\/\/localhost\/api\/v1\/prizes?page=1","prev":"http:\/\/localhost\/api\/v1\/prizes?page=1","next":null},"meta":{"current_page":2,"from":null,"last_page":1,"links":[{"url":"http:\/\/localhost\/api\/v1\/prizes?page=1","label":"&laquo; Previous","active":false},{"url":"http:\/\/localhost\/api\/v1\/prizes?page=1","label":"1","active":false},{"url":null,"label":"Next &raquo;","active":false}],"path":"http:\/\/localhost\/api\/v1\/prizes","per_page":20,"to":null,"total":5}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '57'
+          x-ratelimit-remaining: '58'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -100,12 +100,12 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":{"id":1,"name":"Prof.","description":["non","sunt","deserunt","et","expedita","expedita","incidunt","at","suscipit","a"],"expiration_date":"2023-04-20","user_id":6,"created_at":"2023-04-20T16:48:29.000000Z","updated_at":"2023-04-20T16:48:29.000000Z"}}'
+        content: '{"data":{"id":1,"name":"Mrs.","description":["ut","est","illo","quia","ab","quo","quo","dolorem","maxime","alias"],"expiration_date":"2023-04-03","user_id":6,"created_at":"2023-04-28T06:08:29.000000Z","updated_at":"2023-04-28T06:08:29.000000Z"}}'
         headers:
           cache-control: 'no-cache, private'
           content-type: application/json
           x-ratelimit-limit: '60'
-          x-ratelimit-remaining: '56'
+          x-ratelimit-remaining: '57'
           access-control-allow-origin: '*'
         description: null
         custom: []
@@ -163,14 +163,14 @@ endpoints:
         name: user_id
         description: ''
         required: true
-        example: 12
+        example: 19
         type: integer
         custom: []
     cleanBodyParameters:
       name: 'Make up kit'
       description: 'A very expensive Make up kit that you can win'
       expiration_date: '2023-05-23'
-      user_id: 12
+      user_id: 19
     fileParameters: []
     responses: []
     responseFields: []
@@ -215,7 +215,7 @@ endpoints:
     responses:
       -
         status: 200
-        content: '{"data":[{"name":"Prof.","description":["vel","saepe","ex","blanditiis","et","quo","qui","voluptates","molestiae","illo"],"expiration_date":{"date":"2023-03-02 08:00:52.000000","timezone_type":3,"timezone":"UTC"},"user_id":13},{"name":"Mr.","description":["illo","aperiam","cupiditate","laudantium","optio","labore","in","nemo","magnam","et"],"expiration_date":{"date":"2023-01-20 22:21:19.000000","timezone_type":3,"timezone":"UTC"},"user_id":6}]}'
+        content: '{"data":[{"name":"Prof.","description":["corrupti","magni","quis","harum","magni","quas","animi","eligendi","aut","quos"],"expiration_date":{"date":"2023-02-14 22:51:56.000000","timezone_type":3,"timezone":"UTC"},"user_id":3,"updated_at":"2023-04-28T07:35:54.000000Z","created_at":"2023-04-28T07:35:54.000000Z","id":10},{"name":"Mrs.","description":["et","accusantium","animi","vitae","est","et","magni","ipsam","iure","facere"],"expiration_date":{"date":"2023-02-01 10:37:39.000000","timezone_type":3,"timezone":"UTC"},"user_id":6,"updated_at":"2023-04-28T07:35:54.000000Z","created_at":"2023-04-28T07:35:54.000000Z","id":11}]}'
         headers: []
         description: ''
         custom: []

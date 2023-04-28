@@ -28,19 +28,19 @@ endpoints:
         name: email
         description: ''
         required: true
-        example: hvonrueden@example.net
+        example: georgiana65@example.org
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: 'sztG(*k_4-O@.5V9*'
+        example: 'ww~B]XPYJO:0`?5lfb'
         type: string
         custom: []
     cleanBodyParameters:
-      email: hvonrueden@example.net
-      password: 'sztG(*k_4-O@.5V9*'
+      email: georgiana65@example.org
+      password: 'ww~B]XPYJO:0`?5lfb'
     fileParameters: []
     responses: []
     responseFields: []
@@ -134,19 +134,19 @@ endpoints:
         name: token
         description: ''
         required: true
-        example: modi
+        example: nulla
         type: string
         custom: []
       password:
         name: password
         description: ''
         required: true
-        example: ut
+        example: quia
         type: string
         custom: []
     cleanBodyParameters:
-      token: modi
-      password: ut
+      token: nulla
+      password: quia
     fileParameters: []
     responses: []
     responseFields: []
@@ -206,19 +206,19 @@ endpoints:
         name: id
         description: 'The ID of the verify.'
         required: true
-        example: velit
+        example: libero
         type: string
         custom: []
       hash:
         name: hash
         description: ''
         required: true
-        example: ab
+        example: sunt
         type: string
         custom: []
     cleanUrlParameters:
-      id: velit
-      hash: ab
+      id: libero
+      hash: sunt
     queryParameters: []
     cleanQueryParameters: []
     bodyParameters: []
@@ -232,7 +232,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'garden_of_eden_session=eyJpdiI6IjRmM2lGVThSWUZNVmx4WUduV1hLTlE9PSIsInZhbHVlIjoiRHVoU21ZMFRmSDJZb0NscmE0Q2xpRmxzajc3U0ZwQmxFbTlhU3FzQVB4TW1Da1VLM2M1T05wd0RzMDhsc2Q0T3ZDSGlXUDJvZnI4cGFtRXdVbDNUMktmblVDMnY2RVJHWXN3WkVmQ1VmRXNiRU1QbWMwN2tqN1RJN2tzSkdlYlgiLCJtYWMiOiI2NTRjY2VjODI2OTExYmMyMWM3NGYzOTYyNGI4ZmQ3ZDkyNmEzNGQ3MjM5OTQ2ZTE3YzA5YzMyNjQwMDBlNjdlIiwidGFnIjoiIn0%3D; expires=Mon, 24 Apr 2023 22:03:08 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'garden_of_eden_session=eyJpdiI6InAwZk1hd3JxNUw3d2hQR3hZTTBoRGc9PSIsInZhbHVlIjoicit6RDF6M2FPTnJQeTNGKy9SNmpXbUJCRlJaM2VUQVlBaDArZVB3T3dJd2ZZcnVLMkJVQ3Q3aTlCNE4yamZ3ejllYzFxVVl6NWs3ZWpBWWU4OTE0ZWdNVTRSYklweTJWUUo5eCtJL0JtUGhGT0hrMGpIMjVkc0NLYXNucis2ZFoiLCJtYWMiOiIyN2NhMjBkMjExYTQzMjNkMDFjZTBmOWI2MTVmMmIyY2FjNDE0M2Y4Y2Y0OTg1ODFhZThhMWMwZDA5MWNhYTk1IiwidGFnIjoiIn0%3D; expires=Fri, 28 Apr 2023 09:35:54 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
@@ -362,7 +362,7 @@ endpoints:
           cache-control: 'no-cache, private'
           content-type: application/json
           access-control-allow-origin: '*'
-          set-cookie: 'garden_of_eden_session=eyJpdiI6ImV1cHAzQk5KSytHbEpGeVJJUkVxVFE9PSIsInZhbHVlIjoiTVk5QWZKcnVwUVNQbEdwanZGRnZrZkZ3RWx1d1l5ZTVqOFc1aWJ1Njc1WTNmOUU1U0lnR1JueU9tRytJcitNSXJQWjNUdjhoeHQ3S3kzNGVFc0VDcS9KTDlxdGZFRkwzZlBQZEltUW03NnZpTkVsVE1UaXI1aFd3OGl3Z1NRa2kiLCJtYWMiOiJlMWJjNGIzOWI0ZDM3MDY1NDU2YmI5NDM2NDhhOWFhYzFhNjk4ODJlMmY3NWQ5NjRlYzRjODk3M2Q2NjVmZTBmIiwidGFnIjoiIn0%3D; expires=Mon, 24 Apr 2023 22:03:08 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
+          set-cookie: 'garden_of_eden_session=eyJpdiI6InFiNENiK09RUFVkNi9JUkpyNTQrZVE9PSIsInZhbHVlIjoiTGE5dndsb0xRMzBNL2IydjVXdk5RempIRmY2dWNGb3Nka3ZRMWVqZHB5NUkxV1psS0tYVW5zWjNKK2lYd3prUWdiZzQxNzM4OUtLS05kbHduSldXSW1MUzQ5ZXZIeDRQbXBjaXJuRTh3cmJJVFc2SzhUMW5tNjRuZTduM2lnaW8iLCJtYWMiOiIyM2JkM2Q1YzE1YjE5MDQxZDBjMjcwYTVlZGI4ZGJjMGJmMmM3M2FhY2Y2YzRkZDEzMzliNWMyM2NhYWZiMTc4IiwidGFnIjoiIn0%3D; expires=Fri, 28 Apr 2023 09:35:54 GMT; Max-Age=7200; path=/; httponly; samesite=lax'
         description: null
         custom: []
     responseFields: []
