@@ -19,6 +19,10 @@ import { PrizesListComponent } from './prizes/prizes-page/prizes-list/prizes-lis
 import { PrizeEditComponent } from './prizes/prizes-page/prize-edit/prize-edit.component';
 import { PrizeShowComponent } from './prizes/prizes-page/prize-show/prize-show.component';
 import { PrizeCreateComponent } from './prizes/prizes-page/prize-create/prize-create.component';
+import { HeaderComponentComponent } from './components/header-component/header-component/header-component.component';
+import { FooterComponentComponent } from './components/footer-component/footer-component/footer-component.component';
+import { CommonModule } from '@angular/common';
+import { ContactFormComponent } from './components/contact-form/contact-form/contact-form.component';
 
 @NgModule({
   declarations: [
@@ -39,9 +43,13 @@ import { PrizeCreateComponent } from './prizes/prizes-page/prize-create/prize-cr
     RegisterComponent,
     NotFoundComponent,
     PrizeCreateComponent,
+    HeaderComponentComponent,
+    FooterComponentComponent,
+    ContactFormComponent,
   ],
   imports: [
     BrowserModule,
+    CommonModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],

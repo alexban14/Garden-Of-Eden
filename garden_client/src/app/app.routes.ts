@@ -30,7 +30,7 @@ export const appRoutes: Route[] = [
 		component: ContactPageComponent
 	},
 	{
-		path: 'forum',
+		path: 'blog',
 		component: BlogPostsComponent,
 		children: [
 			{
