@@ -23,6 +23,7 @@ import { HeaderComponentComponent } from './components/header-component/header-c
 import { FooterComponentComponent } from './components/footer-component/footer-component/footer-component.component';
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './components/contact-form/contact-form/contact-form.component';
+import { AuthComponent } from './auth/auth.component';
 
 @NgModule({
   declarations: [
@@ -46,6 +47,7 @@ import { ContactFormComponent } from './components/contact-form/contact-form/con
     HeaderComponentComponent,
     FooterComponentComponent,
     ContactFormComponent,
+    AuthComponent,
   ],
   imports: [
     BrowserModule,

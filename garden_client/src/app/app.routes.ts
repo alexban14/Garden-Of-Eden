@@ -15,6 +15,7 @@ import { PrizeEditComponent } from './prizes/prizes-page/prize-edit/prize-edit.c
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not_found/not-found/not-found.component';
+import { AuthComponent } from './auth/auth.component';
 
 export const appRoutes: Route[] = [
 	{
@@ -75,6 +76,7 @@ export const appRoutes: Route[] = [
 	},
 	{
 		path: 'auth',
+		component: AuthComponent,
 		children: [
 			{
 				path: 'login',
