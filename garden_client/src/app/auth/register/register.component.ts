@@ -13,14 +13,24 @@ export class RegisterComponent {
 
   constructor(public fb: FormBuilder, private authService: AuthService, private _router: Router) {
     this.registerData = this.fb.group({
-      username: ['', [Validators.required, Validators.minLength(4)]],
+      name: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(4)]],
       password_confirmation: ['', [Validators.required, Validators.minLength(4)]]
-    })
+    });
   }
 
   submitRegisterForm() {
-    return;
+    const registerFormValue = this.registerData.value;
+    this.authService.register(registerFormValue).subscribe({
+      next: (res: any) => {
+        console.log(res);
+        this._router.navigate(['/']);
+      },
+      error: (err: any) => {
+        console.log(err);
+        this._router.navigate([this._router.url]);
+      }
+    });
   }
 }

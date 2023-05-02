@@ -5,18 +5,18 @@
 	<div class="text-black text-center mb-3 font-bold p-5">
 	  <h1 class="text-xl">Crează-ți un cont respectand campurile de mai jos</h1>
 	</div>
-	<form [fromGroup]="registerData" (ngSubmit)="submitRegisterForm()" novalidate>
+	<form [formGroup]="registerData" (ngSubmit)="submitRegisterForm()" novalidate>
 		<div class="relative w-full mb-3">
 			<label
 			  class="block uppercase text-gray-700 text-xs font-bold mb-2"
-			  for="username"
+			  for="name"
 			  >Nume complet</label
 			><input
 			  type="text"
 			  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
 			  placeholder="Nume complet"
-			  id="username"
-			  formControlName="username"
+			  id="name"
+			  formControlName="name"
 			  style="transition: all 0.15s ease 0s;"
 			/>
 	  </div>
@@ -65,7 +65,7 @@
 	  <div class="text-center mt-6">
 		<button
 		  class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
-		  type="button"
+		  type="submit"
 		  style="transition: all 0.15s ease 0s;"
 		>
 		  Înregistreză-te

@@ -8,8 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private registerEndpoint = '/api/login';
-  private loginEndpoint = '/api/register';
+  private registerEndpoint = '/api/register';
+  private loginEndpoint = '/api/login';
   private logoutEndpoint = '/api/logout';
   private forgotPasswordEmail = '/api/forgot-password';
   private resetPassword = '/api/reset-password';
@@ -18,10 +18,11 @@ export class AuthService {
   private confirmPassword = '/api/user/confirm-password';
   private confirmedPasswordStatus = '/api/user/confirm-password-status';
   private verifyEmailNotification = '/api/email/verification-notification';
+  private sanctumCsrfCookie = '/sanctum/csrf-cookie';
 
   constructor(private http: HttpClient, private _router: Router) {}
 
-  private headers = {
+  private options = {
     withCredentials: true,
     headers: new HttpHeaders()
                   .append('Content-Type', 'application/json')
@@ -29,14 +30,18 @@ export class AuthService {
   }
 
   register(user: RegisterUserModel) {
-    return this.http.post(environment.serverURL + this.registerEndpoint, user, this.headers);
+    return this.http.post(environment.serverURL + this.registerEndpoint, user, this.options);
   }
 
   login(user: LoginUserModel) {
-    return this.http.post(environment.serverURL + this.loginEndpoint, user, this.headers);
+    return this.http.post(environment.serverURL + this.loginEndpoint, user, this.options);
   }
 
   logout() {
-    return this.http.post(environment.serverURL + this.logoutEndpoint, this.headers);
+    return this.http.post(environment.serverURL + this.logoutEndpoint, this.options);
+  }
+
+  getSanctumCookie() {
+    return this.http.get(environment.serverURL + this.sanctumCsrfCookie);
   }
 }

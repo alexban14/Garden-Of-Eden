@@ -24,8 +24,9 @@ import { FooterComponentComponent } from './components/footer-component/footer-c
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './components/contact-form/contact-form/contact-form.component';
 import { AuthComponent } from './auth/auth.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { SanctumInterceptor } from './services/interceptors/SanctumInterceptor/sanctum.interceptor';
 
 @NgModule({
   declarations: [
@@ -59,7 +60,9 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [],
+  providers: [
+    { provide: HTTP_INTERCEPTORS, useClass: SanctumInterceptor, multi: true }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}
