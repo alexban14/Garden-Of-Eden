@@ -9,10 +9,10 @@
 			<div class="relative mt-28">
 				<ul class="flex flex-wrap text-sm font-medium text-center text-gray-500 dark:text-gray-400">
 					<li class="mr-2">
-						<a routerLink="login" class="inline-block px-4 font-bold p-5 text-white bg-blue-600 rounded-lg active" aria-current="page">Întră în cont</a>
+						<a routerLink="login" class="inline-block px-4 font-bold p-5" [ngClass]="currentAuth === 'login' ? ['text-white', 'bg-blue-600', 'rounded-lg active'] : ['rounded-lg', 'hover:text-gray-900', 'hover:bg-gray-100', 'dark:hover:bg-gray-800', 'dark:hover:text-white']" (click)="toggleLogin()"  aria-current="page">Întră în cont</a>
 					</li>
 					<li class="mr-2">
-						<a routerLink="register"  class="inline-block px-4 font-bold p-5 rounded-lg hover:text-gray-900 hover:bg-gray-100 dark:hover:bg-gray-800 dark:hover:text-white">Crează-ti cont</a>
+						<a routerLink="register"  class="inline-block px-4 font-bold p-5" [ngClass]="currentAuth === 'register' ? ['text-white', 'bg-blue-600', 'rounded-lg active'] : ['rounded-lg', 'hover:text-gray-900', 'hover:bg-gray-100', 'dark:hover:bg-gray-800', 'dark:hover:text-white']" (click)="toggleRegister()">Crează-ti cont</a>
 					</li>
 				</ul>
 			</div>

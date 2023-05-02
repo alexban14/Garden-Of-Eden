@@ -24,6 +24,8 @@ import { FooterComponentComponent } from './components/footer-component/footer-c
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './components/contact-form/contact-form/contact-form.component';
 import { AuthComponent } from './auth/auth.component';
+import { HttpClientModule } from '@angular/common/http';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 @NgModule({
   declarations: [
@@ -52,6 +54,9 @@ import { AuthComponent } from './auth/auth.component';
   imports: [
     BrowserModule,
     CommonModule,
+    HttpClientModule,
+    FormsModule,
+    ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [],
