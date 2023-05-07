@@ -18,7 +18,6 @@ export class AuthService {
   private confirmPassword = '/api/user/confirm-password';
   private confirmedPasswordStatus = '/api/user/confirm-password-status';
   private verifyEmailNotification = '/api/email/verification-notification';
-  private sanctumCsrfCookie = '/sanctum/csrf-cookie';
 
   constructor(private http: HttpClient, private _router: Router) {}
 
@@ -39,9 +38,5 @@ export class AuthService {
 
   logout() {
     return this.http.post(environment.serverURL + this.logoutEndpoint, this.options);
-  }
-
-  getSanctumCookie() {
-    return this.http.get(environment.serverURL + this.sanctumCsrfCookie);
   }
 }

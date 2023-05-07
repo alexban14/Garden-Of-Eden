@@ -6,15 +6,8 @@ import { AuthService } from './services/auth/auth.service';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
+export class AppComponent {
   title = 'garden-client';
 
   constructor(public authService: AuthService) {}
-
-  ngOnInit(): void {
-      this.authService.getSanctumCookie().subscribe({
-        next: res => console.log(res),
-        error: err => console.log(err)
-      });
-  }
 }

@@ -25,7 +25,7 @@ export class RegisterComponent {
     this.authService.register(registerFormValue).subscribe({
       next: (res: any) => {
         console.log(res);
-        this._router.navigate(['/']);
+        this._router.navigate(['localhost:4200/']);
       },
       error: (err: any) => {
         console.log(err);
