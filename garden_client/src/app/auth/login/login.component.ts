@@ -36,6 +36,7 @@ export class LoginComponent {
       next: (res: any) => {
         localStorage.setItem('oauth_access_token', res.access_token);
         console.log(res);
+        window.location.reload();
         this._router.navigate(['/']);
       },
       error: error => console.log(error)

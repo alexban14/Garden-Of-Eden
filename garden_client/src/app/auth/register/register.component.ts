@@ -24,6 +24,7 @@ export class RegisterComponent {
     const registerFormValue = this.registerData.value;
     this.authService.register(registerFormValue).subscribe({
       next: res => {
+        window.location.reload();
         this._router.navigate(['/auth/login']);
       },
       error: (err: any) => {
