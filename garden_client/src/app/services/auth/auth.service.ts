@@ -8,16 +8,8 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class AuthService {
-  private registerEndpoint = '/api/register';
-  private loginEndpoint = '/api/login';
-  private logoutEndpoint = '/api/logout';
-  private forgotPasswordEmail = '/api/forgot-password';
-  private resetPassword = '/api/reset-password';
-  private changePassword = '/api/user/password';
-  private editProfileInfo = '/api/user/profile-information';
-  private confirmPassword = '/api/user/confirm-password';
-  private confirmedPasswordStatus = '/api/user/confirm-password-status';
-  private verifyEmailNotification = '/api/email/verification-notification';
+  private registerEndpoint = '/api/v1/users';
+  private loginOauthEndpoint = '/oauth/token';
 
   constructor(private http: HttpClient, private _router: Router) {}
 
@@ -32,11 +24,7 @@ export class AuthService {
     return this.http.post(environment.serverURL + this.registerEndpoint, user, this.options);
   }
 
-  login(user: LoginUserModel) {
-    return this.http.post(environment.serverURL + this.loginEndpoint, user, this.options);
-  }
-
-  logout() {
-    return this.http.post(environment.serverURL + this.logoutEndpoint, this.options);
+  login(oauthUser: LoginUserModel) {
+    return this.http.post(environment.serverURL + this.loginOauthEndpoint, oauthUser, this.options);
   }
 }

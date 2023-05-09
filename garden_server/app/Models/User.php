@@ -3,18 +3,16 @@
 namespace App\Models;
 
 use Illuminate\Auth\Notifications\ResetPassword;
-use Illuminate\Contracts\Auth\Authenticatable;
-use Illuminate\Contracts\Auth\CanResetPassword;
-use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Notifications\Notifiable;
+use Laravel\Passport\HasApiTokens;
 
-class User extends Model implements Authenticatable, CanResetPassword, MustVerifyEmail
+class User extends Model
 {
-    use HasFactory, Notifiable, \Illuminate\Auth\MustVerifyEmail;
+    use HasFactory, Notifiable, HasApiTokens;
 
     protected $fillable = [
         'name',

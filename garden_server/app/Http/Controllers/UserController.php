@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreUserRequest;
 use App\Http\Resources\UserResource;
 use App\Models\User;
 use App\Repositories\UserRepository;
@@ -48,11 +49,11 @@ class UserController extends Controller
      * @apiResourceCollection App\Http\Resources\UserResource
      * @apiResourceModel App\Models\User
      *
-     * @param Request $request
+     * @param StoreUserRequest $request
      * @param UserRepository $repository
      * @return UserResource
      */
-    public function store(Request $request, UserRepository $repository): UserResource
+    public function store(StoreUserRequest $request, UserRepository $repository): UserResource
     {
         $createdUser = $repository->create($request->only(['name', 'password','email']));
 

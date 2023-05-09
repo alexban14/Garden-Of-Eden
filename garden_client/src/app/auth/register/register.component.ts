@@ -23,9 +23,8 @@ export class RegisterComponent {
   submitRegisterForm() {
     const registerFormValue = this.registerData.value;
     this.authService.register(registerFormValue).subscribe({
-      next: (res: any) => {
-        console.log(res);
-        this._router.navigate(['localhost:4200/']);
+      next: res => {
+        this._router.navigate(['/auth/login']);
       },
       error: (err: any) => {
         console.log(err);
