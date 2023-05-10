@@ -24,8 +24,9 @@ import { FooterComponentComponent } from './components/footer-component/footer-c
 import { CommonModule } from '@angular/common';
 import { ContactFormComponent } from './components/contact-form/contact-form/contact-form.component';
 import { AuthComponent } from './auth/auth.component';
-import { HttpClientModule } from '@angular/common/http';
+import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { AccessTokenInterceptor } from './services/auth/access-token.interceptor';
 
 @NgModule({
   declarations: [
@@ -55,15 +56,17 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BrowserModule,
     CommonModule,
     HttpClientModule,
-    // HttpClientXsrfModule.withOptions({
-    //   cookieName: 'XSRF-TOKEN',
-    //   headerName: 'X-XSRF-TOKEN'
-    // }),
     FormsModule,
     ReactiveFormsModule,
     RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
-  providers: [],
+  providers: [
+    {
+      provide: HTTP_INTERCEPTORS,
+      useClass: AccessTokenInterceptor,
+      multi: true,
+    }
+  ],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

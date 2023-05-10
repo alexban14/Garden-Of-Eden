@@ -19,6 +19,10 @@
 			  formControlName="name"
 			  style="transition: all 0.15s ease 0s;"
 			/>
+			<div class="text-sm text-red-600" *ngIf="registerData.controls['name'].touched && registerData.controls['name'].errors">
+				<div *ngIf="registerData.controls['name'].errors['required']">Trebuie să completați cu numele dumneavoastră complet</div>
+				<div *ngIf="registerData.controls['name'].errors['minlength']">Numele trebuie sa conțină cel putin 4 caractere</div>
+			</div>
 	  </div>
 	  <div class="relative w-full mb-3">
 		<label
@@ -33,6 +37,10 @@
 		  formControlName="email"
 		  style="transition: all 0.15s ease 0s;"
 		/>
+		<div class="text-sm text-red-600" *ngIf="registerData.controls['email'].touched && registerData.controls['email'].errors">
+			<div *ngIf="registerData.controls['email'].errors['required']">Completați cu email-ul dumneavoastră</div>
+			<div *ngIf="registerData.controls['email'].errors['email']">Email-ul trebuie să fie unul valid</div>
+		</div>
 	  </div>
 	  <div class="relative w-full mb-3">
 		<label
@@ -47,6 +55,10 @@
 		  formControlName="password"
 		  style="transition: all 0.15s ease 0s;"
 		/>
+		<div class="text-sm text-red-600" *ngIf="registerData.controls['password'].touched && registerData.controls['password'].errors">
+		  <div *ngIf="registerData.controls['password'].errors['required']">Parola este necesară pentru a vă crea cont</div>
+		  <div *ngIf="registerData.controls['password'].errors['minlength']">Parola trebuie să conțina cel puțin 6 caractere</div>
+		</div>
 	  </div>
 	  <div class="relative w-full mb-3">
 		<label
@@ -61,12 +73,17 @@
 		  formControlName="password_confirmation"
 		  style="transition: all 0.15s ease 0s;"
 		/>
-	  </div>
+		<div class="text-sm text-red-600" *ngIf="registerData.controls['password_confirmation'].touched && registerData.controls['password_confirmation'].errors">
+			<div *ngIf="registerData.controls['password_confirmation'].errors['required']">Confirmarea parolei este necesară pentru a vă crea cont</div>
+			<div *ngIf="registerData.controls['password_confirmation'].errors['minlength']">Confirmarea parolei trebuie să conțina cel puțin 6 caractere</div>
+		  </div>
+	  	</div>
 	  <div class="text-center mt-6">
 		<button
 		  class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
 		  type="submit"
 		  style="transition: all 0.15s ease 0s;"
+		  [disabled]="!registerData.valid"
 		>
 		  Înregistreză-te
 		</button>

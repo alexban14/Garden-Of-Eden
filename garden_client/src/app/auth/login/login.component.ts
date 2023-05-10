@@ -16,7 +16,7 @@ export class LoginComponent {
   constructor(public fb: FormBuilder, private authService: AuthService, private _router: Router) {
     this.loginData = this.fb.group({
       email: ['', [Validators.required, Validators.email]],
-      password: ['', [Validators.required, Validators.minLength(8)]]
+      password: ['', [Validators.required, Validators.minLength(6)]]
     });
   }
 
@@ -36,8 +36,9 @@ export class LoginComponent {
       next: (res: any) => {
         localStorage.setItem('oauth_access_token', res.access_token);
         console.log(res);
-        window.location.reload();
-        this._router.navigate(['/']);
+        this._router.navigate(['/']).then( () => {
+          window.location.reload();
+        });
       },
       error: error => console.log(error)
     });

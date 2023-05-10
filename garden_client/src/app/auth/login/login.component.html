@@ -19,6 +19,10 @@
 		  id="email"
 		  style="transition: all 0.15s ease 0s;"
 		/>
+		<div class="text-sm text-red-600" *ngIf="loginData.controls['email'].touched && loginData.controls['email'].errors">
+			<div *ngIf="loginData.controls['email'].errors['required']">Completați cu email-ul dumneavoastră</div>
+			<div *ngIf="loginData.controls['email'].errors['email']">Email-ul trebuie să fie unul valid</div>
+		</div>
 	  </div>
 	  <div class="relative w-full mb-3">
 		<label
@@ -33,6 +37,10 @@
 		  id="password"
 		  style="transition: all 0.15s ease 0s;"
 		/>
+		<div class="text-sm text-red-600" *ngIf="loginData.controls['password'].touched && loginData.controls['password'].errors">
+			<div *ngIf="loginData.controls['password'].errors['required']">Parola este necesară pentru a intra în cont</div>
+			<div *ngIf="loginData.controls['password'].errors['minlength']">Parola trebuie să conțina cel puțin 6 caractere</div>
+		</div>
 	  </div>
 	  <div class="text-center mt-6">
 		<button
