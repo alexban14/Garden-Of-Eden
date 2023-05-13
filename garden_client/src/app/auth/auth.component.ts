@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth/auth.service';
 
 @Component({
   selector: 'garden-client-auth',
@@ -9,7 +10,7 @@ import { Router } from '@angular/router';
 export class AuthComponent implements OnInit {
   currentAuth = 'login';
 
-  constructor(private _router: Router) {}
+  constructor(private authService: AuthService, private _router: Router) {}
 
   toggleLogin() {
     this.currentAuth = 'login';
@@ -20,6 +21,10 @@ export class AuthComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    const isAuthenticated: boolean = this.authService.isAuthenticated();
+    if (isAuthenticated) { 
+      this._router.navigate(['/']);
+    }
       if (this._router.url === '/auth/login') {
         this.currentAuth = 'login';
       } else if (this._router.url === '/auth/register') {
