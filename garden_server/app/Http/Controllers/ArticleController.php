@@ -11,6 +11,7 @@ use App\Repositories\ArticleRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group Article Management
@@ -50,7 +51,14 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request, ArticleRepository $repository): ArticleResource
     {
-            $createdArticle = $repository->create($request->only(['title', 'body', 'image', 'user_id']));
+            $user_id = $request->user()->id;
+            $article = $request->only(['title', 'body', 'image']);
+            $article = [
+                ...$article,
+                'user_id' => $user_id
+            ];
+            Log::info($user_id);
+            $createdArticle = $repository->create($article);
 
         return new ArticleResource($createdArticle);
     }

@@ -58,7 +58,7 @@ import { AccessTokenInterceptor } from './services/auth/access-token.interceptor
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' })
   ],
   providers: [
     {

@@ -24,19 +24,7 @@ class StoreArticleRequest extends FormRequest
         return [
             'title' => ['string', 'required'],
             'body' => ['string', 'required'],
-            'image' => ['string', 'required'],
-            'user_id' => [
-                'int',
-                'required',
-//                custom validation rule via a closure (anonymous function) or custom rule class
-//                function($attribute, $value, $fail) {
-//                    $integerOnly = collect($value)->every( fn($elm) => is_integer($elm) );
-//
-//                    if(!$integerOnly) {
-//                        $fail($attribute . "can only be integers");
-//                    }
-//                }
-            ],
+            'image' => ['string', 'required']
         ];
     }
 

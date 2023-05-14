@@ -16,6 +16,7 @@ import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not_found/not-found/not-found.component';
 import { AuthComponent } from './auth/auth.component';
+import { AuthGuard } from './services/guards/auth.guard';
 
 export const appRoutes: Route[] = [
 	{
@@ -40,7 +41,8 @@ export const appRoutes: Route[] = [
 			},
 			{
 				path: 'new-post',
-				component: PostNewComponent
+				component: PostNewComponent,
+				canActivate: [AuthGuard]
 			},
 			{
 				path: 'post/:id',

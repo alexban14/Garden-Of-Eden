@@ -15,7 +15,9 @@ Route::middleware([
             // ->where('article', '[0-9]')
             ->whereNumber('article')
         ;
-        Route::post('/articles', [ArticleController::class, 'store'])->name('.store');
+        Route::middleware(
+           'auth:api'
+        )->post('/articles', [ArticleController::class, 'store'])->name('.store');
         Route::patch('/articles/{article}', [ArticleController::class, 'update'])
             ->name('.update')
             ->whereNumber('article')
