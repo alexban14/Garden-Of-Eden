@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
 import { BlogPostsService } from 'src/app/services/blog_posts/blog-posts.service';
 
 @Component({
@@ -10,7 +11,7 @@ import { BlogPostsService } from 'src/app/services/blog_posts/blog-posts.service
 export class PostNewComponent {
   newBlogPostForm: FormGroup;
 
-  constructor(public fb: FormBuilder, private blogPostsService: BlogPostsService) {
+  constructor(public fb: FormBuilder, private blogPostsService: BlogPostsService, public _router: Router) {
     this.newBlogPostForm = this.fb.group({
       title: ['', [Validators.required, Validators.minLength(4)]],
       image: ['', [Validators.required]],
@@ -23,7 +24,9 @@ export class PostNewComponent {
     console.log(newBlogPost);
     this.blogPostsService.creatBlogPost(newBlogPost).subscribe({
       next: res => {
-        console.log(res);
+        this._router.navigate(['/auth/login']).then( () => {
+          window.location.reload();
+        });
       },
       error: err => console.log(err)
     });

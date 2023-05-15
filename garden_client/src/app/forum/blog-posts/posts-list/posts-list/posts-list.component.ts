@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { BlogPostModel } from 'src/app/Models/blog-post.model';
+import { BlogPostModel, BlogPostModelReceive } from 'src/app/Models/blog-post.model';
 import { AuthService } from 'src/app/services/auth/auth.service';
 import { BlogPostsService } from 'src/app/services/blog_posts/blog-posts.service';
 
@@ -9,7 +9,7 @@ import { BlogPostsService } from 'src/app/services/blog_posts/blog-posts.service
   styleUrls: ['./posts-list.component.css'],
 })
 export class PostsListComponent implements OnInit{
-  blogPosts!: BlogPostModel[];
+  blogPosts!: BlogPostModelReceive[];
   isAuthenticated: boolean;
 
   constructor(private postsService: BlogPostsService, private authService: AuthService) {

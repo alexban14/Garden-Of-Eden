@@ -26,7 +26,7 @@ export class BlogPostsService {
     });
   }
 
-  getBlogPost(id: number) {
+  getBlogPost(id: string) {
     return this.http.get<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`);
   }
 
