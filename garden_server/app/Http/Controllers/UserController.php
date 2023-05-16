@@ -76,6 +76,20 @@ class UserController extends Controller
     }
 
     /**
+     * Display authenticated user.
+     *
+     * @apiResourceCollection App\Http\Resources\UserResource
+     * @apiResourceModel App\Models\User
+     *
+     * @return UserResource
+     */
+    public function showAuthenticated(Request $request): UserResource
+    {
+        $user = $request->user();
+        return new UserResource($user);
+    }
+
+    /**
      * Update the specified user from storage.
      * @bodyParam name string Name of the user. Example: John Doe
      * @bodyParam email string Email of the user. Example: john@doe.com

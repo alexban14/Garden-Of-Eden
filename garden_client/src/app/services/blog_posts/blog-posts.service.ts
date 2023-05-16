@@ -34,11 +34,11 @@ export class BlogPostsService {
     return this.http.post<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint, BlogPost, this.headers);
   }
 
-  editBlogPost(id: number, BlogPost: BlogPostModel) {
+  editBlogPost(id: string, BlogPost: BlogPostModel) {
     return this.http.patch<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, BlogPost, this.headers);
   }
 
-  deleteBlogPost(id: number) {
+  deleteBlogPost(id: string) {
     return this.http.delete<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, this.headers);
   }
 }

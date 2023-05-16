@@ -52,15 +52,25 @@ style="min-height: 60vh;"
 				<article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
 					<div class="mb-4 lg:mb-6 not-format">
 						<div class="flex items-center mb-6 not-italic">
-							<div class="items-center mr-3 text-sm text-gray-900 dark:text-white">
-								<a href="#" rel="author" class="text-xl font-bold text-gray-900">Scriitor: <b>{{ blogUser.username }}</b></a>
-								<p class="text-base font-light text-gray-500"><b>{{ blogPost.created_at | date }}</b></p>
+							<div class="flex flex-row justify-between items-center mr-3 w-full text-sm text-gray-900 dark:text-white">
+								<div>
+									<a href="#" rel="author" class="text-xl font-bold text-gray-900">Scriitor: <b>{{ blogUser.username }}</b></a>
+									<p class="text-base font-light text-gray-500"><b>{{ blogPost.created_at | date }}</b></p>
+								</div>
+								<div *ngIf="isArticleOwner" class="inline-flex rounded-md shadow-sm">
+									<a routerLink="/blog/post/{{ blogPost.id }}/edit" class="px-4 py-2 font-medium text-blue-700 bg-white border border-gray-200 rounded-l-lg hover:bg-gray-100 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+									  Editeză
+									</a>
+									<button (click)="deleteArticle()" class="px-4 py-2 font-medium text-gray-900 bg-white border border-gray-200 rounded-r-md hover:bg-gray-100 hover:text-blue-700 focus:z-10 focus:ring-2 focus:ring-blue-700 focus:text-blue-700 dark:bg-gray-700 dark:border-gray-600 dark:text-white dark:hover:text-white dark:hover:bg-gray-600 dark:focus:ring-blue-500 dark:focus:text-white">
+									  Șterge
+									</button>
+								</div>
 							</div>
 						</div>
 						<h1 class="mb-4 text-3xl font-extrabold leading-tight text-gray-900 lg:mb-6 lg:text-4xl">{{ blogPost.title }}</h1>
 					</div>
 					<figure>
-						<img src="{{ blogPost.image }}" alt="">
+						<img src="{{ blogPost.image }}" alt="{{ blogPost.title }}">
 					</figure>
 					<p class="p-2 text-lg lead">
 						{{ blogPost.body }}

@@ -17,6 +17,7 @@ Route::middleware([
             // ->where('user', '[0-9]')
             ->whereNumber('user')
         ;
+        Route::middleware('auth:api')->get('/users/auth-user', [UserController::class, 'showAuthenticated'])->name('.authenticated-user');
         Route::post('/users', [UserController::class, 'store'])->name('.store');
         Route::patch('/users/{user}', [UserController::class, 'update'])
             ->name('.update')
