@@ -18,9 +18,6 @@ class Article extends Model
         'image',
         'user_id'
     ];
-    protected $casts = [
-        'body' => 'array'
-    ];
 
     public function user(): BelongsTo
     {

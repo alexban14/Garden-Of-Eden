@@ -57,7 +57,6 @@ class ArticleController extends Controller
                 ...$article,
                 'user_id' => $user_id
             ];
-            Log::info($user_id);
             $createdArticle = $repository->create($article);
 
         return new ArticleResource($createdArticle);

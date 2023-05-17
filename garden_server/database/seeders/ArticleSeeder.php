@@ -19,7 +19,7 @@ class ArticleSeeder extends Seeder
     {
         $this->disableForeignKeys();
         $this->truncate('articles');
-        Article::factory(5)
+        Article::factory(25)
             // generate Comments related to each Article
             // ->has(Comment::factory(3))
             ->create();
