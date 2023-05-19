@@ -7,8 +7,10 @@ use App\Http\Resources\SubscriberResource;
 use App\Models\Subscriber;
 use App\Http\Requests\StoreSubscriberRequest;
 use App\Http\Requests\UpdateSubscriberRequest;
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Http\Resources\Json\JsonResource;
 use Illuminate\Routing\Controller;
 
 /**
@@ -47,12 +49,29 @@ class SubscriberController extends Controller
      */
     public function store(StoreSubscriberRequest $request): SubscriberResource
     {
-        $userId = $request['user_id'];
-        $subscriber_create = Subscriber::query()->create([
-            'user_id' => $userId
-        ]);
+        $foundUser = User::where('email', '=', $request['email'])->first();
+        if (!$foundUser) {
+            $user_created = User::query()->create($request->only(['name', 'email']))->first();
+            $user_subscribed = Subscriber::query()->where('user_id', '=', $user_created->id)->first();
+            if ($user_subscribed) {
+                return new SubscriberResource($user_subscribed);
+            }
+            $subscribed = Subscriber::query()->create([
+                'user_id' => $user_created->id
+            ]);
 
-        return new SubscriberResource($subscriber_create);
+            return new SubscriberResource($subscribed);
+        } else {
+            $user_subscribed = Subscriber::query()->where('user_id', '=', $foundUser['id'])->first();
+            if ($user_subscribed) {
+                return new SubscriberResource($user_subscribed);
+            }
+            $subscribed = Subscriber::query()->create([
+                'user_id' => $foundUser['id']
+            ]);
+
+            return new SubscriberResource($subscribed);
+        }
     }
 
     /**
