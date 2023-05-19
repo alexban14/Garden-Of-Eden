@@ -45,7 +45,7 @@ style="min-height: 60vh;"
 	</svg>
 	</div>
 </div>
-<section class="py-20 bg-gray-300">
+<section class="flex flex-col align-middle justify-center py-20 bg-gray-300">
 	<div 
 	class="container flex justify-start mx-auto px-4 mb-6"
 	*ngIf="isAuthenticated"
@@ -80,5 +80,20 @@ style="min-height: 60vh;"
 			</div>
 
 		</div>
+	</div>
+
+	<div *ngIf="paginationInfo.last_page > 1" class="container justify-center mx-auto my-10">
+		<nav class="p-2">
+			<ul class="flex justify-center">
+				<li *ngFor="let pageNum of arrayPagination(paginationInfo.last_page); let i = index">
+					<a
+					class="mx-1 flex h-9 w-9 items-center justify-center rounded-full {{ paginationInfo.current_page === i + 1 ? 'bg-gradient-to-tr from-pink-600 to-pink-400 p-0 text-sm text-white shadow-md shadow-pink-500/20 transition duration-150 ease-in-out' : 'border border-blue-gray-100 bg-transparent p-0 text-sm text-blue-gray-500 transition duration-150 ease-in-out hover:bg-light-300' }}"
+					(click)="changePage(i + 1)"
+					>
+					{{ i + 1 }}
+					</a>
+				</li>
+			</ul>
+		</nav>
 	</div>
 </section>

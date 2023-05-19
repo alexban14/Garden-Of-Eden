@@ -1,4 +1,4 @@
-import { HttpClient, HttpHeaders } from '@angular/common/http';
+import { HttpClient, HttpHeaders, HttpParams } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { environment } from 'src/environments/environment';
 import { BlogPostModelReceive, BlogPostModel } from '../../Models/blog-post.model';
@@ -18,9 +18,9 @@ export class BlogPostsService {
                   .append('Accept', 'application/json')
   }
 
-  getAllBlogPosts(pageSize?: string, page?: string) {
+  getAllBlogPosts(page?: string, pageSize?: string) {
     return this.http.get<BlogPostModelReceive[]>(environment.serverURL + this.BlogPostsEndpoint, {
-      headers: new HttpHeaders()
+      params: new HttpParams()
                     .append('page_size', pageSize ? pageSize : '20')
                     .append('page', page ? page : '1')
     });

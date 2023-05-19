@@ -22,7 +22,7 @@ class ArticleFactory extends Factory
 
         return [
             'title' => $this->faker->title(),
-            'body' => json_encode($this->faker->words(100)),
+            'body' => implode("", $this->faker->words(100)),
             'image' => $this->faker->imageUrl(),
             'user_id' => $user_id
         ];
