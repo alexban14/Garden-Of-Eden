@@ -1,1 +1,102 @@
-<p>contact-page works!</p>
+<main>
+	<section class="relative w-full min-h-56">
+  <div
+	class="absolute top-0 w-full h-full bg-gray-900"
+  ></div>
+  <div class="container mx-auto px-4 h-full">
+	<div class="flex flex-col content-center items-center justify-center h-full">
+	  <div class="w-full md:w-10/12 lg:w-8/12 px-4 p-2 my-28">
+		<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0"
+>
+  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+	<div class="text-black text-center mb-3 font-bold p-5">
+	  <h1 class="text-xl">Trimite-ne un mesaj</h1>
+	</div>
+	<form 
+	class="flex-auto p-5 lg:p-10"
+	[formGroup]="contactForm"
+	(submit)="sendContactMessage()"
+	>
+	  <h4 class="text-2xl font-semibold">Ai un mesaj pentru noi?</h4>
+	  <p class="leading-relaxed mt-1 mb-4 text-gray-600">
+		Contactează-ne folosit formular următor
+	  </p>
+	  <div *ngIf="reqSuccess" class="p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+		<span class="font-medium">Te-ai abonat cu succes la postările noi de pe blog</span>
+	  </div>
+	  <div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+		<span class="font-medium">Ups! A apărut o problemă</span>
+	  </div>
+	  <div class="relative w-full mb-3 mt-8">
+		<label
+		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
+		  for="name"
+		  >Numele complet</label
+		><input
+		  type="text"
+		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+		  placeholder="Nume complet"
+		  formControlName="name"
+		  id="name"
+		  style="transition: all 0.15s ease 0s;"
+		/>
+		<div class="text-sm text-red-600" *ngIf="contactForm.controls['name'].touched && contactForm.controls['name'].errors">
+		  <div *ngIf="contactForm.controls['name'].errors['required']">Trebuie să completați cu numele dumneavoastră</div>
+		  <div *ngIf="contactForm.controls['name'].errors['minlength']">Numele trebuie sa conțină cel putin 4 caractere</div>
+		</div>
+	  </div>
+	  <div class="relative w-full mb-3">
+		<label
+		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
+		  for="email"
+		  >Email</label
+		><input
+		  type="email"
+		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+		  placeholder="Email"
+		  formControlName="email"
+		  id="email"
+		  style="transition: all 0.15s ease 0s;"
+		/>
+		<div class="text-sm text-red-600" *ngIf="contactForm.controls['email'].touched && contactForm.controls['email'].errors">
+		  <div *ngIf="contactForm.controls['email'].errors['required']">Completați cu email-ul dumneavoastră</div>
+		  <div *ngIf="contactForm.controls['email'].errors['email']">Email-ul trebuie să fie unul valid</div>
+		</div>
+	  </div>
+	  <div class="relative w-full mb-3">
+		<label 
+			class="block uppercase text-gray-700 text-xs font-bold mb-2"
+			for="message"
+		>Conținutul articolului</label>
+		<textarea
+			class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+			formControlName="message"
+			id="message"
+			rows="15"
+			placeholder="Transmite-ne mesajul tău"
+		></textarea>
+		<div class="text-sm text-red-600" *ngIf="contactForm.controls['message'].touched && contactForm.controls['message'].errors">
+			<div *ngIf="contactForm.controls['message'].errors['required']">Conținutul articolului este obligatoriu</div>
+			<div *ngIf="contactForm.controls['message'].errors['minlength']">Minumul de caractere acceptat este de 100</div>
+			<div *ngIf="contactForm.controls['message'].errors['maxlength']">Maximul de caractere acceptat este de 10000</div>
+		</div>
+	  </div>
+	  <div class="text-center mt-6">
+		<button
+		  class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1"
+		  type="submit"
+		  style="transition: all 0.15s ease 0s;"
+		  [disabled]="!contactForm.valid"
+		>
+		  Trimte
+		</button>
+	  </div>
+	</form>
+  </div>
+</div>
+	  </div>
+	</div>
+  </div>
+</section>
+</main>

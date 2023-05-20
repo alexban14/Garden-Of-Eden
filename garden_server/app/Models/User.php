@@ -40,6 +40,11 @@ class User extends Model
         return $this->hasMany(Prize::class, 'user_id');
     }
 
+    public function contactUsInfo(): HasMany
+    {
+        return $this->hasMany(ContactUsInfo::class, 'user_id');
+    }
+
     public function getAuthIdentifierName(): string
     {
         return 'id';

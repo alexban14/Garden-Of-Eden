@@ -34,7 +34,7 @@
                   style="transition: all 0.15s ease 0s;"
                 />
                 <div class="text-sm text-red-600" *ngIf="subscriberForm.controls['name'].touched && subscriberForm.controls['name'].errors">
-                  <div *ngIf="subscriberForm.controls['name'].errors['required']">Trebuie să completați cu numele dumneavoastră complet</div>
+                  <div *ngIf="subscriberForm.controls['name'].errors['required']">Trebuie să completați cu numele dumneavoastră</div>
                   <div *ngIf="subscriberForm.controls['name'].errors['minlength']">Numele trebuie sa conțină cel putin 4 caractere</div>
                 </div>
               </div>
