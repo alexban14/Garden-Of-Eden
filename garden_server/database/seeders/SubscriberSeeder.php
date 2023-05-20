@@ -18,7 +18,7 @@ class SubscriberSeeder extends Seeder
     {
         $this->disableForeignKeys();
         $this->truncate('subscribers');
-        Subscriber::factory(5)->create();
+        Subscriber::factory(3)->create();
         $this->enableForeignKeys();
     }
 }

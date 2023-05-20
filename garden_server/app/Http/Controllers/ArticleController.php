@@ -34,7 +34,7 @@ class ArticleController extends Controller
     public function index(Request $request): AnonymousResourceCollection
     {
         $pageSize = $request->page_size ?? 20;
-        $articles = Article::query()->paginate($pageSize);
+        $articles = Article::query()->orderBy('created_at', 'desc')->paginate($pageSize);
 
         return ArticleResource::collection($articles);
     }
@@ -51,13 +51,13 @@ class ArticleController extends Controller
      */
     public function store(StoreArticleRequest $request, ArticleRepository $repository): ArticleResource
     {
-            $user_id = $request->user()->id;
-            $article = $request->only(['title', 'body', 'image']);
-            $article = [
-                ...$article,
-                'user_id' => $user_id
-            ];
-            $createdArticle = $repository->create($article);
+        $user_id = $request->user()->id;
+        $article = $request->only(['title', 'body', 'image']);
+        $article = [
+            ...$article,
+            'user_id' => $user_id
+        ];
+        $createdArticle = $repository->create($article);
 
         return new ArticleResource($createdArticle);
     }

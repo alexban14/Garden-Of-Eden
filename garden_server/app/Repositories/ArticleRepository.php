@@ -2,6 +2,7 @@
 
 namespace App\Repositories;
 
+use App\Events\Models\ArticleCreated;
 use App\Exceptions\GeneralJsonException;
 use App\Models\Article;
 use Illuminate\Support\Facades\DB;
@@ -19,6 +20,7 @@ class ArticleRepository
             ]);
 
             throw_if(!$createdArticle, GeneralJsonException::class, 'Failed to create the Article');
+            event(new ArticleCreated($createdArticle));
 
             return $createdArticle;
         });
