@@ -11,6 +11,10 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 export class RegisterComponent {
   registerData: FormGroup;
 
+  //states
+  loading = false;
+  reqError = false;
+
   constructor(public fb: FormBuilder, private authService: AuthService, private _router: Router) {
     this.registerData = this.fb.group({
       name: ['', [Validators.required, Validators.minLength(4)]],
@@ -21,14 +25,18 @@ export class RegisterComponent {
   }
 
   submitRegisterForm() {
+    this.loading = true;
     const registerFormValue = this.registerData.value;
     this.authService.register(registerFormValue).subscribe({
       next: res => {
+        this.loading = false;
         this._router.navigate(['/auth/login']).then( () => {
           window.location.reload();
         });
       },
       error: (err: any) => {
+        this.loading = false;
+        this.reqError = true;
         console.log(err);
         this._router.navigate([this._router.url]);
       }

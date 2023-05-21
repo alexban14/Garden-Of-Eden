@@ -11,7 +11,7 @@ export class ContactFormComponent {
   subscriberForm: FormGroup;
 
   // states
-  loading = true;
+  loading = false;
   reqSuccess = false;
   reqError = false;
 

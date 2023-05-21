@@ -13,7 +13,11 @@
 	<div class="text-black text-center mb-3 font-bold p-5">
 	  <h1 class="text-xl">Trimite-ne un mesaj</h1>
 	</div>
+	<garden-client-loading
+	*ngIf="isLoading"
+	></garden-client-loading>
 	<form 
+	*ngIf="!isLoading"
 	class="flex-auto p-5 lg:p-10"
 	[formGroup]="contactForm"
 	(submit)="sendContactMessage()"
@@ -22,9 +26,6 @@
 	  <p class="leading-relaxed mt-1 mb-4 text-gray-600">
 		Contactează-ne folosit formular următor
 	  </p>
-	  <div *ngIf="reqSuccess" class="p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
-		<span class="font-medium">Te-ai abonat cu succes la postările noi de pe blog</span>
-	  </div>
 	  <div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
 		<span class="font-medium">Ups! A apărut o problemă</span>
 	  </div>

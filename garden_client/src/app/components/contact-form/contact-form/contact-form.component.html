@@ -5,7 +5,11 @@
           <div
             class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300"
           >
-            <form 
+            <garden-client-loading
+            *ngIf="loading"
+            ></garden-client-loading>
+            <form
+            *ngIf="!loading"
             class="flex-auto p-5 lg:p-10"
             [formGroup]="subscriberForm"
             (submit)="subscribeToArticles()"

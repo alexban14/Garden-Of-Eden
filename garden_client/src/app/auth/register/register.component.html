@@ -5,7 +5,13 @@
 	<div class="text-black text-center mb-3 font-bold p-5">
 	  <h1 class="text-xl">Crează-ți un cont respectand campurile de mai jos</h1>
 	</div>
-	<form [formGroup]="registerData" (ngSubmit)="submitRegisterForm()" novalidate>
+	<div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+		<span class="font-medium">Ups! A apărut o problemă</span>
+	</div>
+	<garden-client-loading
+	*ngIf="loading"
+	></garden-client-loading>
+	<form *ngIf="!loading" [formGroup]="registerData" (ngSubmit)="submitRegisterForm()" novalidate>
 		<div class="relative w-full mb-3">
 			<label
 			  class="block uppercase text-gray-700 text-xs font-bold mb-2"

@@ -27,6 +27,7 @@ import { AuthComponent } from './auth/auth.component';
 import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccessTokenInterceptor } from './services/auth/access-token.interceptor';
+import { LoadingComponent } from './components/loading-component/loading.component';
 
 @NgModule({
   declarations: [
@@ -51,6 +52,7 @@ import { AccessTokenInterceptor } from './services/auth/access-token.interceptor
     FooterComponentComponent,
     ContactFormComponent,
     AuthComponent,
+    LoadingComponent,
   ],
   imports: [
     BrowserModule,
@@ -58,14 +60,14 @@ import { AccessTokenInterceptor } from './services/auth/access-token.interceptor
     HttpClientModule,
     FormsModule,
     ReactiveFormsModule,
-    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' })
+    RouterModule.forRoot(appRoutes, { initialNavigation: 'enabledBlocking' }),
   ],
   providers: [
     {
       provide: HTTP_INTERCEPTORS,
       useClass: AccessTokenInterceptor,
       multi: true,
-    }
+    },
   ],
   bootstrap: [AppComponent],
 })

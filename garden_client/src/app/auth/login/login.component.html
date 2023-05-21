@@ -5,7 +5,13 @@
 	<div class="text-black text-center mb-3 font-bold p-5">
 	  <h1 class="text-xl">Întră în cont cu credențialele tale de utilizator</h1>
 	</div>
-	<form [formGroup]="loginData" (submit)="submitOauthLoginInfo()" novalidate>
+	<div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+		<span class="font-medium">Ups! A apărut o problemă</span>
+	  </div>
+	<garden-client-loading
+	*ngIf="loading"
+	></garden-client-loading>
+	<form *ngIf="!loading" [formGroup]="loginData" (submit)="submitOauthLoginInfo()" novalidate>
 	  <div class="relative w-full mb-3">
 		<label
 		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
