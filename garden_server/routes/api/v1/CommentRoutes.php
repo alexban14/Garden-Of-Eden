@@ -8,7 +8,10 @@ Route::middleware([
 ])
     ->name('comments')
     ->group( function() {
-        Route::get('/comments', [CommentController::class, 'index'])->name('.index');
+        Route::get('/comments/{article_id}', [CommentController::class, 'index'])
+            ->name('.index')
+            ->whereNumber('article_id')
+        ;
         Route::get('/comments/{comment}', [CommentController::class, 'show'])
             ->name('.show')
             // validate a parameter based on a regex

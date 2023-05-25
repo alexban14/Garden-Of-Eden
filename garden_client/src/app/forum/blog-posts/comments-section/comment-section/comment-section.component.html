@@ -1,0 +1,61 @@
+<section class="mt-6 not-format">
+	<div class="flex justify-between items-center mb-6">
+		<h2 class="text-lg lg:text-2xl font-bold text-gray-900">Secțiunea de comentarii ({{ commentsCount }})</h2>
+	</div>
+	<form *ngIf="authUser" [formGroup]="commentForm" (ngSubmit)="submitComment()" novalidate class="mb-6">
+		<div class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:border-gray-700">  <!-- dark:border-gray-700 -->
+			<label for="body" class="sr-only">Your comment</label>
+			<textarea
+				id="body"
+				rows="6"
+				class="px-0 w-full text-sm text-gray-900 border-0 focus:ring-0" 
+				placeholder="Scrie un commentariu..."
+				formControlName="body"
+				></textarea>
+				<div class="text-sm text-red-600" *ngIf="commentForm.controls['body'].touched && commentForm.controls['body'].errors">
+					<div *ngIf="commentForm.controls['body'].errors['required']">Comentariul este necesar pentru a posta unul</div>
+					<div *ngIf="commentForm.controls['body'].errors['minlength']">Commentariul este necesar a avea peste 100 de caractere</div>
+					<div *ngIf="commentForm.controls['body'].errors['maxlength']">Commentariul nu poate avea peste 1000 de caractere</div>
+				</div>
+		</div>
+		<button 
+		type="submit"
+		class="inline-flex items-center py-2.5 px-4 font-medium text-center text-white bg-gray-700 rounded-lg"
+		[disabled]="!commentForm.valid"
+		>
+			Comenteză
+		</button>
+	</form>
+	<div *ngIf="!authUser" class="py-2 px-4 mb-4 bg-white rounded-lg rounded-t-lg border border-gray-200 dark:border-gray-700">
+		<h5 class="text-lg font-bold text-gray-900">Autentificate sau crează-ți un cont pentru a lăsa un comentariu</h5>
+	</div>
+	<div *ngIf="articleComments">
+		<article *ngFor="let articleComment of articleComments" class="p-6 text-base bg-white border-t border-gray-200">
+			<footer class="flex justify-between items-center mb-2">
+				<div class="flex items-center">
+					<p class="inline-flex items-center mr-3 text-sm text-gray-900">
+						<!-- <img
+							class="mr-2 w-6 h-6 rounded-full"
+							src="https://flowbite.com/docs/images/people/profile-picture-4.jpg"
+							alt="Helene Engels"> -->
+						{{ getUserNameFromId(articleComment.user_id) }}</p>
+					<p class="text-sm text-gray-600">{{ articleComment.created_at | date }}</p>
+				</div>
+				<button id="dropdownComment4Button" data-dropdown-toggle="dropdownComment4" *ngIf=""
+					class="inline-flex items-center p-2 text-sm font-medium text-center text-gray-400 bg-white rounded-lg hover:bg-gray-100 focus:ring-4 focus:outline-none focus:ring-gray-50"
+					type="button">
+					<svg class="w-5 h-5" aria-hidden="true" fill="currentColor" viewBox="0 0 20 20"
+						xmlns="http://www.w3.org/2000/svg">
+						<path
+							d="M6 10a2 2 0 11-4 0 2 2 0 014 0zM12 10a2 2 0 11-4 0 2 2 0 014 0zM16 12a2 2 0 100-4 2 2 0 000 4z">
+						</path>
+					</svg>
+				</button>
+			</footer>
+			<p>{{ articleComment.body }}</p>
+		</article>
+	</div>
+	<article *ngIf="!articleComments.length" class="p-6 text-base bg-white border-t border-gray-200">
+		<h5 class="text-lg font-bold text-gray-900"> Acest articol nu are nici un comentariu </h5>
+	</article>
+</section>

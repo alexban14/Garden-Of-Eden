@@ -19,33 +19,48 @@ export class PostShowComponent implements OnInit {
   authUser!: User;
   isArticleOwner = false;
 
+  loading = false;
+
   constructor(public _router: Router, public route: ActivatedRoute, private authService: AuthService, private blogPostsService: BlogPostsService, private userManagementService: UserManagementService) {}
 
   ngOnInit(): void {
+    this.loading = true;
     if(this.authService.isAuthenticated()) {
       this.userManagementService.getAuthUser().subscribe({
         next: (res: any) => {
+          this.loading = false;
           this.authUser = res.data;
         },
-        error: err => console.log(err)
+        error: err => {
+          console.log(err);
+          this.loading = false;
+        }
       });
     }
     if (this.blogPostId) {
       this.blogPostsService.getBlogPost(this.blogPostId).subscribe({
         next: (res:any) => {
+          this.loading = false;
           this.blogPost = res.data;
           this.postUserId = this.blogPost.user_id;
           this.userManagementService.getUser(this.postUserId).subscribe({
             next: (res: any) => {
+              this.loading = false;
               this.blogUser = res.data;
                if (this.blogUser.id === this.authUser.id) {
                 this.isArticleOwner = true;
                }
             },
-            error: err => console.log(err)
+            error: err => {
+              console.log(err);
+              this.loading = false;
+            }
           });
         },
-        error: err => console.log(err)
+        error: err => {
+          console.log(err)
+          this.loading = false;
+        }
       });
     }
   }

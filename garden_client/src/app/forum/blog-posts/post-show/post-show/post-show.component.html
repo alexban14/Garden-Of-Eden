@@ -49,7 +49,10 @@ style="min-height: 60vh;"
 	<div class="container flex justify-center mx-auto px-4">
 		<div class="pt-2 pb-16 lg:pt-6 lg:pb-24 bg-white">
 			<div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
-				<article class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
+				<garden-client-loading
+				*ngIf="loading"
+				></garden-client-loading>
+				<article *ngIf="!loading" class="mx-auto w-full max-w-2xl format format-sm sm:format-base lg:format-lg format-blue dark:format-invert">
 					<div class="mb-4 lg:mb-6 not-format">
 						<div class="flex items-center mb-6 not-italic">
 							<div class="flex flex-row justify-between items-center mr-3 w-full text-sm text-gray-900 dark:text-white">
@@ -75,6 +78,7 @@ style="min-height: 60vh;"
 					<p class="p-2 text-lg lead">
 						{{ blogPost.body }}
 					</p>
+					<garden-client-comment-section></garden-client-comment-section>
 				</article>
 			</div>
 		</div>

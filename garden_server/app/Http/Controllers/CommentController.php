@@ -29,10 +29,10 @@ class CommentController extends Controller
      * @param Request $request
      * @return AnonymousResourceCollection
      */
-    public function index(Request $request): AnonymousResourceCollection
+    public function index(Request $request, int $article_id): AnonymousResourceCollection
     {
         $pageSize = $request->page_size ?? 20;
-        $comments = Comment::query()->paginate($pageSize);
+        $comments = Comment::query()->where('article_id', '=', $article_id)->orderBy('created_at', 'desc')->paginate($pageSize);
 
         return CommentResource::collection($comments);
     }

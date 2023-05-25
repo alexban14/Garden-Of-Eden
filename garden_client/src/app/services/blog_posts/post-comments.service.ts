@@ -18,8 +18,8 @@ export class PostCommentsService {
                   .append('Accept', 'application/json')
   }
 
-  getAllPostComments(pageSize?: string, page?: string) {
-    return this.http.get<PostCommentModelReceive[]>(environment.serverURL + this.PostCommentsEndpoint, {
+  getAllPostComments(article_id: string, pageSize?: string, page?: string) {
+    return this.http.get<PostCommentModelReceive[]>(environment.serverURL + this.PostCommentsEndpoint + `/${article_id}`, {
       headers: new HttpHeaders()
                       .append('page_size', pageSize ? pageSize : '20')
                       .append('page', page ? page : '1')

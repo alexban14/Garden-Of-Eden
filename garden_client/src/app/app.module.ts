@@ -28,6 +28,7 @@ import { HTTP_INTERCEPTORS, HttpClientModule } from '@angular/common/http';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { AccessTokenInterceptor } from './services/auth/access-token.interceptor';
 import { LoadingComponent } from './components/loading-component/loading.component';
+import { CommentSectionComponent } from './forum/blog-posts/comments-section/comment-section/comment-section.component';
 
 @NgModule({
   declarations: [
@@ -53,6 +54,7 @@ import { LoadingComponent } from './components/loading-component/loading.compone
     ContactFormComponent,
     AuthComponent,
     LoadingComponent,
+    CommentSectionComponent,
   ],
   imports: [
     BrowserModule,
