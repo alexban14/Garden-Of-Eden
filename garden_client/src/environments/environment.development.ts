@@ -9,7 +9,7 @@ export const environment = {
 	// CLIENT_SECRET: 'ys2lKvtrMbKhxvrLo7eQMu38ptghk8R3FsBZ4at8',
 	// CLIENT_ID: 2
 	//for home PC dev
-	CLIENT_SECRET: 'mwWnNAIt7NAnZRF5YoPYKQMZliGNtbCQfmJfUgD6',
-	CLIENT_ID: 4
+	CLIENT_SECRET: 'E9JdziSJssoHId9HSRxg4Guh1UDZ0CsrgfDvjkda',
+	CLIENT_ID: 2
 };
 

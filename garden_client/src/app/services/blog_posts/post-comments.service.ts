@@ -26,7 +26,7 @@ export class PostCommentsService {
     });
   }
 
-  createComment(PostComment: PostCommentModel) {
+  createComment(PostComment: any) {
     return this.http.post<PostCommentModelReceive>(environment.serverURL + this.PostCommentsEndpoint, PostComment, this.headers);
   }
 

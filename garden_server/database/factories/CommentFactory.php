@@ -25,6 +25,7 @@ class CommentFactory extends Factory
         return [
             'body' => $this->faker->words(10),
             'user_id' => $user_id,
+            'username' => $this->faker->name(),
             'article_id' => $article_id
         ];
     }

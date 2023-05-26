@@ -6,6 +6,7 @@ use App\Http\Requests\StoreCommentRequest;
 use App\Http\Requests\UpdateCommentRequest;
 use App\Http\Resources\CommentResource;
 use App\Models\Comment;
+use App\Models\User;
 use App\Repositories\CommentRepository;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
@@ -49,7 +50,12 @@ class CommentController extends Controller
      */
     public function store(StoreCommentRequest $request, CommentRepository $repository): CommentResource
     {
-        $createComment = $repository->create($request->only(['body', 'user_id', 'article_id']));
+        $comment_user = User::query()->where('id', '=', $request['user_id'])->first();
+        $comment_to_create = [
+            ...$request->only(['body', 'user_id', 'article_id']),
+            'username' => $comment_user['name']
+        ];
+        $createComment = $repository->create($comment_to_create);
 
         return new CommentResource($createComment);
     }

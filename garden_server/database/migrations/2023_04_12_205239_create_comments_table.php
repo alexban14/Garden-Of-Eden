@@ -19,6 +19,7 @@ return new class extends Migration
             // $table->foreignIdFor(User::class)->constrained()->cascadeOnDelete();
             $table->foreignId('user_id');
             $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();
+            $table->string('username');
             // $table->foreignIdFor(Article::class)->constrained()->cascadeOnDelete();
             $table->foreignId('article_id');
             $table->foreign('article_id')->on('articles')->references('id')->cascadeOnDelete();

@@ -18,12 +18,14 @@ Route::middleware([
             // ->where('article', '[0-9]')
             ->whereNumber('comment')
         ;
-        Route::post('/comments', [CommentController::class, 'store'])->name('.store');
-        Route::patch('/comments/{comment}', [CommentController::class, 'update'])
+        Route::middleware('auth:api')->post('/comments', [CommentController::class, 'store'])->name('.store');
+        Route::middleware(['auth:api'])
+            ->patch('/comments/{comment}', [CommentController::class, 'update'])
             ->name('.update')
             ->whereNumber('comment')
         ;
-        Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])
+        Route::middleware(['auth:api', ])
+            ->delete('/comments/{comment}', [CommentController::class, 'destroy'])
             ->name('.destroy')
             ->whereNumber('comment')
         ;

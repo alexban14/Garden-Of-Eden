@@ -48,29 +48,19 @@ export class CommentSectionComponent implements OnInit {
   }
 
   submitComment() {
-    //
-  }
+    const commentData = {
+      body: this.commentForm.controls['body'].value,
+      article_id: this.articleId,
+      user_id: this.authUser?.id
+    }
 
-  getUserNameFromId = (userId: string) => {
-    let commentOwnerName = '';
-    this.userManagementService.getUser(userId).subscribe({
+    this.postCommentsService.createComment(commentData).subscribe({
       next: (res:any) => {
-        commentOwnerName = res.data.name
+        console.log(res);
+        window.location.reload();
       },
       error: err => console.log(err)
     });
-    return commentOwnerName;
   }
 
-  isCommentOwner = (commentUserId: string) => {
-    if (this.authUser) {
-      if (this.authUser.id === commentUserId) {
-        return true;
-      } else {
-        return false;
-      }
-    } else {
-      return false;
-    }
-  }
 }
