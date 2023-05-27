@@ -1,5 +1,6 @@
 <?php
 
+use \App\Http\Controllers\ImageStorageController;
 use App\Http\Controllers\ArticleController;
 use Illuminate\Support\Facades\Route;
 
@@ -31,5 +32,10 @@ Route::middleware([
             ->delete('/articles/{article}', [ArticleController::class, 'destroy'])
             ->name('.destroy')
             ->whereNumber('article')
+        ;
+        Route::get('/articles/image-store', [ImageStorageController::class, 'index'])->name('.all-images');
+        Route::middleware('auth:api')
+            ->post('/articles/image-store', [ImageStorageController::class, 'store'])
+            ->name('.store-image')
         ;
     } );

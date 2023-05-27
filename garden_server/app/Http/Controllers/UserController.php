@@ -65,7 +65,7 @@ class UserController extends Controller
      *
      * @urlParam id int required User ID
      * @apiResourceCollection App\Http\Resources\UserResource
-     * @apiResourceModel App\Models\User
+     * @apiResourceModel App\   Models\User
      *
      * @param User $user
      * @return UserResource
