@@ -16,7 +16,7 @@ class CommentRepository
             $createdComment = Comment::query()->create([
                 'body' => data_get($attributes, 'body'),
                 'user_id' => data_get($attributes, 'user_id'),
-                'username' => data_get($attributes, 'user_name'),
+                'username' => data_get($attributes, 'username'),
                 'article_id' => data_get($attributes, 'article_id')
             ]);
 

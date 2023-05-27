@@ -19,6 +19,9 @@ export class CommentSectionComponent implements OnInit {
   commentsCount!: number;
   authUser: User | null = null;
 
+  //states
+  loading = false;
+
   constructor(private fb: FormBuilder, private route: ActivatedRoute, private postCommentsService: PostCommentsService, private userManagementService: UserManagementService) {
     this.commentForm = this.fb.group({
       body: ['', [Validators.required, Validators.minLength(20), Validators.maxLength(1000)]]
@@ -26,6 +29,7 @@ export class CommentSectionComponent implements OnInit {
   }
 
   ngOnInit(): void {
+    this.loading = true;
     const idFromRoute = this.route.snapshot.paramMap.get('id');
     if(idFromRoute) {
       this.articleId = idFromRoute;
@@ -33,6 +37,7 @@ export class CommentSectionComponent implements OnInit {
     
     this.postCommentsService.getAllPostComments(this.articleId).subscribe({
       next: (res:any) => {
+        this.loading = false;
         this.articleComments = res.data;
         this.commentsCount = res.meta.total;
         this.userManagementService.getAuthUser().subscribe({
@@ -43,11 +48,15 @@ export class CommentSectionComponent implements OnInit {
           error: err => console.log(err),
         });
       },
-      error: err => console.log(err),
+      error: err => {
+        console.log(err);
+        this.loading = false;
+      }
     });
   }
 
   submitComment() {
+    this.loading = true;
     const commentData = {
       body: this.commentForm.controls['body'].value,
       article_id: this.articleId,
@@ -56,10 +65,31 @@ export class CommentSectionComponent implements OnInit {
 
     this.postCommentsService.createComment(commentData).subscribe({
       next: (res:any) => {
+        this.loading = false;
         console.log(res);
         window.location.reload();
       },
-      error: err => console.log(err)
+      error: err => {
+        this.loading = false;
+        console.log(err);
+        window.location.reload();
+      }
+    });
+  }
+
+  deleteComment(commentId: string) {
+    this.loading = true;
+    this.postCommentsService.deleteComment(commentId).subscribe({
+      next: (res:any) => {
+        this.loading = false;
+        console.log(res),
+        window.location.reload();
+      },
+      error: err => {
+        this.loading = false;
+        console.log(err);
+        window.location.reload();
+      }
     });
   }
 

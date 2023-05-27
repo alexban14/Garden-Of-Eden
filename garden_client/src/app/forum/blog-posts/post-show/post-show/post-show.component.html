@@ -47,7 +47,10 @@ style="min-height: 60vh;"
 </div>
 <section class="py-20 bg-gray-300">
 	<div class="container flex justify-center mx-auto px-4">
-		<div class="pt-2 pb-16 lg:pt-6 lg:pb-24 bg-white">
+		<garden-client-loading *ngIf="loading" ></garden-client-loading>
+		<div
+		class="pt-2 pb-16 lg:pt-6 lg:pb-24 bg-white"
+		*ngIf="!loading">
 			<div class="flex justify-between px-4 mx-auto max-w-screen-xl ">
 				<garden-client-loading
 				*ngIf="loading"

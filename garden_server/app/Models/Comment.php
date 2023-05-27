@@ -13,10 +13,11 @@ class Comment extends Model
     protected $fillable = [
         'body',
         'user_id',
+        'username',
         'article_id'
     ];
     protected $casts = [
-        'body' => 'array'
+        'body' => 'json'
     ];
 
     public function user(): BelongsTo

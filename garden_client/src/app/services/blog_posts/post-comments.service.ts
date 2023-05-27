@@ -34,7 +34,7 @@ export class PostCommentsService {
     return this.http.patch<PostCommentModelReceive>(environment.serverURL + this.PostCommentsEndpoint + `/${id}`, PostComment, this.headers);
   }
 
-  deleteComment(id: number) {
+  deleteComment(id: string) {
     return this.http.delete<PostCommentModelReceive>(environment.serverURL + this.PostCommentsEndpoint + `/${id}`, this.headers);
   }
 }
