@@ -19,6 +19,9 @@ Route::middleware([
         ;
         Route::middleware('auth:api')->get('/users/auth-user', [UserController::class, 'showAuthenticated'])->name('.authenticated-user');
         Route::post('/users', [UserController::class, 'store'])->name('.store');
+        Route::middleware(
+            'auth.super'
+        )->post('/users/admins', [UserController::class, 'createAdmin'])->name('.create-admin');
         Route::patch('/users/{user}', [UserController::class, 'update'])
             ->name('.update')
             ->whereNumber('user')

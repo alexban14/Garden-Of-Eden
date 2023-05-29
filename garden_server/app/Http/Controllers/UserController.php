@@ -2,15 +2,19 @@
 
 namespace App\Http\Controllers;
 
+use App\Http\Requests\StoreAdminRequest;
 use App\Http\Requests\StoreUserRequest;
+use App\Http\Resources\AdminResource;
 use App\Http\Resources\UserResource;
 use App\Models\User;
+use App\Repositories\AdminRepository;
 use App\Repositories\UserRepository;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
 use Illuminate\Http\Resources\Json\ResourceCollection;
 use Illuminate\Routing\Controller;
+use Illuminate\Support\Facades\Log;
 
 /**
  * @group User Management
@@ -58,6 +62,14 @@ class UserController extends Controller
         $createdUser = $repository->create($request->only(['name', 'password','email']));
 
         return new UserResource($createdUser);
+    }
+
+    public function createAdmin(StoreAdminRequest $request, AdminRepository $repository): AdminResource
+    {
+        Log::info(json_encode($request));
+        $createdAdmin = $repository->create($request->only(['role', 'name', 'password','email']));
+
+        return new AdminResource($createdAdmin);
     }
 
     /**

@@ -17,7 +17,7 @@ class SuperAdminMiddleware
     {
         $user = $request->user();
         if ($user) {
-            if ($user->role() == '2') {
+            if ($user->role === 2) {
                 return $next($request);
             } else {
                 return \response()->json(['error' => 'Unauthorized'], 401);

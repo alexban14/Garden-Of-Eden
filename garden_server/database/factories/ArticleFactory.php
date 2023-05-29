@@ -20,9 +20,12 @@ class ArticleFactory extends Factory
     {
         $user_id = FactoryHelper::getRandomModelId(User::class);
 
+        $words = $this->faker->words(100);
+        $body = implode(' ', $words);
+
         return [
             'title' => $this->faker->title(),
-            'body' => json_encode($this->faker->words(100)),
+            'body' => json_encode($body),
             'image' => $this->faker->imageUrl(),
             'user_id' => $user_id
         ];
