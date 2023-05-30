@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, ValidatorFn, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
 import { AuthService } from 'src/app/services/auth/auth.service';
 
@@ -20,8 +20,20 @@ export class RegisterComponent {
       name: ['', [Validators.required, Validators.minLength(4)]],
       email: ['', [Validators.required, Validators.email]],
       password: ['', [Validators.required, Validators.minLength(6)]],
-      password_confirmation: ['', [Validators.required, Validators.minLength(6)]]
+      password_confirmation: ['', [Validators.required, Validators.minLength(6), this.matchPasswordValidator()]]
     });
+  }
+
+  matchPasswordValidator(): ValidatorFn {
+    return (control: AbstractControl): { [key: string]: any } | null => {
+      const password = control.parent?.get('password');
+      const confirmPassword = control;
+
+      if (password && confirmPassword && password.value !== confirmPassword.value) {
+        return { passwordMismatch: true };
+      }
+      return null;
+    };
   }
 
   submitRegisterForm() {

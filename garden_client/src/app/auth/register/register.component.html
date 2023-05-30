@@ -65,6 +65,9 @@
 		  <div *ngIf="registerData.controls['password'].errors['required']">Parola este necesară pentru a vă crea cont</div>
 		  <div *ngIf="registerData.controls['password'].errors['minlength']">Parola trebuie să conțina cel puțin 6 caractere</div>
 		</div>
+		<div class="text-sm text-red-600" *ngIf="registerData.controls['password_confirmation'].invalid && registerData.controls['password_confirmation'].errors?.['passwordMismatch']">
+			Parola și confirmarea parolei trebuie sa se potrivească
+		</div>
 	  </div>
 	  <div class="relative w-full mb-3">
 		<label
@@ -82,8 +85,11 @@
 		<div class="text-sm text-red-600" *ngIf="registerData.controls['password_confirmation'].touched && registerData.controls['password_confirmation'].errors">
 			<div *ngIf="registerData.controls['password_confirmation'].errors['required']">Confirmarea parolei este necesară pentru a vă crea cont</div>
 			<div *ngIf="registerData.controls['password_confirmation'].errors['minlength']">Confirmarea parolei trebuie să conțina cel puțin 6 caractere</div>
-		  </div>
-	  	</div>
+		</div>
+		<div class="text-sm text-red-600" *ngIf="registerData.controls['password_confirmation'].invalid && registerData.controls['password_confirmation'].errors?.['passwordMismatch']">
+			Parola și confirmarea parolei trebuie sa se potrivească
+		</div>
+	  </div>
 	  <div class="text-center mt-6">
 		<button
 		  class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
