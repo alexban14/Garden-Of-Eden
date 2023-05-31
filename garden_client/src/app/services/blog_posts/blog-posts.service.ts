@@ -8,6 +8,7 @@ import { BlogPostModelReceive, BlogPostModel } from '../../Models/blog-post.mode
 })
 export class BlogPostsService {
   private BlogPostsEndpoint = '/api/v1/articles';
+  private imageStoreEndpoint = '/api/v1/articles/image-store'
 
   constructor(private http: HttpClient) { }
 
@@ -31,7 +32,14 @@ export class BlogPostsService {
   }
 
   creatBlogPost(BlogPost: BlogPostModel) {
-    return this.http.post<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint, BlogPost, this.headers);
+    return this.http.post<{ data: BlogPostModelReceive }>(environment.serverURL + this.BlogPostsEndpoint, BlogPost, this.headers);
+  }
+
+  storeImage(image: FormData) {
+    return this.http.post(environment.serverURL + this.imageStoreEndpoint, image, {
+      observe: 'body',
+      withCredentials: true
+    });
   }
 
   editBlogPost(id: string, BlogPost: BlogPostModel) {

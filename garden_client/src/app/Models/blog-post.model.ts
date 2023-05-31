@@ -1,7 +1,7 @@
 export interface BlogPostModel {
 	title: string;
 	body: string;
-	image: File;
+	image: string;
 }
 
 export interface BlogPostModelReceive extends BlogPostModel {

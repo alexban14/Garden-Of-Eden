@@ -20,14 +20,30 @@ class ImageStorageController extends Controller
         return ImageStorageResource::collection($images);
     }
 
+//    public function store(StoreImageRequest $request): ImageStorageResource
+//    {
+//        $validatedData = $request->validated();
+//        $validatedData['image'] = $request->file('image')->store('image');
+//        $imageStoredUrl = Storage::url($validatedData['image']);
+//        $imageToStore =  ImageStorage::query()->create([
+//            'image' => $imageStoredUrl
+//        ]);
+//        return new ImageStorageResource($imageToStore);
+//    }
+
     public function store(StoreImageRequest $request): ImageStorageResource
     {
-        $validatedData = $request->validated();
-        $validatedData['image'] = $request->file('image')->store('image');
-        $imageStoredUrl = Storage::url($validatedData['image']);
+        $fileName = time() . '.' . $request['image']->extension();
+        $request['image']->storeAs('public/images', $fileName);
+        $filePath = '/storage/images/' . $fileName;
         $imageToStore =  ImageStorage::query()->create([
-            'image' => $imageStoredUrl
+            'image' => $filePath
         ]);
         return new ImageStorageResource($imageToStore);
+    }
+
+    public function delete(DeleteImageRequest $request)
+    {
+        //
     }
 }

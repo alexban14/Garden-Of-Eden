@@ -65,7 +65,7 @@ style="min-height: 60vh;"
 			*ngFor="let blogPost of blogPosts"
 			>
 				<a href="/blog/post/{{ blogPost.id }}">
-					<img class="rounded-t-lg max-h-80 mx-auto" src="{{ blogPost.image }}" alt="{{ blogPost.title }}" />
+					<img class="rounded-t-lg max-h-80 mx-auto" src="http://127.0.0.1:8000{{ blogPost.image }}" alt="{{ blogPost.title }}" />
 				</a>
 				<div class="p-5">
 					<a href="/blog/post/{{ blogPost.id }}">
