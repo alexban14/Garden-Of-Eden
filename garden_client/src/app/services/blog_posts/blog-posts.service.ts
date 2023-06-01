@@ -8,7 +8,8 @@ import { BlogPostModelReceive, BlogPostModel } from '../../Models/blog-post.mode
 })
 export class BlogPostsService {
   private BlogPostsEndpoint = '/api/v1/articles';
-  private imageStoreEndpoint = '/api/v1/articles/image-store'
+  private imageStoreEndpoint = '/api/v1/articles/image-store';
+  private imageDeleteEndpoint = '/api/v1/articles/delete-image';
 
   constructor(private http: HttpClient) { }
 
@@ -35,6 +36,14 @@ export class BlogPostsService {
     return this.http.post<{ data: BlogPostModelReceive }>(environment.serverURL + this.BlogPostsEndpoint, BlogPost, this.headers);
   }
 
+  editBlogPost(id: string, BlogPost: BlogPostModel) {
+    return this.http.patch<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, BlogPost, this.headers);
+  }
+
+  deleteBlogPost(id: string) {
+    return this.http.delete<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, this.headers);
+  }
+
   storeImage(image: FormData) {
     return this.http.post(environment.serverURL + this.imageStoreEndpoint, image, {
       observe: 'body',
@@ -42,11 +51,7 @@ export class BlogPostsService {
     });
   }
 
-  editBlogPost(id: string, BlogPost: BlogPostModel) {
-    return this.http.patch<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, BlogPost, this.headers);
-  }
-
-  deleteBlogPost(id: string) {
-    return this.http.delete<BlogPostModelReceive>(environment.serverURL + this.BlogPostsEndpoint + `/${id}`, this.headers);
+  deleteImage( image: { image: string } ) {
+    return this.http.post(environment.serverURL + this.imageDeleteEndpoint, image, this.headers);
   }
 }

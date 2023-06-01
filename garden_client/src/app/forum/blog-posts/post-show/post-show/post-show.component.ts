@@ -70,9 +70,25 @@ export class PostShowComponent implements OnInit {
   }
 
   deleteArticle() {
-    this.blogPostsService.deleteBlogPost(this.blogPost.id).subscribe({
-      next: res => this._router.navigate(['/blog/posts']),
-      error: err => console.log(err)
+    this.loading = true;
+    const image = {
+      image: this.blogPost.image
+    }
+    this.blogPostsService.deleteImage(image).subscribe({
+      next: res => {
+        console.log('image deleted');
+        this.blogPostsService.deleteBlogPost(this.blogPost.id).subscribe({
+          next: res => {
+            this.loading = false;
+            this._router.navigate(['/blog/posts']);
+          },
+          error: err => console.log(err)
+        });
+      },
+      error: err => {
+        console.log(err);
+        this.loading = false;
+      }
     });
   }
 }

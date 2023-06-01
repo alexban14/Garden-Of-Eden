@@ -48,7 +48,6 @@ class ImageStorageController extends Controller
         }
 
         $imageName = \Str::after($imageRef, 'storage/');
-        Log::info(public_path($imageName));
         if ( Storage::disk('public')->exists($imageName) ) {
             Storage::disk('public')->delete($imageName);
             return response()->json(['data' => 'Image deleted']);
