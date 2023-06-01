@@ -38,4 +38,8 @@ Route::middleware([
             ->post('/articles/image-store', [ImageStorageController::class, 'store'])
             ->name('.store-image')
         ;
+        Route:: //middleware('auth:api')
+            post('/articles/delete-image', [ImageStorageController::class, 'destroy'])
+            ->name('.delete-image')
+        ;
     } );
