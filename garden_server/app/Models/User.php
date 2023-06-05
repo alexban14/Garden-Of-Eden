@@ -46,6 +46,11 @@ class User extends Model
         return $this->hasMany(ContactUsInfo::class, 'user_id');
     }
 
+    public function specialistBookings(): HasMany
+    {
+        return $this->hasMany(SpecialistBooking::class, 'user_id');
+    }
+
     public function getAuthIdentifierName(): string
     {
         return 'id';
