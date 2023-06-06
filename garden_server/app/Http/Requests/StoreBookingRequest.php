@@ -23,7 +23,7 @@ class StoreBookingRequest extends FormRequest
     {
         return [
             'specialist' => ['string', 'required'],
-            'date' => ['string', 'required'],
+            'date' => ['date', 'required'],
             'time' => ['string', 'required'],
             'email' => ['email', 'required'],
             'name' => ['string', 'required']

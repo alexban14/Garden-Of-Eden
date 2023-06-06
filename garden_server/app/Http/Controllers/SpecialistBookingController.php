@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Exceptions\GeneralJsonException;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Resources\SpecialistBookingResource;
+use App\Http\Resources\SubscriberResource;
 use App\Models\SpecialistBooking;
 use App\Models\User;
+use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Http\Resources\Json\AnonymousResourceCollection;
+use Illuminate\Routing\Controller;
+use PhpParser\Node\Expr\Cast\Int_;
 
 class SpecialistBookingController extends Controller
 {
@@ -19,7 +24,7 @@ class SpecialistBookingController extends Controller
         return SpecialistBookingResource::collection($bookings);
     }
 
-    public function store(StoreBookingRequest $request): SpecialistBookingResource
+    public function store(StoreBookingRequest $request): SpecialistBookingResource|JsonResponse
     {
         $foundUser = User::query()->where('email', '=', $request['email'])->first();
         if (!$foundUser) {
@@ -30,7 +35,23 @@ class SpecialistBookingController extends Controller
         }
     }
 
+    public function showUserBookings(Int $user_id): AnonymousResourceCollection
+    {
+        $userBookings = SpecialistBooking::query()->where('user_id', '=', $user_id)->get();
+        return SpecialistBookingResource::collection($userBookings);
+    }
+
     /**
+     * @throws \Throwable
+     */
+    public function delete(SpecialistBooking $booking): SpecialistBookingResource
+    {
+        $deleted = $booking->forceDelete();
+        throw_if(!$deleted, GeneralJsonException::class, 'Failed to delete the article');
+        return new SpecialistBookingResource($booking);
+    }
+
+        /**
      * Store method helper function
      *
      * @param StoreBookingRequest $request
@@ -45,7 +66,7 @@ class SpecialistBookingController extends Controller
             ->where('time', '=', $request['time'])
             ->first();
 
-        if (!$isBooked) {
+        if ($isBooked) {
             return response()->json([
                 'error' => [
                     'message' => 'The specialist is already booked for the selected date and time'

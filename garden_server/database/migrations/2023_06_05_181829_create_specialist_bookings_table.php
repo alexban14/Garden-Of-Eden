@@ -14,9 +14,11 @@ return new class extends Migration
     {
         Schema::create('specialist_bookings', function (Blueprint $table) {
             $table->id();
-            $table->enum('specialist', Specialists::toArray());
+            $table->enum('specialist', [Specialists::Ana_Maria_Baltesiu, Specialists::Eugen_Giurgiu, Specialists::Gabriel_Dumitrescu]);
             $table->date('date');
             $table->time('time');
+            $table->foreignId('user_id');
+            $table->foreign('user_id')->on('users')->references('id')->cascadeOnDelete();
             $table->timestamps();
         });
     }

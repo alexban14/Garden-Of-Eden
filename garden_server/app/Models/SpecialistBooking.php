@@ -14,7 +14,7 @@ class SpecialistBooking extends Model
     protected $fillable = [
         'specialist',
         'date',
-        'hour',
+        'time',
         'user_id'
     ];
 

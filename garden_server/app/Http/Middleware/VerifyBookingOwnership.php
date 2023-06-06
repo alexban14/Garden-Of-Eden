@@ -6,7 +6,7 @@ use Closure;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 
-class AdminMiddleware
+class VerifyBookingOwnership
 {
     /**
      * Handle an incoming request.
@@ -15,15 +15,13 @@ class AdminMiddleware
      */
     public function handle(Request $request, Closure $next): Response
     {
-        $user = $request->user();
-        if ($user) {
-            if ($user->role() == '1') {
-                return $next($request);
-            } else {
-                return \response()->json(['error' => 'Unauthorized'], 401);
-            }
-        } else {
+        $booking = $request->route('booking');
+        $userId = $request->user()->id;
+
+        if ($booking->user_id !== $userId) {
             return \response()->json(['error' => 'Unauthorized'], 401);
         }
+
+        return $next($request);
     }
 }
