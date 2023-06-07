@@ -6,8 +6,11 @@ export interface SpecialistBookingModel {
 	email: string,
 }
 
-export interface SpecialistBookingModelReceive extends SpecialistBookingModel {
+export interface SpecialistBookingModelReceive {
 	id: string,
+	specialist: string,
+	date: string,
+	time: string,
 	user_id: string,
 	created_at: string	
 }

@@ -1,1 +1,77 @@
-<p>specialist-booking-form works!</p>
+<div
+  class="relative flex flex-col min-w-0 break-words w-full mb-6 shadow-lg rounded-lg bg-gray-300 border-0"
+>
+  <div class="flex-auto px-4 lg:px-10 py-10 pt-0">
+	<div class="text-black text-center mb-3 font-bold p-5">
+	  <h1 class="text-xl">Programează o intalnire</h1>
+	</div>
+	<div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+		<span class="font-medium">Ups! A apărut o problemă</span>
+	  </div>
+	<garden-client-loading
+	*ngIf="loading"
+	></garden-client-loading>
+	<form *ngIf="!loading" [formGroup]="specialistBookForm" (submit)="submitBooking()" novalidate>
+	  <div class="relative w-full mb-3">
+		<label
+		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
+		  for="specialist"
+		  >Selecteză un specialist în wellness</label
+		><input
+		  type="text"
+		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+		  formControlName="specialist"
+		  id="specialist"
+		  style="transition: all 0.15s ease 0s;"
+		/>
+		<div class="text-sm text-red-600" *ngIf="specialistBookForm.controls['specialist'].touched && specialistBookForm.controls['specialist'].errors">
+			<div *ngIf="specialistBookForm.controls['specialist'].errors['required']">Selectați un specialist pentru a programa o ședință</div>
+		</div>
+	  </div>
+	  <div class="relative w-full mb-3">
+		<label
+		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
+		  for="text"
+		  >Data programării</label
+		><input
+		  type="text"
+		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+		  placeholder="date"
+		  formControlName="date"
+		  id="date"
+		  style="transition: all 0.15s ease 0s;"
+		/>
+		<div class="text-sm text-red-600" *ngIf="specialistBookForm.controls['date'].touched && specialistBookForm.controls['date'].errors">
+			<div *ngIf="specialistBookForm.controls['date'].errors['required']">Selectați o dată pentru a programa o ședință</div>
+		</div>
+	  </div>
+	  <div class="relative w-full mb-3">
+		<label
+		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
+		  for="time"
+		  >Ora programării</label
+		><input
+		  type="text"
+		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
+		  placeholder="time"
+		  formControlName="time"
+		  id="time"
+		  style="transition: all 0.15s ease 0s;"
+		/>
+		<div class="text-sm text-red-600" *ngIf="specialistBookForm.controls['time'].touched && specialistBookForm.controls['time'].errors">
+			<div *ngIf="specialistBookForm.controls['time'].errors['required']">Selectați ora pe care doriți să programați întalnire cu specialistul</div>
+		</div>
+	  </div>
+	  <div class="text-center mt-6">
+		<button
+		  class="bg-gray-900 text-white active:bg-gray-700 text-sm font-bold uppercase px-6 py-3 rounded shadow hover:shadow-lg outline-none focus:outline-none mr-1 mb-1 w-full"
+		  type="submit"
+		  style="transition: all 0.15s ease 0s;"
+		  [disabled]="!specialistBookForm.valid"
+		>
+		  Programează întalnirea
+		</button>
+	  </div>
+	</form>
+  </div>
+</div>
