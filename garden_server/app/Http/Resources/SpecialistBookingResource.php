@@ -16,9 +16,10 @@ class SpecialistBookingResource extends JsonResource
     {
         return [
             'id' => $this->id,
+            'specialist' => $this->specialist,
             'date' => $this->date,
             'time' => $this->time,
-            'user' => $this->user_id,
+            'user_id' => $this->user_id,
             'create_at' => $this->created_at
         ];
     }

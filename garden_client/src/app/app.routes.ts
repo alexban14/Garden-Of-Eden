@@ -7,16 +7,12 @@ import { PostsListComponent } from './forum/blog-posts/posts-list/posts-list/pos
 import { PostNewComponent } from './forum/blog-posts/post-new/post-new/post-new.component';
 import { PostShowComponent } from './forum/blog-posts/post-show/post-show/post-show.component';
 import { PostEditComponent } from './forum/blog-posts/post-edit/post-edit/post-edit.component';
-import { PrizesPageComponent } from './prizes/prizes-page/prizes-page.component';
-import { PrizesListComponent } from './prizes/prizes-page/prizes-list/prizes-list.component';
-import { PrizeCreateComponent } from './prizes/prizes-page/prize-create/prize-create.component';
-import { PrizeShowComponent } from './prizes/prizes-page/prize-show/prize-show.component';
-import { PrizeEditComponent } from './prizes/prizes-page/prize-edit/prize-edit.component';
 import { LoginComponent } from './auth/login/login.component';
 import { RegisterComponent } from './auth/register/register.component';
 import { NotFoundComponent } from './not_found/not-found/not-found.component';
 import { AuthComponent } from './auth/auth.component';
 import { AuthGuard } from './services/guards/auth.guard';
+import { SpecialistBookingComponent } from './specialist-booking/specialist-booking.component';
 
 export const appRoutes: Route[] = [
 	{
@@ -55,26 +51,9 @@ export const appRoutes: Route[] = [
 		]
 	},
 	{
-		path: 'prizes',
-		component: PrizesPageComponent,
-		children: [
-			{
-				path: 'all',
-				component: PrizesListComponent
-			},
-			{
-				path: 'new-prize',
-				component: PrizeCreateComponent
-			},
-			{
-				path: 'prize/:id',
-				component: PrizeShowComponent
-			},
-			{
-				path: 'prize/:id/edit',
-				component: PrizeEditComponent
-			}
-		]
+		path: 'specialist-booking',
+		component: SpecialistBookingComponent,
+		canActivate: [AuthGuard]
 	},
 	{
 		path: 'auth',
