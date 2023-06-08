@@ -12,18 +12,30 @@
 	*ngIf="loading"
 	></garden-client-loading>
 	<form *ngIf="!loading" [formGroup]="specialistBookForm" (submit)="submitBooking()" novalidate>
+	   	<div *ngIf="reqSuccess" class="p-4 mb-4 text-green-800 rounded-lg bg-green-50 dark:bg-gray-800 dark:text-green-400" role="alert">
+			<span class="font-medium">Ai programat o ședință cu succes!</span>
+		</div>
+		<div *ngIf="reqError" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+			<span class="font-medium">Ups! A apărut o problemă</span>
+	  	</div>
+		  <div *ngIf="isSpecialistBooked" class="p-4 mb-4 text-sm text-red-800 rounded-lg bg-red-50 dark:bg-gray-800 dark:text-red-400" role="alert">
+			<span class="font-medium">Specialistul are alta intalnire la accea oră, alege alta ora a zilei sau o altă dată</span>
+	  	</div>
 	  <div class="relative w-full mb-3">
 		<label
 		  class="block uppercase text-gray-700 text-xs font-bold mb-2"
 		  for="specialist"
 		  >Selecteză un specialist în wellness</label
-		><input
-		  type="text"
+		><select
 		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
 		  formControlName="specialist"
 		  id="specialist"
 		  style="transition: all 0.15s ease 0s;"
-		/>
+		>
+			<option value="Ana_Maria_Baltesiu">Ana-Maria Balteșiu</option>
+			<option value="Eugen Giurgiu">Eugen Giurgiu</option>
+			<option value="Gabriel Dumitrescu">Gabriel Dumitrescu</option>
+		</select>
 		<div class="text-sm text-red-600" *ngIf="specialistBookForm.controls['specialist'].touched && specialistBookForm.controls['specialist'].errors">
 			<div *ngIf="specialistBookForm.controls['specialist'].errors['required']">Selectați un specialist pentru a programa o ședință</div>
 		</div>
@@ -34,7 +46,7 @@
 		  for="text"
 		  >Data programării</label
 		><input
-		  type="text"
+		  type="date"
 		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
 		  placeholder="date"
 		  formControlName="date"
@@ -51,7 +63,7 @@
 		  for="time"
 		  >Ora programării</label
 		><input
-		  type="text"
+		  type="time"
 		  class="border-0 px-3 py-3 placeholder-gray-400 text-gray-700 bg-white rounded text-sm shadow focus:outline-none focus:ring w-full"
 		  placeholder="time"
 		  formControlName="time"
