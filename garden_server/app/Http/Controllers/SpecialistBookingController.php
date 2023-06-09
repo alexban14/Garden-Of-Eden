@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Events\Models\SpecialistBooked;
 use App\Exceptions\GeneralJsonException;
 use App\Http\Requests\StoreBookingRequest;
 use App\Http\Resources\SpecialistBookingResource;
@@ -78,6 +79,8 @@ class SpecialistBookingController extends Controller
             ...$request->only(['specialist', 'time', 'date']),
             'user_id' => $id,
         ]);
+
+        event(new SpecialistBooked($specialistBooked));
 
         return new SpecialistBookingResource($specialistBooked);
     }

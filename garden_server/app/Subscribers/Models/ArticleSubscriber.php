@@ -8,7 +8,7 @@ use Illuminate\Events\Dispatcher;
 
 class ArticleSubscriber
 {
-    public function subscribe(Dispatcher $events)
+    public function subscribe(Dispatcher $events): void
     {
         $events->listen(ArticleCreated::class, SendSubscribersMail::class);
     }

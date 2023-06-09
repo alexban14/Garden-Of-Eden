@@ -2,23 +2,23 @@
 
 namespace App\Events\Models;
 
-use App\Models\Article;
+use App\Models\SpecialistBooking;
 use Illuminate\Broadcasting\InteractsWithSockets;
 use Illuminate\Broadcasting\PrivateChannel;
 use Illuminate\Foundation\Events\Dispatchable;
 use Illuminate\Queue\SerializesModels;
 
-class ArticleCreated
+class SpecialistBooked
 {
     use Dispatchable, InteractsWithSockets, SerializesModels;
 
-    public Article $article;
+    public SpecialistBooking $specialistBooked;
     /**
      * Create a new event instance.
      */
-    public function __construct(Article $article)
+    public function __construct(SpecialistBooking $specialistBooked)
     {
-        $this->article = $article;
+        $this->specialistBooked = $specialistBooked;
     }
 
     /**

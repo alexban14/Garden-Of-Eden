@@ -7,6 +7,7 @@ use App\Events\UserCreated;
 use App\Listeners\SendSubscribersMail;
 use App\Listeners\SendWelcomeEmail;
 use App\Subscribers\Models\ArticleSubscriber;
+use App\Subscribers\Models\SpecialistBookedSubscriber;
 use App\Subscribers\Models\UserSubscriber;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
@@ -36,6 +37,7 @@ EventServiceProvider extends ServiceProvider
     protected $subscribe = [
         UserSubscriber::class,
         ArticleSubscriber::class,
+        SpecialistBookedSubscriber::class
     ];
 
     /**
