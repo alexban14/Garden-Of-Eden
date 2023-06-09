@@ -34,13 +34,7 @@ export class SpecialistBookingFormComponent implements OnInit {
 
   ngOnInit(): void {
       this.loading = true;
-      this.userManagementService.getAuthUser().subscribe({
-        next: (res:any) => {
-          this.loading = false;
-          this.specialistBookForm.addControl('name', new FormControl(res.data.username));
-          this.specialistBookForm.addControl('email', new FormControl(res.data.email));
-        }
-      });
+      this.getUserDetails();
   }
 
   submitBooking() {
@@ -50,10 +44,13 @@ export class SpecialistBookingFormComponent implements OnInit {
         console.log(res);
         this.specialistBookForm.reset();
         this.loading = false;
-        const bookedError = res.error.message;
-        if (bookedError) {
+        if (!res.data) {
+          window.location.reload();
+          this.getUserDetails();
           this.isSpecialistBooked = true;
         } else {
+          window.location.reload();
+          this.getUserDetails();
           this.reqSuccess = true;
         }
       },
@@ -61,6 +58,16 @@ export class SpecialistBookingFormComponent implements OnInit {
         console.log(err);
         this.loading = false;
         this.reqError = true
+      }
+    });
+  }
+
+  getUserDetails() {
+    this.userManagementService.getAuthUser().subscribe({
+      next: (res:any) => {
+        this.loading = false;
+        this.specialistBookForm.addControl('name', new FormControl(res.data.username));
+        this.specialistBookForm.addControl('email', new FormControl(res.data.email));
       }
     });
   }
